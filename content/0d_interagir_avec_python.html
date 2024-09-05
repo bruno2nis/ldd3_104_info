@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Interagir avec Python &#8212; LDD3 Informatique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/0d_interagir_avec_python';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="0_intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/image_titre.png" class="logo__image only-light" alt="LDD3 Informatique - Home"/>
+    <script>document.write(`<img src="../_static/image_titre.png" class="logo__image only-dark" alt="LDD3 Informatique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="0_intro.html">
+                    LDD3 Informatique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 1 - Informatique, objets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_info_python.html">Informatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1k_be_embed.html">BE1 - Objet Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 2 - fonctions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2_fonction_python.html">Fonctions Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2k_be_embed.html">BE2 - Fonctions définies par l’utilisateur</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 3 - classes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="3_classe_python.html">Classes Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3a_developper.html">Développer une application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3k_be_embed.html">BE3 - Classes définies par l’utilisateur</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="9a_jupyterlab_instructions.html">JupyterLab - Instructions de démarrage</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/0d_interagir_avec_python.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interagir avec Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-en-ligne-de-commande-mode-interactif">Interface en ligne de commande (mode interactif)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliser-cpython-en-mode-interractif">Utiliser CPython en mode interractif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliser-ipython-en-mode-interactif">Utiliser IPython en mode interactif</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-en-cours">Réflexion en cours</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interagir-avec-python">
+<h1>Interagir avec Python<a class="headerlink" href="#interagir-avec-python" title="Link to this heading">#</a></h1>
+<p>Il y a quatre principales façons d’interagir avec un interpreter Python :</p>
+<ul class="simple">
+<li><p><strong>REPL</strong> - en utilisant l’interpréteur Python de manière interactive,</p></li>
+<li><p><strong>Script</strong> - en faisant exécuter à l’interpréteur un script contenu dans un fichier</p></li>
+<li><p><strong>Jupyter</strong> - en utilisant un carnet électronique</p></li>
+<li><p><strong>IDE</strong> - en utilisant l’interpréteur au travers d’un environnement de développement intégré (Integrated Development Environment).</p></li>
+</ul>
+<hr class="docutils" />
+<p>réecrire la suite, voir</p>
+<ul class="simple">
+<li><p>https://realpython.com/interacting-with-python/</p></li>
+<li><p>https://realpython.com/python-repl/</p></li>
+<li><p>https://realpython.com/bpython-alternative-python-repl/</p></li>
+</ul>
+<hr class="docutils" />
+<p>L’interpréteur Python peut exécuter le code Python selon deux modes :</p>
+<ul class="simple">
+<li><p>le <strong>mode script</strong> (ou programme)</p></li>
+<li><p>le <strong>mode interactif</strong> (ou REPL)</p></li>
+</ul>
+<p>En mode script, l’interpréteur est utilisé pour exécuter un fichier source, c’est-à-dire un fichier texte qui contient le code. Dans ce cas, l’interpréteur Python charge le contenu du fichier et exécute le code ligne par ligne, en suivant le flux d’exécution. En mode interactif l’interpréteur Python propose une invite de commande à l’utilisateur qui saisi ses commandes en langage Python ligne par ligne.</p>
+<p>est lorsque vous lancez l’interpréteur et l’utilisez comme une plate-forme pour exécuter un code que vous tapez directement.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le terme Python est souvent utilisé pour désigner deux choses différentes: la langue elle-même, et l’interprète.</p>
+</div>
+<section id="interface-en-ligne-de-commande-mode-interactif">
+<h2>Interface en ligne de commande (mode interactif)<a class="headerlink" href="#interface-en-ligne-de-commande-mode-interactif" title="Link to this heading">#</a></h2>
+<p>Un interpréteur Python peut être utilisé en ligne de commande (CLI, pour <em>Command Line Interpreter</em> en anglais). Cela permet d’exécuter le code Python de manière interactive, par exemple durant le développement d’un projet pour tester des idées ou pour apprendre le langage.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Interpréteur Python</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>non du programme<br />sous Windows</p></th>
+<th class="head"><p>non du programme<br />sous Linux</p></th>
+<th class="head"><p>invite de<br />commande</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPython</p></td>
+<td><p>Implémentation de référence du langage Python écrit en langage C</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>IPython</p></td>
+<td><p>Implémentation écrite en Python et plus interactive que CPython (à l’origine de Jupyter)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ipython</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ipython</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[1]:</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="utiliser-cpython-en-mode-interractif">
+<h3>Utiliser CPython en mode interractif<a class="headerlink" href="#utiliser-cpython-en-mode-interractif" title="Link to this heading">#</a></h3>
+<p>Pour démarrer l’interpréteur de commande CPython, il faut ouvrir une interface de commande de votre système d’exploitation et saisir la commande <code class="docutils literal notranslate"><span class="pre">python</span></code> (<code class="docutils literal notranslate"><span class="pre">python3</span></code> sous Linux) après l’invite de commande (ici <code class="docutils literal notranslate"><span class="pre">C:\&gt;</span></code>). Sous Windows cela donne</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:\&gt;</span> <span class="n">python</span>
+</pre></div>
+</div>
+<p>Cette commande fait entrer CPython dans son mode interactif et on obtient un résultat qui ressemble à quelque chose comme ceci :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python 3.11.7 | packaged by Anaconda, Inc. | (main, Dec 15 2023, 18:05:47) [MSC v.1916 64 bit (AMD64)] on win32
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>La première ligne donne des informations sur la version de l’interpréteur Python et sur la plateforme sur laquelle il est utilisé. La deuxième ligne donne des commandes qui peuvent être exécuter pour obtenir plus d’information. La dernière ligne montre que l’interpréteur Python est prêt à accepter une commande en affichant l’invite de commande principale <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>. l’interpréteur dispose également d’une invite de commande secondaire <code class="docutils literal notranslate"><span class="pre">...</span></code> pour saisir les instructions composée ou les commandes multilignes.</p>
+<p>Il est possible d’obtenir le même résultat avec simplement un navigateur web, et de charger la page en ligne <a class="reference external" href="https://www.python.org/shell/">https://www.python.org/shell/</a>.</p>
+<p><img alt="online_python.png" src="../_images/online_python.png" /></p>
+<p>A partir de l’invite de commande <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>, il est possible de saisir des commandes simple. En fin de chaque commande la touche <kbd>Entrée ↵</kbd> doit être enfoncée.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">12</span> <span class="o">+</span> <span class="mi">23</span>
+<span class="go">35</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">34</span><span class="p">])</span>
+<span class="go">69</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">12</span> <span class="o">&lt;</span> <span class="mi">23</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">12</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">12</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">division by zero</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="gp">&gt;&gt;&gt; </span>
+</pre></div>
+</div>
+<p>Examinons le comportement de l’interpréteur CPython :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">+</span> <span class="pre">23</span></code> est une expression qui additionne deux entiers avec l’opérateur <code class="docutils literal notranslate"><span class="pre">+</span></code>, CPython affiche le résultat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum([12,</span> <span class="pre">23,</span> <span class="pre">34])</span></code> est un appel à la fonction <code class="docutils literal notranslate"><span class="pre">sum()</span></code> pour sommer les trois entiers d’une liste, CPython affiche le résultat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">&lt;</span> <span class="pre">23</span></code> est une expression qui test si un entier est inférieur à un autre entier, CPython affiche le résultat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">/</span> <span class="pre">3</span></code> est une expression qui divise un entier par un autre, CPython affiche le résultat</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">/</span> <span class="pre">0</span></code> est une expression qui divise un entier par 0, CPython affiche un code d’erreur</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">12</span></code> est l’affectation du nom <code class="docutils literal notranslate"><span class="pre">a</span></code> à l’ojbet Python “12”, CPython ne retourne aucune valeur, rien n’est affiché</p></li>
+</ul>
+<p>On qualifie ce type d’intéraction avec l’interpréteur une interraction REPL (Read-Eval-Print Loop):</p>
+<ul class="simple">
+<li><p>Lire la commande</p></li>
+<li><p>Evaluer la commande</p></li>
+<li><p>Afficher le résultat</p></li>
+<li><p>Recommencer</p></li>
+</ul>
+<p>Pour les instructions multilignes, par exemple les boucles <code class="docutils literal notranslate"><span class="pre">for</span></code>, les conditions <code class="docutils literal notranslate"><span class="pre">if</span></code> ou les définitions de fonction <code class="docutils literal notranslate"><span class="pre">def</span></code>,  l’interpréteur affiche une invite de commande secondaire <code class="docutils literal notranslate"><span class="pre">...</span></code> tant que l’instruction n’est pas entièrement saisie. La touche <kbd>Entrée ↵</kbd> doit être enfoncée en fin de chaque ligne débutant par une invite <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> ou <code class="docutils literal notranslate"><span class="pre">...</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Exemple d’une instruction multilignes dans l’interpréteur CPython</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">1 1</span>
+<span class="go">2 4</span>
+<span class="go">3 9</span>
+<span class="gp">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="utiliser-ipython-en-mode-interactif">
+<h3>Utiliser IPython en mode interactif<a class="headerlink" href="#utiliser-ipython-en-mode-interactif" title="Link to this heading">#</a></h3>
+<p>Pour démarrer l’interpréteur de commande IPython, il faut ouvrir une interface de commande de votre système d’exploitation et saisir la commande <code class="docutils literal notranslate"><span class="pre">ipy</span></code>. Sous Windows cela donne</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>C:\&gt; ipython
+</pre></div>
+</div>
+<p>Cette commande fait entrer IPython dans son mode interactif et on obtient un résultat qui ressemble à quelque chose comme ceci :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="mf">3.11.9</span> <span class="o">|</span> <span class="n">packaged</span> <span class="n">by</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="o">|</span> <span class="p">(</span><span class="n">main</span><span class="p">,</span> <span class="n">Apr</span> <span class="mi">19</span> <span class="mi">2024</span><span class="p">,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mi">10</span><span class="p">)</span> <span class="p">[</span><span class="n">MSC</span> <span class="n">v</span><span class="mf">.1938</span> <span class="mi">64</span> <span class="n">bit</span> <span class="p">(</span><span class="n">AMD64</span><span class="p">)]</span>
+<span class="n">Type</span> <span class="s1">&#39;copyright&#39;</span><span class="p">,</span> <span class="s1">&#39;credits&#39;</span> <span class="ow">or</span> <span class="s1">&#39;license&#39;</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span>
+<span class="n">IPython</span> <span class="mf">8.21.0</span> <span class="o">--</span> <span class="n">An</span> <span class="n">enhanced</span> <span class="n">Interactive</span> <span class="n">Python</span><span class="o">.</span> <span class="n">Type</span> <span class="s1">&#39;?&#39;</span> <span class="k">for</span> <span class="n">help</span><span class="o">.</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+</pre></div>
+</div>
+<p>Dans les deux cas, la sortie de l’interpréteur Python est obtenue en saisissant la commande <code class="docutils literal notranslate"><span class="pre">exit()</span></code> <kbd>↵</kbd></p>
+</section>
+</section>
+<section id="reflexion-en-cours">
+<h2>Réflexion en cours<a class="headerlink" href="#reflexion-en-cours" title="Link to this heading">#</a></h2>
+<p>Vocabulaire : plateforme, architecture, machine, processeur, système, distribution</p>
+<p>Linux, Windows, macOS plateforme logicielle:
+distribution = collection de composants logiciels
+architecture processeur : CISC (x64), RISC (mips, arm)</p>
+<p>interface en ligne de commande  (en anglais command line interface ou command line interpreter, couramment abrégé CLI)</p>
+<ul class="simple">
+<li><p>invite de commande (en anglais: prompt)</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interface-en-ligne-de-commande-mode-interactif">Interface en ligne de commande (mode interactif)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliser-cpython-en-mode-interractif">Utiliser CPython en mode interractif</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utiliser-ipython-en-mode-interactif">Utiliser IPython en mode interactif</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-en-cours">Réflexion en cours</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruno Denis
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

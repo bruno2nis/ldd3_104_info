@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Jeu de caractères &#8212; LDD3 Informatique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/9f_jeu_de_caracteres';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="0_intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/image_titre.png" class="logo__image only-light" alt="LDD3 Informatique - Home"/>
+    <script>document.write(`<img src="../_static/image_titre.png" class="logo__image only-dark" alt="LDD3 Informatique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="0_intro.html">
+                    LDD3 Informatique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 1 - Informatique, objets</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_info_python.html">Informatique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1k_be_embed.html">BE1 - Objet Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 2 - fonctions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2_fonction_python.html">Fonctions Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2k_be_embed.html">BE2 - Fonctions définies par l’utilisateur</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 3 - classes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="3_classe_python.html">Classes Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3a_developper.html">Développer une application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3k_be_embed.html">BE3 - Classes définies par l’utilisateur</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="9a_jupyterlab_instructions.html">JupyterLab - Instructions de démarrage</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/9f_jeu_de_caracteres.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Jeu de caractères</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jeux-de-caracteres-les-plus-repandus">Jeux de caractères les plus répandus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-american-standard-code-for-information-interchange">ASCII (American Standard Code for Information Interchange)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-etendu-iso-cei-8859">ASCII étendu (ISO/CEI 8859)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unicode-iso-cei-10646">Unicode (ISO/CEI 10646)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-avec-python">Et avec Python ?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="jeu-de-caracteres">
+<h1>Jeu de caractères<a class="headerlink" href="#jeu-de-caracteres" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Dans les ordinateurs les chaines de caractères (<em>string</em> en anglais) ou plus généralement les textes sont représentés par des suites d’octets. Différentes conventions ont été établies sur la manière dont un octet ou une séquence d’octets représente un caractère ou une séquence de caractères. Dans le cas le plus simple, un octet correspond à un caractère selon une table d’association. Naturellement, cela limite le nombre de caractères différents qui peuvent être représentés à <span class="math notranslate nohighlight">\(2^8 = 256\)</span>.</p>
+<p>Pour échanger du texte, il est donc nécessaire de connaissance la convention de codage utilisée. Par exemple, le texte <code class="docutils literal notranslate"><span class="pre">Ce</span> <span class="pre">texte</span> <span class="pre">a</span> <span class="pre">été</span> <span class="pre">codé</span></code> sera interprété comme ceci <code class="docutils literal notranslate"><span class="pre">Ce</span> <span class="pre">texte</span> <span class="pre">a </span> <span class="pre">Ã©tÃ©</span> <span class="pre">codÃ©</span></code> avec la mauvaise convention de codage à l’écriture ou à la lecture. Dans certains cas, l’utilisation de métadonnées (des données qui décrivent les données) assure cette fonction. Par exemple, pour les documents HTML, l’information sur la convention de codage est envoyée par le serveur web au client avec le document lui-même, en utilisant ce que l’on appelle l’entête HTTP. Un mécanisme similaire existe pour les courriers électroniques. Dans le cas d’un texte brut (<em>plain text</em> en anglais), l’absence de métadonnées oblige le “producteur” du texte et ses “utilisateurs” de se mettre d’accord sur le codage.</p>
+<p>Le codage ASCII a longtemps été utilisé par défaut (et il est toujours très courant). Il a ensuite été étendu, comme avec le codage ISO latin qui est spécialisé par type de langue. La tendance actuelle est d’utiliser l’unicode qui a une vocation universelle.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dans ce contexte, un « caractère » peut être une lettre (A b ç é δ), un chiffre (0 1 2 3), un signe de ponctuation ( . : ! § “), un idéogramme (漢 る 𓅓 ), un symbole mathématique (∮ ∈ ℕ ⊇), ou même un caractère non imprimable (retour à la ligne, saut de ligne, bip sonore).</p>
+</div>
+</section>
+<section id="definition">
+<h2>Définition<a class="headerlink" href="#definition" title="Link to this heading">#</a></h2>
+<p>La notion de <strong>jeu de caractères</strong> (en anglais <em>character set</em>) est la combinaison de trois éléments:</p>
+<ol class="arabic simple">
+<li><p>Un <strong>répertoire des caractères</strong> abstraits (ensemble des caractères représentables dans le jeu).</p></li>
+<li><p>Des <strong>points de code</strong> qui sont des nombres entiers que l’on associe de manière biunivoque aux caractères abstraits. On parle de jeu de caractères codés pour le répertoire des caractères associé à ses points de code.</p></li>
+<li><p>Un <strong>codage</strong> qui spécifie une représentation physique du caractère, ou plutôt de son point de code, comme</p>
+<ul class="simple">
+<li><p>la taille de son unité de codage : un octet (8 bits), deux octets (16 bits) ou 4 octets (32 bits)</p></li>
+<li><p>le mécanisme de sérialisation dans l’unité de codage, c’est-à-dire l’ordre des octets lorsque le point de code est codé sur 2 ou 4 octets (boutisme ou <em>endianness</em> en anglais) : gros-boustisme (en anglais <em>big endian</em>) en commençant par les octets de poids fort, petit-boutisme (en anglais <em>little endian</em>) en commençant par les octets de poids faible.</p></li>
+</ul>
+</li>
+</ol>
+<p>La connaissance de ces trois éléments est indispensable pour lire et pour écrire des fichiers de texte sans mauvaise surprise.</p>
+<p>Exemples :</p>
+<p><img alt="illustration jeux_de_caracteres" src="../_images/jeux_de_caracteres.png" /></p>
+</section>
+<section id="jeux-de-caracteres-les-plus-repandus">
+<h2>Jeux de caractères les plus répandus<a class="headerlink" href="#jeux-de-caracteres-les-plus-repandus" title="Link to this heading">#</a></h2>
+<section id="ascii-american-standard-code-for-information-interchange">
+<h3><a class="reference external" href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">ASCII</a> (American Standard Code for Information Interchange)<a class="headerlink" href="#ascii-american-standard-code-for-information-interchange" title="Link to this heading">#</a></h3>
+<p>C’est des premiers jeux de caratères dans les années 1960, il propose peu de caractères, mais il reste encore aujourd’hui incontournable (Norme ANSI puis ISO/CEI 646)</p>
+<p>Le répertoire des caratères se compose de 128 caratères dont 95 imprimables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> !&quot;#$%&amp;&#39;()*+,-./0123456789:;&lt;=&gt;?@
+ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
+abcdefghijklmnopqrstuvwxyz{|}~
+</pre></div>
+</div>
+<p>Les caractère non imprimables sont des informations qui donne généralement des directives d’affichage au terminal comme un retour à la ligne <code class="docutils literal notranslate"><span class="pre">CR</span></code> (carriage return) ou générer un bip <code class="docutils literal notranslate"><span class="pre">BEL</span></code> (bell).</p>
+<p>Les points de code sont compris entre 0 et 127.</p>
+<p>Le codage du point de code est historiquement sur 7 bits (<span class="math notranslate nohighlight">\(2^7 = 128\)</span>), ce qui permettait d’utiliser le 8e bit d’un octet pour transmettre une information redondante sur la parité du nombre de bit à 1 dans le caratères pour fiabiliser la transmission.</p>
+<table>
+    <tr>
+        <td style='border: 1px solid black;'></td>
+        <td style='border: 1px solid black; text-align:center;'>0</td>
+        <td style='border: 1px solid black; text-align:center;'>1</td>
+        <td style='border: 1px solid black; text-align:center;'>2</td>
+        <td style='border: 1px solid black; text-align:center;'>3</td>
+        <td style='border: 1px solid black; text-align:center;'>4</td>
+        <td style='border: 1px solid black; text-align:center;'>5</td>
+        <td style='border: 1px solid black; text-align:center;'>6</td>
+        <td style='border: 1px solid black; text-align:center;'>7</td>
+        <td style='border: 1px solid black; text-align:center;'>8</td>
+        <td style='border: 1px solid black; text-align:center;'>9</td>
+    </tr>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>0</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>NUL</b><br /><span style='font-size:0.5em;'>NULL CHARACTER</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>SOH</b><br /><span style='font-size:0.5em;'>START OF HEADING</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>STX</b><br /><span style='font-size:0.5em;'>START OF TEXT</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>ETX</b><br /><span style='font-size:0.5em;'>END OF TEXT</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>EOT</b><br /><span style='font-size:0.5em;'>END OF TRANSMISSION</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>ENQ</b><br /><span style='font-size:0.5em;'>ENQUIRY</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>ACK</b><br /><span style='font-size:0.5em;'>ACKNOWLEDGE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>BEL</b><br /><span style='font-size:0.5em;'>BELL</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>BS</b><br /><span style='font-size:0.5em;'>BACKSPACE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>HT</b><br /><span style='font-size:0.5em;'>HORIZONTAL TAB</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>10</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>LF</b><br /><span style='font-size:0.5em;'>LINE FEED</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>VT</b><br /><span style='font-size:0.5em;'>VERTICAL TABULATION</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>FF</b><br /><span style='font-size:0.5em;'>FORM FEED</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>CR</b><br /><span style='font-size:0.5em;'>CARRIAGE RETURN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>SO</b><br /><span style='font-size:0.5em;'>SHIFT OUT</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>SI</b><br /><span style='font-size:0.5em;'>SHIFT IN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>DLE</b><br /><span style='font-size:0.5em;'>DATA LINK ESCAPE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>DC1</b><br /><span style='font-size:0.5em;'>DEVICE CONTROL ONE (XON)</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>DC2</b><br /><span style='font-size:0.5em;'>DEVICE CONTROL TWO</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>DC3</b><br /><span style='font-size:0.5em;'>DEVICE CONTROL THREE (XOFF)</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>20</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>DC4</b><br /><span style='font-size:0.5em;'>DEVICE CONTROL FOUR</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>NAK</b><br /><span style='font-size:0.5em;'>NEGATIVE ACKNOWLEDGE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>SYN</b><br /><span style='font-size:0.5em;'>SYNCHRONOUS IDLE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>ETB</b><br /><span style='font-size:0.5em;'>END OF TRANSMISSION BLOCK</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>CAN</b><br /><span style='font-size:0.5em;'>CANCEL</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>EM</b><br /><span style='font-size:0.5em;'>END OF MEDIUM</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>SUB</b><br /><span style='font-size:0.5em;'>SUBSTITUTE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>ESC</b><br /><span style='font-size:0.5em;'>ESCAPE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>FS</b><br /><span style='font-size:0.5em;'>FILE SEPARATOR</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>GS</b><br /><span style='font-size:0.5em;'>GROUP SEPARATOR</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>30</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>RS</b><br /><span style='font-size:0.5em;'>RECORD SEPARATOR</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>US</b><br /><span style='font-size:0.5em;'>UNIT SEPARATOR</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b> </b><br /><span style='font-size:0.5em;'>SPACE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>!</b><br /><span style='font-size:0.5em;'>EXCLAMATION MARK</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>"</b><br /><span style='font-size:0.5em;'>QUOTATION MARK</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>#</b><br /><span style='font-size:0.5em;'>NUMBER SIGN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>$</b><br /><span style='font-size:0.5em;'>DOLLAR SIGN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>%</b><br /><span style='font-size:0.5em;'>PERCENT SIGN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>&</b><br /><span style='font-size:0.5em;'>AMPERSAND</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>'</b><br /><span style='font-size:0.5em;'>APOSTROPHE</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>40</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>(</b><br /><span style='font-size:0.5em;'>LEFT PARENTHESIS</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>)</b><br /><span style='font-size:0.5em;'>RIGHT PARENTHESIS</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>*</b><br /><span style='font-size:0.5em;'>ASTERISK</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>+</b><br /><span style='font-size:0.5em;'>PLUS SIGN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>,</b><br /><span style='font-size:0.5em;'>COMMA</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>-</b><br /><span style='font-size:0.5em;'>HYPHEN-MINUS</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>.</b><br /><span style='font-size:0.5em;'>FULL STOP</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>/</b><br /><span style='font-size:0.5em;'>SOLIDUS</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>0</b><br /><span style='font-size:0.5em;'>DIGIT ZERO</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>1</b><br /><span style='font-size:0.5em;'>DIGIT ONE</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>50</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>2</b><br /><span style='font-size:0.5em;'>DIGIT TWO</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>3</b><br /><span style='font-size:0.5em;'>DIGIT THREE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>4</b><br /><span style='font-size:0.5em;'>DIGIT FOUR</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>5</b><br /><span style='font-size:0.5em;'>DIGIT FIVE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>6</b><br /><span style='font-size:0.5em;'>DIGIT SIX</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>7</b><br /><span style='font-size:0.5em;'>DIGIT SEVEN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>8</b><br /><span style='font-size:0.5em;'>DIGIT EIGHT</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>9</b><br /><span style='font-size:0.5em;'>DIGIT NINE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>:</b><br /><span style='font-size:0.5em;'>COLON</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>;</b><br /><span style='font-size:0.5em;'>SEMICOLON</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>60</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b><</b><br /><span style='font-size:0.5em;'>LESS-THAN SIGN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>=</b><br /><span style='font-size:0.5em;'>EQUALS SIGN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>></b><br /><span style='font-size:0.5em;'>GREATER-THAN SIGN</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>?</b><br /><span style='font-size:0.5em;'>QUESTION MARK</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>@</b><br /><span style='font-size:0.5em;'>COMMERCIAL AT</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>A</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER A</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>B</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER B</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>C</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER C</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>D</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER D</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>E</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER E</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>70</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>F</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER F</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>G</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER G</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>H</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER H</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>I</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER I</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>J</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER J</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>K</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER K</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>L</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER L</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>M</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER M</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>N</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER N</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>O</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER O</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>80</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>P</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER P</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>Q</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER Q</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>R</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER R</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>S</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER S</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>T</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER T</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>U</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER U</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>V</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER V</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>W</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER W</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>X</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER X</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>Y</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER Y</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>90</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>Z</b><br /><span style='font-size:0.5em;'>LATIN CAPITAL LETTER Z</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>[</b><br /><span style='font-size:0.5em;'>LEFT SQUARE BRACKET</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>\</b><br /><span style='font-size:0.5em;'>REVERSE SOLIDUS</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>]</b><br /><span style='font-size:0.5em;'>RIGHT SQUARE BRACKET</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>^</b><br /><span style='font-size:0.5em;'>CIRCUMFLEX ACCENT</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>_</b><br /><span style='font-size:0.5em;'>LOW LINE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>`</b><br /><span style='font-size:0.5em;'>GRAVE ACCENT</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>a</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER A</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>b</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER B</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>c</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER C</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>100</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>d</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER D</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>e</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER E</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>f</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER F</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>g</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER G</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>h</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER H</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>i</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER I</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>j</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER J</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>k</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER K</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>l</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER L</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>m</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER M</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>110</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>n</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER N</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>o</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER O</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>p</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER P</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>q</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER Q</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>r</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER R</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>s</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER S</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>t</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER T</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>u</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER U</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>v</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER V</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>w</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER W</spam>
+        </td>
+    <tr>
+        <td style='border: 1px solid black; text-align:center;'>120</td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>x</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER X</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>y</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER Y</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>z</b><br /><span style='font-size:0.5em;'>LATIN SMALL LETTER Z</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>{</b><br /><span style='font-size:0.5em;'>LEFT CURLY BRACKET</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>|</b><br /><span style='font-size:0.5em;'>VERTICAL LINE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>}</b><br /><span style='font-size:0.5em;'>RIGHT CURLY BRACKET</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>~</b><br /><span style='font-size:0.5em;'>TILDE</spam>
+        </td>
+        <td style='border: 1px solid black; background-color: #B0B0B0; text-align:center; vertical-align: top;'>
+            <b>DEL</b><br /><span style='font-size:0.5em;'>DELETE</spam>
+        </td>
+    </tr>
+</table></section>
+<section id="ascii-etendu-iso-cei-8859">
+<h3>ASCII étendu (ISO/CEI 8859)<a class="headerlink" href="#ascii-etendu-iso-cei-8859" title="Link to this heading">#</a></h3>
+<p>16 jeux de caractères pour prendre en compte les langues d’Europe occidentale ou les langues d’Asie, ils sont rétrocompatibles avec le standard ASCII
+* <a class="reference external" href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-1">ISO 8859-1</a> (jeu dit Latin-1) ajoute 96 caractères au jeu ASCII
+<code class="docutils literal notranslate"><span class="pre">¡¢£¤¥¦§¨©ª«¬-®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ</span></code> <code class="docutils literal notranslate"><span class="pre">×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ</span></code> et propose en encodage sur 8 bits.
+* <a class="reference external" href="https://fr.wikipedia.org/wiki/Windows-1252">Windows-1252</a> ou CP1252 est un jeu de caractères proche de l’ISO 8859-1 (Latin-1) qui est utilisé dans les systèmes d’exploitation Microsoft Windows en Europe de l’Ouest.</p>
+</section>
+<section id="unicode-iso-cei-10646">
+<h3><a class="reference external" href="https://fr.wikipedia.org/wiki/Unicode">Unicode</a> (ISO/CEI 10646)<a class="headerlink" href="#unicode-iso-cei-10646" title="Link to this heading">#</a></h3>
+<p>Répertoire de 149186 caractères (point de code) couvrant plus de 150 systèmes écritures, c’est le standard dominant pour le codage informatique des caractères qui reste rétrocompatibles avec les répertoires ASCII,</p>
+<ul class="simple">
+<li><p>codage <a class="reference external" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a> forme des séquences de un à quatre octets pour encoder les caractères, c’est le plus employé, car il offre une certaine rétrocompatibilité avec le standard ASCII codé sur 8 bits,</p></li>
+<li><p>codage <a class="reference external" href="https://fr.wikipedia.org/wiki/UTF-16">UTF-16</a> utilise de un à deux mots de 16 bits pour encoder les caractères, il est utilisé en particulier dans les systèmes de fichiers NTFS et APFS,</p></li>
+<li><p>codage UTF-32.</p></li>
+</ul>
+</section>
+</section>
+<section id="et-avec-python">
+<h2>Et avec Python ?<a class="headerlink" href="#et-avec-python" title="Link to this heading">#</a></h2>
+<p>Parmi les encodages de jeu de caractères connu nativement de Python (codec), on trouve : <code class="docutils literal notranslate"><span class="pre">ascii</span></code>, <code class="docutils literal notranslate"><span class="pre">cp1252</span></code> (windows-1252), <code class="docutils literal notranslate"><span class="pre">latin_1</span></code> (iso-8859-1), <code class="docutils literal notranslate"><span class="pre">mac_roman</span></code> (macintosh), <code class="docutils literal notranslate"><span class="pre">utf_8</span></code>, <code class="docutils literal notranslate"><span class="pre">utf_16</span></code> et <code class="docutils literal notranslate"><span class="pre">utf_32</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chaine</span> <span class="o">=</span> <span class="s2">&quot;Emoji :)&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chaine</span><span class="p">,</span> <span class="s2">&quot; --&gt; ASCII encodé 8 bits ---&gt;&quot;</span><span class="p">,</span> <span class="n">chaine</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chaine</span><span class="p">,</span> <span class="s2">&quot; --&gt; UNICODE encodé UTF-8 --&gt;&quot;</span><span class="p">,</span> <span class="n">chaine</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf_8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+
+<span class="n">chaine</span> <span class="o">=</span> <span class="s2">&quot;Émoji 😃&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chaine</span><span class="p">,</span> <span class="s2">&quot;--&gt; UNICODE encodé UTF-8 ---&gt;&quot;</span><span class="p">,</span> <span class="n">chaine</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf_8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">chaine</span><span class="p">,</span> <span class="s2">&quot;--&gt; UNICODE encodé UTF-16 --&gt;&quot;</span><span class="p">,</span> <span class="n">chaine</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf_16&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Emoji :)  --&gt;  ASCII encodé 8 bits  ---&gt; 456d6f6a69203a29
+Emoji :)  --&gt;  UNICODE encodé UTF-8  --&gt; 456d6f6a69203a29
+Émoji 😃 --&gt; UNICODE encodé UTF-8 ---&gt; c3896d6f6a6920f09f9883
+Émoji 😃 --&gt; UNICODE encodé UTF-16 --&gt; fffec9006d006f006a00690020003dd803de
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jeux-de-caracteres-les-plus-repandus">Jeux de caractères les plus répandus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-american-standard-code-for-information-interchange">ASCII (American Standard Code for Information Interchange)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii-etendu-iso-cei-8859">ASCII étendu (ISO/CEI 8859)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unicode-iso-cei-10646">Unicode (ISO/CEI 10646)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#et-avec-python">Et avec Python ?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruno Denis
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
