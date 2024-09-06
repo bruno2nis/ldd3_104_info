@@ -49,21 +49,19 @@ flowchart LR
 ### Cours 
 
 - Semaine 1 
-    - Concepts théoriques et applicatifs : théorie de l'information, théorie des langages, théorie des- graphes, théorie des automates finis, théorie de la calculabilité, théorie de la complexité, méthodes formelles
-    - Concepts  : algorithmes, structure de données, langages de programmation, paradigmes, programmation, logiciel
+    - Concepts théoriques et applicatifs
     - Langage Python
         - Structure d'un programme: ligne physique, ligne logique, instruction, liste d'instruction, instruction composée, module, paquetage.
-        - type natif : litéral, muabilité, fonctions d'inspection (`type()`, `id()`, `dir()`)
-        - variable : espace de nommage, import $\rightarrow$ **illustration graphique** dans l'esprit de https://pythontutor.com/
-        - notation par point (dot notation)
-        - manipulation d'objet natif : par méthode, par fonction native, par les fonction du module `copy`
+        - types natifs 
+        - instructions simple et composées
 - Semaine 2
     - Langage Python
-        - fonctions utilisateur : définition, argument ordonné, argument nommée, compactage/décompactage
-        - cadre d'exécution : frame stack, porté des variables LEGB
+        - fonctions définies utilisateur : définition, argument ordonné, argument nommée, compactage/décompactage
+        - cadre d'exécution, pile des cadres d'exécution, porté des variables (LEGB)
 - Semaine 3
-
-
+    - Langage Python
+        - classes définies l'utilisateur : définition, héritage, propriété, encapsulation, polymorphisme
+    - Développer une application : modularité, debogage (pdb, …), test (unitest, …), gestion de version, documentation (generateur de doc), environement d’exécution (conda, …), ide (Jupyter Lab, Spyder, Visual Studio Code)
 
 ### Travaux dirigés (6 heures)
 

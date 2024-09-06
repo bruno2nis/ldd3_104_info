@@ -7,6 +7,6 @@ En construction
 - classe / instance
 - attribut-propriété / méthode-méthode
 - encapsulation
-- héritage, polymorphisme (surchage... )
+- héritage, polymorphisme (surcharge... )
 
 

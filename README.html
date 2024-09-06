@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -351,7 +351,19 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="ldd3-104-info">
 <h1>LDD3_104_info<a class="headerlink" href="#ldd3-104-info" title="Link to this heading">#</a></h1>
 <ul class="simple">
-<li><p><a class="reference external" href="https://ldd3-104-info-bruno-denis-dc8b9a8fbd3a9c0c0f23ecf551f8642b0b3e7.gitlab.dsi.universite-paris-saclay.fr/">Pages html</a></p></li>
+<li><p>e-campus https://ecampus.paris-saclay.fr/course/view.php?id=39705</p></li>
+<li><p><a class="reference external" href="https://ldd3-104-info-bruno-denis-dc8b9a8fbd3a9c0c0f23ecf551f8642b0b3e7.gitlab.dsi.universite-paris-saclay.fr/">Pages html</a> sur le gitlab de l’université https://ldd3-104-info-bruno-denis-dc8b9a8fbd3a9c0c0f23ecf551f8642b0b3e7.gitlab.dsi.universite-paris-saclay.fr/</p></li>
+<li><p><a class="reference external" href="https://bruno2nis.github.io/ldd3_104_info">Pages html</a> sur github https://bruno2nis.github.io/ldd3_104_info<br />
+Ajouter le fichier <code class="docutils literal notranslate"><span class="pre">.nojekyll</span></code> à la racine pour que les CSS soit pris en compte</p></li>
+</ul>
+<p>Procédure de mise en ligne</p>
+<ul class="simple">
+<li><p><strong>éditer</strong> les fichier dans ./content et en particulier les carnet <code class="docutils literal notranslate"><span class="pre">Xk_BE_solution.ipynb</span></code></p></li>
+<li><p><strong>générer les carnets</strong> ; exécuter depuis ./content la commande <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">.\scripts\base64_converter.py</span></code> pour générer le carnet avec les images embarquées et les solutions <code class="docutils literal notranslate"><span class="pre">./Xk_be_solution_embed.ipynb</span></code> pour les collègue et le carnet avec les images embarquée sans les solutions <code class="docutils literal notranslate"><span class="pre">./1k_be_embed.ipynb</span></code> pour les étudiants</p></li>
+<li><p><strong>générer le site</strong> en local avec la commande <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">book</span> <span class="pre">build</span> <span class="pre">.\ldd3_104_info\</span></code></p></li>
+<li><p><strong>copier le site dans le dépôt git local</strong> ./web/ldd3_104_info avec <code class="docutils literal notranslate"><span class="pre">SyncBackFree</span></code></p></li>
+<li><p><strong>pousser le site sur le déôt distant</strong> avec par exemple github desktop</p></li>
+<li><p><strong>téléverser les carnets</strong> sur e-campus (la version collège et le version étudiant)</p></li>
 </ul>
 </section>
 
