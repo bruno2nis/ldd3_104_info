@@ -33,10 +33,10 @@ L’interface de JupyterLab se compose :
 
 Pour utiliser le carnet avec JupyterLab dans le serveur JupyterHub, il faut au préalable téléverser le carnet sur le serveur:
 1. ouvrir le gestionnaire de fichiers en cliquant ➀ dans la barre latérale gauche (ou <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>F</kbd>)<br />
-<img src="img/jupyterlab_importer.png" width="400px;"/>
+<img src="img/jupyterlab_importer.png" style="width:400px;" />
 2. cliquer ➁ sur l'icône de téléversement de fichier, puis sélectionner le fichier `be1_embed.ipynb` sur votre appareil, le fichier apparait dans la liste des fichiers disponible sur le serveur.
 3. doublecliquer ➂ sur l'icône du fichier `be1_embed.ipynb` dans la liste des fichiers disponible sur le serveur JupyterHub<br />
-<img src="img/jupyterlab_ouvrir.png" width="400px;"/>
+<img src="img/jupyterlab_ouvrir.png" style="width:400px;" />
 4. le carnet s'ouvre dans JupyterLab
 
 En fin de séance, pour télécharger le fichier modifié, cliquer ➂ avec le bouton droit et sélectionner dans le menu contextuel l'item "Télécharger".

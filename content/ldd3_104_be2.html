@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>BE3 - Classes définies par l’utilisateur &#8212; LDD3 Informatique</title>
+    <title>BE2 - Fonctions définies par l’utilisateur &#8212; LDD3 Informatique</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/3k_be_embed';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/ldd3_104_be2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="JupyterLab - Instructions de démarrage" href="9a_jupyterlab_instructions.html" />
-    <link rel="prev" title="Développer une application" href="3a_developper.html" />
+    <link rel="next" title="Classes Python" href="3_classe_python.html" />
+    <link rel="prev" title="Fonctions Python" href="2_fonction_python.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,18 +182,18 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 1 - Informatique, objets</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1_info_python.html">Informatique</a></li>
-<li class="toctree-l1"><a class="reference internal" href="1k_be_embed.html">BE1 - Objet Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ldd3_104_be1.html">BE1 - Objet Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 2 - fonctions</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="2_fonction_python.html">Fonctions Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="2k_be_embed.html">BE2 - Fonctions définies par l’utilisateur</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">BE2 - Fonctions définies par l’utilisateur</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 3 - classes</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="3_classe_python.html">Classes Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="3a_developper.html">Développer une application</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">BE3 - Classes définies par l’utilisateur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ldd3_104_be3.html">BE3 - Classes définies par l’utilisateur</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
 <ul class="nav bd-sidenav">
@@ -252,7 +252,7 @@
       
       
       
-      <li><a href="../_sources/content/3k_be_embed.ipynb" target="_blank"
+      <li><a href="../_sources/content/ldd3_104_be2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -334,7 +334,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>BE3 - Classes définies par l’utilisateur</h1>
+    <h1>BE2 - Fonctions définies par l’utilisateur</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -348,8 +348,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="be3-classes-definies-par-l-utilisateur">
-<h1>BE3 - Classes définies par l’utilisateur<a class="headerlink" href="#be3-classes-definies-par-l-utilisateur" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="be2-fonctions-definies-par-l-utilisateur">
+<h1>BE2 - Fonctions définies par l’utilisateur<a class="headerlink" href="#be2-fonctions-definies-par-l-utilisateur" title="Link to this heading">#</a></h1>
+<p>Objectifs :</p>
+<ul class="simple">
+<li><p>structuration d’un code Python :</p>
+<ul>
+<li><p>module</p></li>
+<li><p>fonction</p>
+<ul>
+<li><p>ne pas se répéter, factoriser,</p></li>
+<li><p><a class="reference external" href="https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/5-fonctions/2-fonctions-parametrees/#1-1-parametres">Paramètres de fonction</a>,
+Espace de non, Arguments positionnels et nommés, Retours de fonctions, Paramètres et types mutables, fermeture et effet de bord, documentation, anoontation de type</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Le paramètre est une variable définie dans la fonction qui recevra une valeur lors de chaque appel. Cette valeur pourra être de tout type, suivant ce qui est fourni en argument.
+Les noms des paramètres sont inscrits lors de la définition de la fonction, entre les parenthèses qui suivent son nom.</p>
+<p>https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/4-fonctions/</p>
+<p>https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/5-fonctions/1-fonctions-factoriser/</p>
+<p>https://zestedesavoir.com/tutoriels/2514/un-zeste-de-python/7-perfectionnement/4-fonctions/</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -383,20 +403,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="3a_developper.html"
+       href="2_fonction_python.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Développer une application</p>
+        <p class="prev-next-title">Fonctions Python</p>
       </div>
     </a>
     <a class="right-next"
-       href="9a_jupyterlab_instructions.html"
+       href="3_classe_python.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">JupyterLab - Instructions de démarrage</p>
+        <p class="prev-next-title">Classes Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
