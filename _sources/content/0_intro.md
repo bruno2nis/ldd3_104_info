@@ -84,9 +84,6 @@ Les travaux dirigés sont des BE de 2 heures (bureau d'études) devant ordinateu
 
 **Comment obtenir les sujets ?** Ils sont disponibles depuis la page e-campus du module de formation [lien](https://ecampus.paris-saclay.fr/course/view.php?id=39705). 
 
-```{warning}
-Un simple clic sur le lien vers le sujet l'affiche en général dans un onglet au lieu de le télécharger. Utiliser le clic droit de la souris pour accéder au menu contextuel et sélectionner l'item "Enregistrer la cible sous...", "Enregistrer la cible du lien sous..." ou "Enregistrer le fichier lié sous..." selon les navigateurs.
-```
 
 **Comment utiliser le sujet au format Jupyter?** voir section *JupyterLab - Instruction de démarrage* 
 [doc](./9a_jupyterlab_instructions.md)

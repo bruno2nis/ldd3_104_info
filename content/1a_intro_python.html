@@ -1,0 +1,1609 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction à Python &#8212; LDD3 Informatique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/1a_intro_python';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="BE1 - Objet Python" href="ldd3_104_be1.html" />
+    <link rel="prev" title="Informatique" href="1_info_python.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="0_intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/image_titre.png" class="logo__image only-light" alt="LDD3 Informatique - Home"/>
+    <script>document.write(`<img src="../_static/image_titre.png" class="logo__image only-dark" alt="LDD3 Informatique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="0_intro.html">
+                    LDD3 Informatique
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 1 - Informatique, objets</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_info_python.html">Informatique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction à Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ldd3_104_be1.html">BE1 - Objet Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 2 - fonctions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2_fonction_python.html">Fonctions Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ldd3_104_be2.html">BE2 - Fonctions définies par l’utilisateur</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Semaine 3 - classes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="3_classe_python.html">Classes Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3a_developper.html">Développer une application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ldd3_104_be3.html">BE3 - Classes définies par l’utilisateur</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="9a_jupyterlab_instructions.html">JupyterLab - Instructions de démarrage</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/1a_intro_python.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction à Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langage-python">Langage Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commentaires">Commentaires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lexemes">Lexèmes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objets-python">Objets Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#types-d-objet">Types d’objet</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#muabilite-des-objets">Muabilité des objets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identite-d-un-objet">Identité d’un objet</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-lien-etiquette-objet">Variables (lien étiquette-objet)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-simples">Instructions simples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raise-levee-d-exception"><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctions-natives">Fonctions natives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreteur-python">Interpréteur Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#role-d-un-interpreteur-python">Rôle d’un interpréteur Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-d-interpreteur-python">Exemples d’interpréteur Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctionnement-d-un-interpreteur-python">Fonctionnement d’un interpréteur Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheques">Bibliothèques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheque-standard-python">Bibliothèque standard Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheques-tierces">Bibliothèques tierces</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-a-python">
+<h1>Introduction à Python<a class="headerlink" href="#introduction-a-python" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p><strong>Python</strong> est un langage de programmation interprété, de haut niveau et polyvalent. Il est reconnu pour sa syntaxe simple et lisible, ce qui en fait un excellent choix pour les débutants comme pour les codeurs et les codeuses expérimentés. Python supporte plusieurs paradigmes de programmation, tels que la programmation procédurale (impérative), orientée objet ou fonctionnelle. Il est utilisé dans de nombreux domaines, comme le développement web, l’automatisation de tâches, la science des données, l’intelligence artificielle, et plus encore, grâce à ses bibliothèques riches et son écosystème étendu.</p>
+<a class="reference internal image-reference" href="../_images/logo_python_with_text.png"><img alt="../_images/logo_python_with_text.png" class="align-center" src="../_images/logo_python_with_text.png" style="width: 360px;" /></a>
+<p>Le langage Python est décrit par des règles de syntaxe pour écrire des <strong>instructions</strong> et par des règles de sémantique pour définir les actions produites par les instructions sur des <strong>objets</strong> (données) en mémoire de la machine, parfois en lien avec des périphériques (clavier, terminal, réseau, système de fichier). On appellera <strong>code source</strong>, parfois simplement code lorsqu’il n’y aura pas d’ambigüité, une suite d’instructions rédigées selon les règles de la syntaxe du langage Python et agrémentée de commentaires. Voici un exemple de code source Python proposé sur la page d’accueil du site <a class="reference external" href="https://python.org/">python.org</a> et suivi du résultat de son exécution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="nb">print</span><span class="p">()</span>
+<span class="n">fib</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le langage Python est dit interprété, en opposition aux langages dits compilés, parce qu’il nécessite une application nommée <strong>interpréteur Python</strong> pour générer et exécuter au fur et à mesure un code compréhensible par machine à partir des instructions du code source. Les langages compilés utilisent, en amont de l’exécution, une application nommée compilateur (en réalité une suite d’outils) pour traduire le code source en un code compréhensible par machine et qui pourra être ultérieurement exécuté de manière autonome par la machine. Les codes compilés sont généralement plus rapides à l’exécution que les codes interprétés alors que les codes interprétés sont plus rapides à développer et mettre au point. Parmi les langages interprétés on trouve Julia, JavaScript, Matlab, PHP, Python, R ou Ruby et parmi les langages compilés on trouve comme C, C++, c#, Go, Fortran, Haskell ou Rust.</p>
+<div class="admonition-notions-cles admonition">
+<p class="admonition-title">Notions clés</p>
+<p>Un <strong>code source</strong> en langage Python est un texte du décrit un ensemble d’<strong>instructions</strong> écrites selon des règles de <strong>syntaxe</strong> et qui produisent des actions conformément à leur <strong>sémantique</strong> grâce à l’<strong>interpréteur Python</strong>. Le code source peut également contenir des commentaires.</p>
+</div>
+</section>
+<section id="langage-python">
+<h2>Langage Python<a class="headerlink" href="#langage-python" title="Link to this heading">#</a></h2>
+<p>La syntaxe d’un code source en langage Python est définie par une <strong>grammaire formelle</strong> (disponible ici : <a class="reference external" href="https://docs.python.org/fr/3/reference/grammar.html">https://docs.python.org/fr/3/reference/grammar.html</a>) qui spécifie comment un axiome et des symboles non terminaux sont construits à partir de symboles terminaux et de règles de productions. Concrètement,</p>
+<ul class="simple">
+<li><p><strong>l’axiome</strong> représente l’ensemble des instructions d’un code source Python, et</p></li>
+<li><p><strong>les symboles terminaux</strong> sont des éléments lexicaux (lexèmes) comme des mots-clés, des nombres, des identifiants, des opérateurs…</p></li>
+</ul>
+<p>Pour interpréter un code source, il faut commencer par une <strong>analyse lexicale</strong> qui identifie les lexèmes et accessoirement élimine les commentaires et les lignes vides, puis continuer par une <strong>analyse syntaxique</strong> en s’appuyant sur la grammaire pour identifier les instructions et leur structure.</p>
+<section id="commentaires">
+<h3>Commentaires<a class="headerlink" href="#commentaires" title="Link to this heading">#</a></h3>
+<p>Les commentaires en Python commencent avec un caractère croisillon, #, et s’étendent jusqu’à la fin de la ligne. Un commentaire peut apparaitre dès le début d’une ligne ou après un ou plusieurs espaces, ou à la suite d’un fragment de code, mais pas à l’intérieur d’une chaine de caractères littérale. Un caractère croisillon à l’intérieur d’une chaine de caractères est juste un caractère croisillon. Exemples :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ce commentaire occupe toute la ligne</span>
+     <span class="c1"># Ce commentaire débute après quelques espaces</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>  <span class="c1"># Ce commentaire fait suite au fragment de code &quot;a = 123&quot;</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Suivez le hashtag #python&quot;</span>  <span class="c1"># le 1er # fait parti d&#39;une chaine</span>
+</pre></div>
+</div>
+<p>La grammaire formelle qui décrit la syntaxe du langage n’intègre pas les commentaires. Ils sont donc tout simplement éliminés par l’interpréteur Python avant de lire les instructions.</p>
+<p>Les principales utilisations des commentaires sont :</p>
+<ul class="simple">
+<li><p>planifier les futures nouvelles parties de votre code. Ne pas oublier pas de supprimer ces commentaires une fois que le code est écrit</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ici, je dois ajouter une vérification que l&#39;entier saisi est positif</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>décrire le code en expliquant l’intention de sections de code spécifiques</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tenter une connexion avec des paramètres précédents. </span>
+<span class="c1"># En cas d&#39;échec, l&#39;utilisateur est invité à changer les paramètres.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>décrire un choix d’algorithmique (pourquoi un algorithme spécifique est-il sélectionné ?) ou son principe de fonctionnement</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># L&#39;algorithme A* à préféré à Dijkstra car une estimation du</span>
+<span class="c1"># meilleur chemin est possible et les performances sont accrues.</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>étiqueter des sections de code spécifiques où se trouvent des problèmes identifiés ou des axes d’amélioration. On peut citer à titre d’exemple les étiquettes BUG, FIXME, et TODO souvent écrites est anglais pour les compacités.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Ajouter une condition</span>
+
+<span class="c1"># BUG: une division par 0 se produit alors que le dénominateur</span>
+<span class="c1">#      est censé être toujours supérieur à 1</span>
+</pre></div>
+</div>
+</section>
+<section id="lexemes">
+<h3>Lexèmes<a class="headerlink" href="#lexemes" title="Link to this heading">#</a></h3>
+<p>Les lexèmes (<em>tokens</em> en anglais) sont des symboles lexicaux comme <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bonjour&quot;</span></code> qui représentent des symboles élémentaires (symboles terminaux) pour la grammaire du langage. Ils se répartissent en différentes catégories selon leur signification : les <strong>identifiants</strong> d’objet, les <strong>mots-clés</strong> réservés, les <strong>littéraux</strong> d’objet, les <strong>opérateurs</strong> comme l’addition ou la division et les <strong>délimiteurs</strong> comme <code class="docutils literal notranslate"><span class="pre">;</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> ou <code class="docutils literal notranslate"><span class="pre">)</span></code> pour séparer ou regrouper des éléments.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Identifiants</div>
+<p class="sd-card-text">Symboles représentant des noms d’objet, de fonctions, de classes, de modules… Ils sont composés de lettres, de chiffres (sauf pour le 1er caractère), et de tirets bas <code class="docutils literal notranslate"><span class="pre">_</span></code>. Exemples :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x    angle_min     capteur_12
+n    mon_adresse   matrice_3x3
+i    vitesse_x     _12e_point`
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mots-clés</div>
+<p class="sd-card-text">Mots réservés par le langage pour construire les instructions</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>False     class     from      or
+None      continue  global    pass         
+True      def       if        raise         
+and       del       import    return     
+as        elif      in        try   
+assert    else      is        while        
+async     except    lambda    with         
+await     finally   nonlocal  yield
+break     for       not   
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Mots-clés ad hoc</div>
+<p class="sd-card-text">Mots réservés dans le contexte de l’instruction “match” (depuis la version 3.10)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>match     case      _    
+</pre></div>
+</div>
+<p class="sd-card-text">Mots réservés dans le contexte de l’instruction “type” (depuis la version 3.12)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Littéraux</div>
+<p class="sd-card-text">Symboles pour indiquer des valeurs de nombres (entier, flottant, imaginaire, booléen), de chaines de caractères. Exemples :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>121       742900      30097246882642
+12.2      8.54e-6     -12.76e102
+5j        2 + 1j      6.2 - 9.5j
+True      False       None
+&#39;Newtow&#39;  &quot;N. Tesla&quot;  &quot;Le Corbusier&quot;  
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Opérateurs</div>
+<p class="sd-card-text">Symboles qui opèrent sur des opérandes et qui produisent un résultat, comme l’addition, la multiplication</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+</span>       <span class="o">-</span>       <span class="o">*</span>       <span class="o">**</span>
+<span class="o">/</span>       <span class="o">//</span>      <span class="o">%</span>       <span class="o">@</span>
+<span class="o">&lt;&lt;</span>      <span class="o">&gt;&gt;</span>      <span class="o">&amp;</span>       <span class="o">|</span>
+<span class="o">^</span>       <span class="o">~</span>       <span class="o">:=</span>
+<span class="o">&lt;</span>       <span class="o">&gt;</span>       <span class="o">&lt;=</span>      <span class="o">&gt;=</span>
+<span class="o">==</span>      <span class="o">!=</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Délimiteurs</div>
+<p class="sd-card-text">Symboles qui regroupent les éléments d’une instruction, sauf <code class="docutils literal notranslate"><span class="pre">;</span></code> qui sépare les instructions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(       )       [       ]       {
+}       ,       :       !       .
+.       ;       @       =       -&gt;
++=      -=      *=      /=      //=
+%=      @=      &amp;=      |=      ^=
+&gt;&gt;=    &lt;&lt;=     **=
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Symboles de contrôle</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NEWLINE</span>     <span class="n">INDENT</span>      <span class="n">DEDENT</span>     <span class="n">ENDMARKER</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Lexèmes qui traduisent certains caractères de contrôle de la position du prochain caractère dans le code source. NEWLINE est le symbole qui indique qu’une fin de ligne logique est présente, les symboles INDENT et DEDENT traduisent une indentation ou une désindentation de la ligne logique par rapport au précédent niveau d’indentation, et le symbole ENDMARKER indique la fin du code source.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Les fins de ligne : lexème <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong></p>
+<p>Python fait la différence entre une ligne physique, c’est-à-dire une ligne de texte dans le code source, et une ligne logique. L’idée est de pouvoir écrire des instructions très longues sans les écrire sur des lignes de texte trop longues pour en faciliter la lisibilité.  Dans la proposition d’amélioration de Python <a class="reference external" href="https://peps.python.org/pep-0008/#maximum-line-length">PEP 8</a>, il est recommandé de limiter la longueur des lignes du code source à 79 caractères, et même à 72 caractères pour les commentaires et les chaines de documentation “docstrings”.</p>
+<p>Deux lignes physiques, ou plus, peuvent être jointes pour former une seule ligne logique en utilisant la barre oblique inversée <code class="docutils literal notranslate"><span class="pre">\</span></code> (sauf dans un commentaire ou dans un lexème littéral de type chaine de caractères). Les commentaires après la barre oblique inversée sont interdits. Exemple d’une ligne logique écrite sur 3 lignes physiques :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">calcul</span> <span class="o">=</span> <span class="mf">12.1457</span> \
+    <span class="o">+</span> <span class="mf">76.7</span> <span class="o">**</span> <span class="mi">3</span> \
+    <span class="o">-</span> <span class="mf">5.6</span> <span class="o">*</span> <span class="mf">0.265</span>  <span class="c1"># formule longue</span>
+</pre></div>
+</div>
+<p>L’analyse lexicale des lignes physiques précédentes donne la suite de lexèmes suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">calcul</span></code> <code class="docutils literal notranslate"><span class="pre">=</span></code> <code class="docutils literal notranslate"><span class="pre">12.1457</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">76.7</span></code> <code class="docutils literal notranslate"><span class="pre">**</span></code> <code class="docutils literal notranslate"><span class="pre">3</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> <code class="docutils literal notranslate"><span class="pre">5.6</span></code> <code class="docutils literal notranslate"><span class="pre">*</span></code> <code class="docutils literal notranslate"><span class="pre">0.265</span></code> <code class="docutils literal notranslate"><span class="pre">ENDMARKER</span></code></p>
+<p>Les caractères barre oblique <code class="docutils literal notranslate"><span class="pre">\</span></code> et le commentaire de ne génèrent pas de lexème.</p>
+<p>Les expressions entre parenthèses, crochets ou accolades peuvent être réparties sur plusieurs lignes sans utiliser de barre oblique inversée. Dans ce cas, un commentaire est possible à la fin de chaque ligne physique. Par exemple :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">calcul</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.1457</span>   <span class="c1"># 1re ligne physique de la ligne logique</span>
+    <span class="o">+</span> <span class="mf">76.7</span> <span class="o">**</span> <span class="mi">3</span>     <span class="c1"># 2e ligne physique de la ligne logique</span>
+    <span class="o">-</span> <span class="mf">5.6</span> <span class="o">*</span> <span class="mf">0.265</span><span class="p">)</span>  <span class="c1"># dernière ligne physique de la ligne logique</span>
+</pre></div>
+</div>
+<p>L’analyse lexicale des lignes physiques précédentes donne la suite de lexèmes suivante :</p>
+<p><code class="docutils literal notranslate"><span class="pre">calcul</span></code> <code class="docutils literal notranslate"><span class="pre">=</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">12.1457</span></code> <code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">76.7</span></code> <code class="docutils literal notranslate"><span class="pre">**</span></code> <code class="docutils literal notranslate"><span class="pre">3</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> <code class="docutils literal notranslate"><span class="pre">5.6</span></code> <code class="docutils literal notranslate"><span class="pre">*</span></code> <code class="docutils literal notranslate"><span class="pre">0.265</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> <code class="docutils literal notranslate"><span class="pre">ENDMARKER</span></code></p>
+<p>Ici les parenthèses sont prises en compte, des lexèmes sont générés et ils seront traités par les règles de grammaire qui décrivent la syntaxe.</p>
+<p>Les lignes physiques “vide” contenant uniquement des espaces et des tabulations sont ignorées (elles ne génèrent pas de lexèmes).</p>
+<p><strong>L’indentation : lexèmes <code class="docutils literal notranslate"><span class="pre">INDET</span></code> et <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code></strong></p>
+<p>Des espaces au début d’une ligne logique sont utilisés pour connaitre le niveau d’indentation de la ligne, qui est ensuite utilisé pour déterminer comment les instructions sont groupées en blocs (des suites d’instructions dans les clauses d’instructions composées). Dans le code source suivant, les lignes logiques se placent à deux niveaux d’indentation en plus du niveau de base.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># initialisation de n</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-- début --&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># test si i est pair</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i est pair&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>  <span class="c1"># séparateur d&#39;itération</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-- fin --&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>L’analyse lexicale de ce code source donne une suite lexèmes où apparaissent <code class="docutils literal notranslate"><span class="pre">IDENT</span></code> et <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code>. Le résultat d’analyse est présenté ci-dessous. Pour la lisibilité les fins de ligne physique du code source ont été concernées.</p>
+<p><code class="docutils literal notranslate"><span class="pre">n</span></code> <code class="docutils literal notranslate"><span class="pre">=</span></code> <code class="docutils literal notranslate"><span class="pre">4</span></code> <strong><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong><br />
+<code class="docutils literal notranslate"><span class="pre">print</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;--</span> <span class="pre">début</span> <span class="pre">--&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> <strong><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong><br />
+<code class="docutils literal notranslate"><span class="pre">for</span></code> <code class="docutils literal notranslate"><span class="pre">i</span></code> <code class="docutils literal notranslate"><span class="pre">in</span></code> <code class="docutils literal notranslate"><span class="pre">range</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> <code class="docutils literal notranslate"><span class="pre">:</span></code> <strong><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong><br />
+    <strong><code class="docutils literal notranslate"><span class="pre">IDENT</span></code></strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;i</span> <span class="pre">=&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">,</span></code>  <code class="docutils literal notranslate"><span class="pre">i</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> <strong><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong><br />
+    <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">i</span></code> <code class="docutils literal notranslate"><span class="pre">%</span></code> <code class="docutils literal notranslate"><span class="pre">2</span></code> <code class="docutils literal notranslate"><span class="pre">==</span></code> <code class="docutils literal notranslate"><span class="pre">0</span></code> <code class="docutils literal notranslate"><span class="pre">:</span></code>  <strong><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong><br />
+        <strong><code class="docutils literal notranslate"><span class="pre">IDENT</span></code></strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;i</span> <span class="pre">est</span> <span class="pre">pair&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> <strong><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong><br />
+    <strong><code class="docutils literal notranslate"><span class="pre">DEDENT</span></code></strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;---&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> <strong><code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code></strong><br />
+<strong><code class="docutils literal notranslate"><span class="pre">DEDENT</span></code></strong> <code class="docutils literal notranslate"><span class="pre">print</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> <code class="docutils literal notranslate"><span class="pre">&quot;--</span> <span class="pre">fin</span> <span class="pre">--&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">)</span></code> <code class="docutils literal notranslate"><span class="pre">ENDMARKER</span></code><br /></p>
+<p>Les lexèmes identifiés sont :</p>
+<ul class="simple">
+<li><p>les identifiants <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">print</span></code> et <code class="docutils literal notranslate"><span class="pre">range</span></code></p></li>
+<li><p>les mots-clés <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code> et <code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p>les littéraux <code class="docutils literal notranslate"><span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;--</span> <span class="pre">début</span> <span class="pre">--&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;i</span> <span class="pre">=&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;i</span> <span class="pre">est</span> <span class="pre">pair&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">---</span></code> et <code class="docutils literal notranslate"><span class="pre">&quot;--</span> <span class="pre">fin</span> <span class="pre">--&quot;</span></code></p></li>
+<li><p>les opérateurs <code class="docutils literal notranslate"><span class="pre">%</span></code>, et <code class="docutils literal notranslate"><span class="pre">==</span></code></p></li>
+<li><p>les délimiteurs <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code> et <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+<li><p>les symboles de contrôle <code class="docutils literal notranslate"><span class="pre">NEWLINE</span></code>, <code class="docutils literal notranslate"><span class="pre">IDENT</span></code>, <code class="docutils literal notranslate"><span class="pre">DEDENT</span></code> et <code class="docutils literal notranslate"><span class="pre">ENDMARKER</span></code></p></li>
+</ul>
+</section>
+<section id="objets-python">
+<h3>Objets Python<a class="headerlink" href="#objets-python" title="Link to this heading">#</a></h3>
+<p>Avec Python toutes les données sont représentées sous forme d’objets. Un objet est une entité stockée dans la mémoire de la machine hôte, qui possède :</p>
+<ul class="simple">
+<li><p>une valeur</p></li>
+<li><p>un type (nommée aussi classe)</p></li>
+<li><p>une identité</p></li>
+<li><p>et éventuellement des attributs-données (ou simplement attributs) et des attributs-méthodes (ou simplement méthodes)</p></li>
+</ul>
+<p>La figure suivante illustre graphiquement la notion d’objet Python. À droite, une version détaillée qui montre tout ce qui est encapsulé dans l’objet (sa valeur, son type, son identité, ses attributs-données et ses attributs-méthodes) et à gauche une représentation compacte avec juste son type et sa valeur.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/objet_01.png"><img alt="../_images/objet_01.png" src="../_images/objet_01.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Représentations graphiques d’un objet Python<br />version détaillée (à gauche), version compacte (à droite)</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="types-d-objet">
+<h4>Types d’objet<a class="headerlink" href="#types-d-objet" title="Link to this heading">#</a></h4>
+<p>Chaque objet est l’instance d’une classe que l’on appelle aussi le type de l’objet. Un objet conserve toujours le même type au cours de son existence en mémoire, on parle de typage fort. Le langage Python propose des types natifs de données que l’on peut présenter en quatre grandes familles :</p>
+<ul class="simple">
+<li><p>les <strong>types de base</strong> comme les nombres et le type “vide”</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span>  <span class="c1"># un nombre entier</span>
+<span class="mf">1.34</span>  <span class="c1"># un nombre à virgule flottante</span>
+<span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span>  <span class="c1"># un nombre complexe ou j est le nombre imaginaire</span>
+<span class="kc">True</span>  <span class="c1"># le nombre booléen vrai</span>
+<span class="kc">False</span>  <span class="c1"># le nombre booléen faux</span>
+<span class="kc">None</span>  <span class="c1"># l&#39;objet &quot;vide&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>les <strong>types conteneur</strong> qui contiennent une collection d’éléments comme les chaines de caractères, les listes d’objets, les ensembles d’objets, les associations d’objet (dictionnaire associant un objet clé à un objet valeur). Les expressions suivantes</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Bonjour&quot;</span>  <span class="c1"># une chaine de caractères</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>  <span class="c1"># liste de 5 entiers</span>
+<span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="s2">&quot;à&quot;</span><span class="p">,</span> <span class="s2">&quot;tous&quot;</span><span class="p">)</span>  <span class="c1"># n-uplet de 3 chaines de caractères</span>
+<span class="p">{</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">1.34</span><span class="p">}</span>  <span class="c1"># ensemble de 5 éléments de types différents</span>
+<span class="p">{</span><span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;Trois&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;Dix&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">:</span> <span class="s2">&quot;vingt&quot;</span><span class="p">}</span> <span class="c1"># dictionnaire de 3 associations d&#39;objets</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>les <strong>types appelables</strong> comme les fonctions (exemple <code class="docutils literal notranslate"><span class="pre">print</span></code>) ou les méthodes</p></li>
+<li><p>les <strong>types divers</strong> comme les fichiers, les modules …</p></li>
+</ul>
+<p>La fonction native <code class="docutils literal notranslate"><span class="pre">type()</span></code> renvoie le type de l’objet passé en argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>  <span class="c1"># renvoie list, le type de l&#39;objet [0, 1, 2, 9, 16]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="muabilite-des-objets">
+<h4>Muabilité des objets<a class="headerlink" href="#muabilite-des-objets" title="Link to this heading">#</a></h4>
+<p>La muabilité est une propriété des objets qui caractérise leur aptitude à avoir leur valeur modifiée au cours de l’exécution d’une instruction.</p>
+<ul class="simple">
+<li><p>un <strong>objet immuable</strong> (<em>immutable</em> en anglais) ne peut jamais changer de valeur. Si ou souhaite une nouvelle valeur, alors il faut utiliser un autre objet. Tous les objets suivants sont des objets immuables :</p>
+<ul>
+<li><p>les nombres (entiers, à virgule flottante, complexes, booléens)</p></li>
+<li><p>les chaines de caractères</p></li>
+<li><p>les n-uplets</p></li>
+</ul>
+</li>
+<li><p>un <strong>objet muable</strong> (<em>mutable</em> en anglais) peut changer de valeur sans que son identité ne change. Un objet muable peut avoir plusieurs valeurs successives au cours de l’exécution du code source. Tous les objets suivants sont des objets muables :</p>
+<ul>
+<li><p>Les listes d’objets</p></li>
+<li><p>Les n-uplets d’objets</p></li>
+<li><p>Les ensembles d’objets</p></li>
+<li><p>Les associations d’objets (dictionnaires)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="identite-d-un-objet">
+<h4>Identité d’un objet<a class="headerlink" href="#identite-d-un-objet" title="Link to this heading">#</a></h4>
+<p>Chaque objet possède une identité unique qui ne change jamais au cours de son existence en mémoire, on parle d’identifiant. La fonction native <code class="docutils literal notranslate"><span class="pre">id()</span></code> retourne l’identifiant de l’objet passé en argument. On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> ont la même identité s’ils ne font qu’un, c’est-à-dire si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">id(a)</span> <span class="pre">==</span> <span class="pre">id(b)</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">id</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>  <span class="c1"># renvoie l&#39;identité de la liste [0, 1, 2, 9, 16]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2442851834944
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variables-lien-etiquette-objet">
+<h4>Variables (lien étiquette-objet)<a class="headerlink" href="#variables-lien-etiquette-objet" title="Link to this heading">#</a></h4>
+<p>Pour désigner le objet Python dans deux instructions différentes, il est utile de pouvoir le nommer par une étiquette (un lexème de type identifiant dans la grammaire de Python). Dans le code source suivant, l’objet <code class="docutils literal notranslate"><span class="pre">123</span></code> est assigné à l’étiquette <code class="docutils literal notranslate"><span class="pre">a</span></code> dans la 1re instruction <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">123</span></code> ; la 2e instruction désigne l’objet par son étiquette <code class="docutils literal notranslate"><span class="pre">a</span></code> pour la passer comme argument à la fonction <code class="docutils literal notranslate"><span class="pre">print()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">123</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dans le langage Python, les <strong>variables</strong> agissent comme des étiquettes ou des références à des objets en mémoire. Contrairement à certains autres langages de programmation (ex: C, Matlab…) pour lesquels les variables sont des boites (emplacements) contenant des données, en Python, une variable pointe vers un objet qui réside quelque part en mémoire. Une variable (étiquette) réfère (pointe) un et un seul abject ; à l’inverse, un objet peut être assigné à plusieurs variables.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/variable_01.png"><img alt="../_images/variable_01.png" src="../_images/variable_01.png" style="width: 320px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Représentation graphique d’une liaison nom <span class="math notranslate nohighlight">\(\rightarrow\)</span> objet</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>La constitution d’un nom de variable est soumise à des règles impératives issues de la grammaire du langage Python et des conventions fortement recommandées pour faciliter la lecture du code par toute la communauté des développeurs.</p>
+<p>Règles de nommage des variables</p>
+<ul class="simple">
+<li><p><em>Utiliser uniquement des lettres, des chiffres, et des tirets bas</em> : un nom de variable est composé de lettres (a-z, A-Z), de chiffres (0-9) et de tirets bas (_)</p></li>
+<li><p><em>Ne pas commencer par un chiffre</em> : un nom de variable ne peut pas commencer par un chiffre</p></li>
+<li><p><em>Ne pas utiliser les mots réservés</em> : les mots réservés du langage ne peuvent pas être utilisés comme noms de variables, exemples if, for, while, True, False, etc</p></li>
+</ul>
+<p>Conventions de nommage des variables (<a class="reference external" href="https://peps.python.org/pep-0008/#function-and-variable-names">PEP8</a>])</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://fr.wikipedia.org/wiki/Snake_case">snake case</a> : les noms de variables doivent être en minuscules avec les mots séparés par des tirets bas <code class="docutils literal notranslate"><span class="pre">_</span></code>, exemple <code class="docutils literal notranslate"><span class="pre">nom_de_variable</span></code></p></li>
+<li><p>N’utilisez jamais les caractères <code class="docutils literal notranslate"><span class="pre">l</span></code> (lettre L minuscule) ou <code class="docutils literal notranslate"><span class="pre">I</span></code> (lettre i majuscule) comme noms de variables à caractère unique, car ils se confondent trop facilement selon la police de caractères utilisée. Idem pour le caractère <code class="docutils literal notranslate"><span class="pre">O</span></code> (lettre o majuscule) qui peut se confondre avec le chiffre 0.</p></li>
+</ul>
+</section>
+</section>
+<section id="instructions-simples">
+<h3>Instructions simples<a class="headerlink" href="#instructions-simples" title="Link to this heading">#</a></h3>
+<p>Les instructions sont les unités de base qui composent un code Python. Les instructions simples effectuent une action spécifique comme la création d’un objet Python, la gestion des noms dans l’espace de non, la levée d’exception ou le contrôle du flux d’instruction.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id3">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Talbleau des instructions simples</span><a class="headerlink" href="#id3" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Catégorie</p></th>
+<th class="head"><p>Instruction simple</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Création d’objets</p></td>
+<td><ul class="simple">
+<li><p>expressions</p>
+<ul>
+<li><p>opérations arithmétiques (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>)</p></li>
+<li><p>opérations booléennes (opérateurs <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>)</p></li>
+<li><p>opérations bit à bit (opérateur <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>)</p></li>
+<li><p>comparaisons de valeur (opérateurs <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>)</p></li>
+<li><p>comparaisons d’identifiants (opérateurs <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>)</p></li>
+<li><p>tests d’appartenance (opérateurs <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> alias de type</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Gestion de l’espace de nom</p></td>
+<td><ul class="simple">
+<li><p>assignation simple <code class="docutils literal notranslate"><span class="pre">=</span></code></p></li>
+<li><p>assignation augmentée <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code> , <code class="docutils literal notranslate"><span class="pre">*=</span></code> , <code class="docutils literal notranslate"><span class="pre">&#64;=</span></code> , <code class="docutils literal notranslate"><span class="pre">/=</span></code> , <code class="docutils literal notranslate"><span class="pre">%=</span></code> , <code class="docutils literal notranslate"><span class="pre">&amp;=</span></code> , <code class="docutils literal notranslate"><span class="pre">|=</span></code> , <code class="docutils literal notranslate"><span class="pre">^=</span></code> , <code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code> , <code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code> , <code class="docutils literal notranslate"><span class="pre">**=</span></code> , <code class="docutils literal notranslate"><span class="pre">//=</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">del</span></code> suppression d’assignation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">global</span></code> pour référer à un nom de la portée globale</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> pour référer à un nom ni dans la portée globale ni dans la portée locale</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Levée d’exception</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assert</span></code> test de débogage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">raise</span></code> déclenchement d’exception</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Contrôle de flux d’instructions</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code> sortie définitive d’une fonction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yield</span></code> sortie temporaire d’une fonction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span></code> terminaison prématurée d’instruction de répétition <em>for</em> ou d’itération composée <em>while</em> la plus imbriquée</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code> terminaison prématurée de l’itération en cours de l’instruction composée <em>for</em> ou <em>while</em> la plus imbriquée</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Autre</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span></code> importe des objets, des noms d’un autre code source</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pass</span></code> Opération vide</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="instruction-d-assignation">
+<h4><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation<a class="headerlink" href="#instruction-d-assignation" title="Link to this heading">#</a></h4>
+<p>L’instruction d’<strong>assignation</strong>, ou plus simplement l’assignation, construit l’association entre un nom (étiquette) et un objet. Une fois nommé, un objet pourra être réutilisé autant de fois que nécessaire dans le code. la syntaxe de base d’une instruction d’assignation est</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nom_de_variable</span> <span class="o">=</span> <span class="n">expression</span>
+</pre></div>
+</div>
+<p>et la sémantique (comportement) de l’instruction est la suivante</p>
+<ol class="arabic simple">
+<li><p>l’<code class="docutils literal notranslate"><span class="pre">expression</span></code> est évaluée et retourne un abject qui est situé dans l’espace des objets Python</p></li>
+<li><p>si l’étiquette <code class="docutils literal notranslate"><span class="pre">nom_de_variable</span></code> n’existe pas dans l’espace des noms, elle est créée</p></li>
+<li><p>l’objet est assigné à l’étiquette <code class="docutils literal notranslate"><span class="pre">nom_de_variable</span></code>, on dit que <code class="docutils literal notranslate"><span class="pre">nom_de_variable</span></code> réfère ou pointe l’objet</p></li>
+</ol>
+<p>Exemple du comportement de 3 assignations successives</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Numéro<br />de ligne</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Sémantique</p></th>
+<th class="head"><p>Illustration</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">305</span></code></p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">305</span></code> est évalué, l’objet de type <code class="docutils literal notranslate"><span class="pre">int</span></code> avec de valeur 300 est créé et retourné<br />- l’étiquette <code class="docutils literal notranslate"><span class="pre">x</span></code> est créée dans l’espace de nom<br />- le lien de l’étiquette vers l’objet est établi</p></td>
+<td><p><a class="reference internal" href="../_images/BE1_variable_02.png"><img alt="../_images/BE1_variable_02.png" src="../_images/BE1_variable_02.png" style="width: 200px;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">305</span> <span class="pre">/</span> <span class="pre">12</span></code></p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">305</span> <span class="pre">/</span> <span class="pre">12</span></code> est évaluée, l’objet de type <code class="docutils literal notranslate"><span class="pre">float</span></code> avec de valeur 1.5 est créé et retourné<br />- l’étiquette <code class="docutils literal notranslate"><span class="pre">y</span></code> est créée dans l’espace de nom<br />- le lien de l’étiquette vers l’objet est établi</p></td>
+<td><p><a class="reference internal" href="../_images/BE1_variable_03.png"><img alt="../_images/BE1_variable_03.png" src="../_images/BE1_variable_03.png" style="width: 200px;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code></p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">y</span></code> est évalué, l’objet pointé est retourné<br />- l’étiquette <code class="docutils literal notranslate"><span class="pre">x</span></code> existe déjà, inutile de la créée dans l’espace de nom<br />- le lien de l’étiquette est redirigé vers l’objet</p></td>
+<td><p><a class="reference internal" href="../_images/BE1_variable_04.png"><img alt="../_images/BE1_variable_04.png" src="../_images/BE1_variable_04.png" style="width: 200px;" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Remarques sur la situation en fin d’exécution des trois assignations</p>
+<ul class="simple">
+<li><p>l’objet <code class="docutils literal notranslate"><span class="pre">152.5</span></code> est assigné à plusieurs variables ou réciproquement, plusieurs noms pointent sur le même objet</p></li>
+<li><p>l’objet <code class="docutils literal notranslate"><span class="pre">305</span></code> n’est assigné à aucune variable. Il ne pourra plus être utilisé, et il a pour vocation d’être supprimé de la mémoire par un mécanisme interne à l’interpréteur Python : le ramasse-miette (<em>garbage collector</em> en anglais).</p></li>
+</ul>
+<p>Les assignations peuvent prendre plusieurs formes en Langage Python :</p>
+<ol class="arabic">
+<li><p>L’<em>assignation de base</em> (vue juste au-dessus)<br />
+syntaxe : <code class="docutils literal notranslate"><span class="pre">nom_de_variable</span> <span class="pre">=</span> <span class="pre">expression</span></code><br />
+sémantique : l’<code class="docutils literal notranslate"><span class="pre">expression</span></code> est évaluée, l’objet résultant est assigné à la variable <code class="docutils literal notranslate"><span class="pre">nom_variable</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">2</span>  <span class="c1"># assigne l&#39;objet 12 à la variable x</span>
+</pre></div>
+</div>
+</li>
+<li><p>L’<em>assignation multiple</em> permet d’assigner des valeurs à plusieurs variables en une seule ligne.<br />
+syntaxe : <code class="docutils literal notranslate"><span class="pre">nom_1,</span> <span class="pre">nom_2,</span> <span class="pre">...</span> <span class="pre">nom_n</span> <span class="pre">=</span> <span class="pre">exp_1,</span> <span class="pre">exp_2,</span> <span class="pre">...</span> <span class="pre">exp_n</span></code><br />
+sémantique : la partie à droite du signe <code class="docutils literal notranslate"><span class="pre">=</span></code> est évaluée en premier et de gauche à droite, puis les assignations aux variables de la partie gauche se font à leur tour de gauche à droite. Cela donne la séquence suivante - évaluation de <code class="docutils literal notranslate"><span class="pre">exp_1</span></code>, évaluation de <code class="docutils literal notranslate"><span class="pre">exp_2</span></code>, … évaluation de <code class="docutils literal notranslate"><span class="pre">exp_n</span></code>, assignation à <code class="docutils literal notranslate"><span class="pre">nom_1</span></code> de l’objet obtenu après l’évaluation de <code class="docutils literal notranslate"><span class="pre">exp_1</span></code>, assignation à <code class="docutils literal notranslate"><span class="pre">nom_2</span></code> de l’objet obtenu après l’évaluation de <code class="docutils literal notranslate"><span class="pre">exp_2</span></code>, … assignation à <code class="docutils literal notranslate"><span class="pre">nom_n</span></code> de l’objet obtenu après l’évaluation de <code class="docutils literal notranslate"><span class="pre">exp_n</span></code><br /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">305</span><span class="p">,</span> <span class="s2">&quot;Bonjour&quot;</span>  <span class="c1"># 305 est assigné à x, &quot;Bonjour&quot; est assigné à y</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>  <span class="c1"># échange les objets pointés par les variables x et y</span>
+</pre></div>
+</div>
+</li>
+<li><p>l’<em>assignation chainée</em> permet de lier plusieurs variables au même objet.<br />
+syntaxe : <code class="docutils literal notranslate"><span class="pre">nom_1,</span> <span class="pre">nom_2,</span> <span class="pre">...</span> <span class="pre">nom_n</span> <span class="pre">=</span> <span class="pre">expression</span></code><br />
+sémantique : l’<code class="docutils literal notranslate"><span class="pre">expression</span></code> est évaluée, l’objet résultant est assigné successivement aux variables de la partie gauche dans l’ordre de gauche à droite.<br /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># x, y, et y pointent toutes vers le même objet 10</span>
+</pre></div>
+</div>
+</li>
+<li><p>l’<em>assignation augmentée</em> permet de réaliser une opération et une assignation simultanément, ce qui est utile pour modifier la valeur d’une variable basée sur sa valeur courante.<br />
+syntaxe : <code class="docutils literal notranslate"><span class="pre">nom_de_variable</span> <span class="pre">∴=</span> <span class="pre">expression</span></code><br /> ou <code class="docutils literal notranslate"><span class="pre">∴</span></code> ∈ {<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>}<br />
+sémantique : un assignation augmentée peut se réécrire comme l’assignation de base suivante <code class="docutils literal notranslate"><span class="pre">nom_de_variable</span> <span class="pre">=</span> <span class="pre">nom_de_variable</span> <span class="pre">∴</span> <span class="pre">expression</span></code>, et elle en a la même sémantique<br /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">355</span>
+<span class="n">x</span> <span class="o">-=</span> <span class="mi">50</span>  <span class="c1"># équivalent à x = x - 50, x pointe maintenant sur l&#39;entier 305</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="del-instruction-de-suppression">
+<h4><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression<a class="headerlink" href="#del-instruction-de-suppression" title="Link to this heading">#</a></h4>
+<p>L’instruction de <strong>suppression</strong> détruit des noms (étiquette) et leur association des objets Python. Elle joue le rôle inverse de l’instruction d’assignation, elle est importante lorsque l’on souhaite libérer de l’espace en mémoire. La syntaxe de base d’une instruction de suppression est</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">nom_1</span><span class="p">,</span> <span class="n">nom_2</span> <span class="o">...</span> <span class="n">nom_n</span>
+</pre></div>
+</div>
+<p>et la sémantique (comportement) de l’instruction de suppression est : suppression de gauche à droite des <code class="docutils literal notranslate"><span class="pre">nom_i</span></code> et de leur lien avec les objets Python.</p>
+<p>Exemple du comportement de quelques instructions</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Numéro<br />de ligne</p></th>
+<th class="head"><p>Code</p></th>
+<th class="head"><p>Sémantique</p></th>
+<th class="head"><p>Illustration</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1<br />2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">&quot;Bonjour&quot;</span></code><br><code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">-432</span></code></p></td>
+<td><p>- <code class="docutils literal notranslate"><span class="pre">&quot;Bonjour&quot;</span></code> est créé et assigné au nom <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+<td><p><a class="reference internal" href="../_images/BE1_del_01.png"><img alt="../_images/BE1_del_01.png" src="../_images/BE1_del_01.png" style="width: 200px;" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">y</span></code></p></td>
+<td><p>- suppression du nom <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+<td><p><a class="reference internal" href="../_images/BE1_del_02.png"><img alt="../_images/BE1_del_02.png" src="../_images/BE1_del_02.png" style="width: 200px;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">x,</span> <span class="pre">z</span></code></p></td>
+<td><p>- suppression des noms <code class="docutils literal notranslate"><span class="pre">x</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code></p></td>
+<td><p><a class="reference internal" href="../_images/BE1_del_03.png"><img alt="../_images/BE1_del_03.png" src="../_images/BE1_del_03.png" style="width: 200px;" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Remarque : l’instruction <code class="docutils literal notranslate"><span class="pre">del</span></code> supprime des noms, pas des objets ; lorsque plus aucun nom ne réfère à un objet Python, ce dernier devient inatteignable et il a pour vocation d’être supprimé de la mémoire par un mécanisme interne à l’interpréteur Python, le  <strong>ramasse-miette</strong> (garbage-collector en anglais).</p>
+</section>
+<section id="raise-levee-d-exception">
+<h4><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception<a class="headerlink" href="#raise-levee-d-exception" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou&quot;</span><span class="p">)</span>
+<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Test d&#39;exception&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coucou
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Test d&#39;exception&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou2&quot;</span><span class="p">)</span>
+
+<span class="ne">Exception</span>: Test d&#39;exception
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="instructions-composees">
+<h3>Instructions composées<a class="headerlink" href="#instructions-composees" title="Link to this heading">#</a></h3>
+<p>Les instructions composées contiennent d’autres (groupes d’) instructions ; elles affectent ou contrôlent l’exécution de ces autres instructions d’une manière ou d’une autre. Parmi les instructions composées, on peut citer :</p>
+<ul class="simple">
+<li><p>les conditions <code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p>les itérations <code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
+<li><p>les répétitions <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p>les définitions de fonction <code class="docutils literal notranslate"><span class="pre">def</span></code></p></li>
+<li><p>les définitions de classe <code class="docutils literal notranslate"><span class="pre">class</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+<p>La figure suivante illustre la syntaxe d’une instruction composée.</p>
+<ul class="simple">
+<li><p>Une instruction composée comporte une ou plusieurs “clauses”</p></li>
+<li><p>Une clause se compose d’un entête et d’une “suite”</p></li>
+<li><p>Chaque entête de clause commence par un “mot-clé” spécifique et se termine par le caractère deux-points <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
+<li><p>Une “suite” est un groupe d’instructions contrôlées par une clause</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/BE1_instruction_composee_01.png"><img alt="../_images/BE1_instruction_composee_01.png" src="../_images/BE1_instruction_composee_01.png" style="width: 300px;" /></a>
+<p>Les entêtes des clauses d’une instruction composée particulière sont toutes placées au même niveau d’indentation.</p>
+<p>Les suites se composent d’une ou plusieurs instructions en retrait (niveau d’indentation supplémentaire) sur les lignes suivantes. Comme les suites ne peuvent être vides, il est utile de disposer d’une instruction bouche-trou pour conserver la cohérence syntaxique d’une instruction composée, parfois même temporairement pour faire des premiers tests d’exécution. L’instruction simple <code class="docutils literal notranslate"><span class="pre">pass</span></code> est l’opération vide ; quand elle est exécutée, rien ne se passe.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id4">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Talbleau des instructions simples</span><a class="headerlink" href="#id4" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Catégorie</p></th>
+<th class="head"><p>Instruction composée</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Contrôle de flux d’instructions</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> exécution comparaison</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code> répétition conditionnelle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> itération</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">match</span></code> filtrage par motif</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Création d’objets</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> définition d’une fonction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">def</span></code> définition d’une coroutines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code> définition d’une classe</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Gestion d’environnement</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">with</span></code> gestionnaire de contextes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">try</span></code> gestionnaire d’exception</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="fonctions-natives">
+<h3>Fonctions natives<a class="headerlink" href="#fonctions-natives" title="Link to this heading">#</a></h3>
+<p>Les fonctions natives sont les fonctions du module <code class="docutils literal notranslate"><span class="pre">builtins</span></code> qui est automatiquement chargé au lancement de l’interpréteur Python.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id5">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">Talbleau des fonctions native</span><a class="headerlink" href="#id5" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Catégorie</p></th>
+<th class="head"><p>fonctions natives</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Opération mathématiques</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">abs()</span></code> renvoie la valeur absolue d’un nombre</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">divmod()</span></code> renvoie le quotient et le reste de la division entière</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code> renvoie le plus grand des arguments ou éléments donnés dans un itérable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min()</span></code> renvoie le plus petit des arguments ou éléments donnés dans un itérable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pow()</span></code> renvoie un nombre à une puissance donnée</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">round()</span></code> renvoie une valeur arrondie</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code> renvoie la somme des valeurs d’un itérable</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Instanciation d’une classe d’objets</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int()</span></code> construit un nombre entier à partir d’un nombre ou d’une chaine de caractères</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float()</span></code> construit un nombre à virgule flottant à partir d’un nombre ou d’une chaine</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">complex()</span></code> construit un nombre complexe à partir d’arguments</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str()</span></code> construit une chaine de caractères</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool()</span></code> construit un nombre booléen</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bytes()</span></code> construit un tableau immuable d’octets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bytearray()</span></code> construit un tableau modifiable d’octets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code> construit une liste d’objets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple()</span></code> construit un n-uplet d’objets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict()</span></code> construit une suite de paires clé-valeur</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set()</span></code> construit un ensemble modifiable d’objets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">frozenset()</span></code> construit un ensemble immuable d’objets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range()</span></code> construit un intervalle de nombres entiers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice()</span></code> construit une tranche d’indice</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iter()</span></code> construit un itérateur sur un itérable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">memoryview()</span></code> construit une vue mémoire créée depuis l’argument</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">object()</span></code> construit un objet vide. object est la classe parente de toutes les classes</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Conversion</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bin()</span></code> convertit un entier en sa représentation binaire dans une chaine avec le préfixe “0b”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oct()</span></code> convertit un entier en sa représentation octale dans une chaine préfixée de “0o”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hex()</span></code> convertit un entier en sa représentation hexadécimale dans une chaine préfixée de “0x”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format()</span></code> convertit une valeur en sa représentation formatée</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ord()</span></code> renvoie le point de code d’un caractère</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chr()</span></code> renvoie le caractère à partir de son point de code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Gestion des entrées-sorties</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">print()</span></code> affiche les arguments sur la console</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open()</span></code> ouvre un fichier et donne accès à un objet de fichier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input()</span></code> lire l’entrée de la console</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Traitement d’itérable</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code> renvoie la longueur (nombre d’éléments) d’un objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reversed()</span></code> renvoie un itérateur inverse depuis un objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sorted()</span></code> renvoie une nouvelle liste triée depuis un itérable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all()</span></code> renvoie True si tous les éléments de l’itérable sont vrais</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">any()</span></code> Renvoie True si au moins un élément de l’itérable est vrai</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> renvoie un objet itérable qui renvoie un n-uplet contenant un compteur (démarrant à 0 par défaut) et les valeurs obtenues de l’itération sur l’itérable passé en argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zip()</span></code> itère sur plusieurs itérables en parallèle, produisant des n-uplets avec un élément provenant de chacun</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">next()</span></code> donne l’élément suivant de l’itérateur</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter()</span></code> construit un itérateur depuis les éléments de l’itérable fourni en argument pour lesquels une fonction fournie renvoie True</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map()</span></code> renvoie un itérateur appliquant une fonction fournie en argument à chaque élément de l’itérable</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Gestion des classes, des objets et des attributs</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hash()</span></code> renvoie la valeur de hachage d’un objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">property()</span></code> renvoie un attribut propriété</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">classmethod()</span></code> transforme une méthode en méthode de classe</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">staticmethod()</span></code> transforme une méthode en méthode statique</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">getattr()</span></code> renvoie la valeur d’un attribut</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setattr()</span></code> assigne une valeur à un attribut</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delattr()</span></code> supprime un attribut</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hasattr()</span></code> renvoie True l’attribut nommé est dans objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> renvoie True si l’objet donné est une instance de la classe donnée</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">issubclass()</span></code> renvoie True si la classe donnée est une sous classe de la classe donnée</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callable()</span></code> renvoie True si l’objet en argument est appelable (<em>callable</em> en anglais)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">super()</span></code> renvoie un objet mandataire déléguant les appels de méthode à une classe parente</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Accès à des noms</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">locales()</span></code> renvoie un dictionnaire représentant la table des symboles locaux</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">globals()</span></code> renvoie le dictionnaire implémentant l’espace de nommage du module actuel</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Introspection d’objet</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id()</span></code> renvoie l’identité d’un objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type()</span></code> renvoie le type d’un objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dir()</span></code> renvoie la liste des attributs d’un objet</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vars()</span></code> renvoie l’attribut <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> d’un module, d’une classe, d’une instance ou de n’importe quel objet avec un attribut <code class="docutils literal notranslate"><span class="pre">__dict__</span></code></p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>Gestion de code</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">eval()</span></code> analyse et évalue comme une expression Python fourni en paramètre</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exec()</span></code> exécution dynamique de code Python fourni en paramètre</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compile()</span></code> traduit le code source passé en paramètre en un objet code</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Autres</p></td>
+<td><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">help()</span></code> invoque le système d’aide natif</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repr()</span></code> renvoie une représentation d’un objet en chaine de caractère conviviale</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="interpreteur-python">
+<h2>Interpréteur Python<a class="headerlink" href="#interpreteur-python" title="Link to this heading">#</a></h2>
+<p>Un interpréteur Python est une application informatique qui exécute les instructions d’un code source écrit en langage Python. L’exécution d’une instruction peut :</p>
+<ul class="simple">
+<li><p>créer, modifier, supprimer des objets Python (données) dans l’espace des objets en mémoire de la machine</p></li>
+<li><p>assigner un objet à un nom</p></li>
+<li><p>produire des sorties (à l’écran, dans un fichier, sur le réseau…)</p></li>
+<li><p>prendre en compte des entrées (depuis le clavier, un fichier, un réseau…)</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/interpreteur.png"><img alt="../_images/interpreteur.png" class="align-center" src="../_images/interpreteur.png" style="width: 360px;" /></a>
+<section id="role-d-un-interpreteur-python">
+<h3>Rôle d’un interpréteur Python<a class="headerlink" href="#role-d-un-interpreteur-python" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Analyser et exécuter du code</strong> - l’interpréteur lit le code source écrit en Python, le traduit en un code intermédiaire (<em>bytecode</em> en anglais), et l’exécute immédiatement.</p></li>
+<li><p><strong>Gérer de la mémoire</strong> - l’interpréteur gère la mémoire en allouant et libérant l’espace nécessaire pour les objets (données) via un mécanisme de ramasse-miettes (<em>garbage collection</em> en anglais).</p></li>
+<li><p><strong>Gérer des erreurs</strong> - l’interpréteur identifie les erreurs syntaxiques ou d’exécution et affiche des messages d’erreur appropriés, ce qui facilite le débogage du programme.</p></li>
+<li><p><strong>Fournir un environnement interactif</strong> - l’interpréteur permet aux codeurs de tester du code ligne par ligne dans un environnement interactif, comme le REPL (<em>Read-Eval-Print Loop</em>). Cela permet de rapidement tester des idées ou de comprendre comment une partie spécifique du code fonctionne.</p></li>
+</ul>
+</section>
+<section id="exemples-d-interpreteur-python">
+<h3>Exemples d’interpréteur Python<a class="headerlink" href="#exemples-d-interpreteur-python" title="Link to this heading">#</a></h3>
+<p>Les interpréteurs Python sont parfois appelés implémentations Python, car ils concrétisent les actions portées par la sémantique des instructions décrite dans un code source. Voici quelques exemples :</p>
+<ul class="simple">
+<li><p><strong>CPython</strong> est l’interpréteur originel et le mieux maintenu, écrit en langage C. Il implémente généralement en premier les nouvelles fonctionnalités du langage au fur et à mesure de la sortie des nouvelles versions.</p></li>
+<li><p><strong>IPython</strong> propose des fonctionnalités telles que l’introspection, une syntaxe additionnelle, la complétion et un historique riche. Le projet Jupyter est une branche devenue autonome du développement de IPython.</p></li>
+<li><p><strong>PyPy</strong> est un interpréteur entièrement codé en langage Python, il est bien adapté pour ceux qui expérimentent de nouvelles fonctionnalités pour langage Python.</p></li>
+<li><p><strong>Jython</strong> est un interpréteur codé en langage Java, il permet d’exécuter du code Python sur la machine virtuelle Java (JVM). Cela facilite l’interopérabilité avec le code Java.</p></li>
+<li><p><strong>MicroPython</strong> est un interpréteur allégé qui se limite à un petit sous-ensemble de la bibliothèque standard Python, afin d’être optimisé pour fonctionner sur des microcontrôleurs et dans des environnements contraints en termes de mémoire et de vitesse de traitement.</p></li>
+</ul>
+<p>Dans le cadre du module de formation, c’est principalement CPython qui sera utilisé de manière transparente à partir de l’interface JupyterLab. Pour connaitre l’identité de l’interpréteur qui exécute un code source, si suffit de lui faire exécuter les deux instructions Python suivantes pour qu’il affiche son nom et sa version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">platform</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">python_implementation</span><span class="p">(),</span> <span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPython 3.11.9
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fonctionnement-d-un-interpreteur-python">
+<h3>Fonctionnement d’un interpréteur Python<a class="headerlink" href="#fonctionnement-d-un-interpreteur-python" title="Link to this heading">#</a></h3>
+<p>Le fonctionnement d’un interpréteur Python peut être divisé en plusieurs étapes clés : la lecture du code source, l’analyse lexicale et syntaxique, la traduction en code intermédiaire, l’exécution du code intermédiaire et la gestion de la mémoire.</p>
+<p><strong>1. Lecture du code source</strong></p>
+<p>L’interpréteur commence par lire le code Python, soit depuis un fichier (lorsque vous exécutez un script), soit directement via l’environnement interactif en proposant une invite de commande à l’utilisateur.</p>
+<p>Exemple de code source Python</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x est supérieur à 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>2. Analyse lexicale et syntaxique du code source</strong></p>
+<p>L’interpréteur analyse ensuite le code source pour vérifier qu’il est valide syntaxiquement. Cette étape commence par transformer le code en une série de lexèmes (<em>tokens</em> en anglais), des symboles lexicaux qui représentent les différents éléments du code (mots-clés, identifiants, opérateurs, etc.).</p>
+<p>Exemple avec code source Python précédent, l’analyseur identifie les lexèmes suivants :</p>
+<ul class="simple">
+<li><p>identifiants : <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">print</span></code></p></li>
+<li><p>mots-clés : <code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p>littéraux : <code class="docutils literal notranslate"><span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">5</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;x</span> <span class="pre">est</span> <span class="pre">supérieur</span> <span class="pre">à</span> <span class="pre">5&quot;</span></code></p></li>
+<li><p>opérateurs : <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></li>
+<li><p>délimiteurs : <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code></p></li>
+</ul>
+<p>Si l’analyse lexicale échoue, l’interpréteur Python renvoie un message d’erreur. Ensuite, il effectue une analyse syntaxique pour vérifier que les règles de syntaxe (la grammaire) du langage Python sont respectées.</p>
+<p>Exemples avec code source Python précédent, l’analyseur identifie les deux instructions suivantes :</p>
+<ul class="simple">
+<li><p>l’instruction simple <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">10</span> <span class="pre">+</span> <span class="pre">3</span></code> respecte la syntaxe <code class="docutils literal notranslate"><span class="pre">&lt;identifiant&gt;</span> <span class="pre">=</span> <span class="pre">&lt;expression&gt;</span></code>, ce qui correspond à l’assignation du résultat de l’<code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> au nom <code class="docutils literal notranslate"><span class="pre">&lt;identifiant&gt;</span></code></p></li>
+<li><p>l’instruction composée <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">5:</span> <span class="pre">print(&quot;x</span> <span class="pre">est</span> <span class="pre">supérieur</span> <span class="pre">à</span> <span class="pre">5&quot;)</span></code> respecte la syntaxe <code class="docutils literal notranslate"><span class="pre">&lt;clause</span> <span class="pre">if&gt;</span></code>, elle-même respectant la syntaxe <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">&lt;expression_de_test&gt;:</span> <span class="pre">&lt;suite&gt;</span></code> et avec l’<code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> et <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> respectant leurs propres syntaxes.</p></li>
+</ul>
+<p>Si l’enchainement de lexèmes ne correspond pas à la grammaire du langage, l’analyse syntaxique échoue l’interpréteur Python renvoie un message d’erreur.</p>
+<p><strong>3. Traduction en code intermédiaire (bytecode)</strong></p>
+<p>Une fois le code analysé et validé, l’interpréteur le traduit en une forme intermédiaire appelée <em>bytecode</em>. Le bytecode est un ensemble d’instructions qui n’est pas directement exécutable par la machine (le processeur), mais qui est compréhensible par l’interpréteur Python. C’est opération est proche d’une compilation (au sens des langages compilés), mais comme le code intermédiaire n’est pas du code machine, le langage Python reste classé parmi les langages interprétés.</p>
+<ul class="simple">
+<li><p>Ce bytecode est indépendant de la machine, c’est-à-dire qu’il peut être exécuté sur n’importe quelle plateforme informatique pour laquelle un interpréteur Python est disponible.</p></li>
+<li><p>Le bytecode est stocké dans des fichiers <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> (Python Compiled)</p></li>
+</ul>
+<p>À titre d’illustration, les octets suivants sont le bytecode du code source Python précédent. Les octets sont exprimés en hexadécimal.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>97 00 64 00 5A 00 65 00 64 01 6B 04 00 00 00 00
+72 0D 02 00 65 01 64 02 A6 01 00 00 AB 01 00 00
+00 00 00 00 00 00 01 00 64 03 53 00 64 03 53 00
+</pre></div>
+</div>
+<p>Le bytecode peut être désassemblé. Cela revient à convertir le bytecode binaire, compréhensible par l’interpréteur Python, en son équivalent sous forme d’un texte formaté lisible par les humains. La signification des colonnes est : 1. le numéro de la ligne concernée dans le code source, 2. l’adresse de l’opération dans le bytecode, 3. le nom de l’opération, 4. le paramètre de l’opération et 5. l’interprétation du paramètre entre parenthèses.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="mi">0</span>           <span class="mi">0</span> <span class="n">RESUME</span>                   <span class="mi">0</span>
+
+  <span class="mi">1</span>           <span class="mi">2</span> <span class="n">LOAD_CONST</span>               <span class="mi">0</span> <span class="p">(</span><span class="mi">13</span><span class="p">)</span>
+              <span class="mi">4</span> <span class="n">STORE_NAME</span>               <span class="mi">0</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+  <span class="mi">2</span>           <span class="mi">6</span> <span class="n">LOAD_NAME</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
+              <span class="mi">8</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+             <span class="mi">10</span> <span class="n">COMPARE_OP</span>               <span class="mi">4</span> <span class="p">(</span><span class="o">&gt;</span><span class="p">)</span>
+             <span class="mi">16</span> <span class="n">POP_JUMP_FORWARD_IF_FALSE</span>    <span class="mi">13</span> <span class="p">(</span><span class="n">to</span> <span class="mi">44</span><span class="p">)</span>
+
+  <span class="mi">3</span>          <span class="mi">18</span> <span class="n">PUSH_NULL</span>
+             <span class="mi">20</span> <span class="n">LOAD_NAME</span>                <span class="mi">1</span> <span class="p">(</span><span class="nb">print</span><span class="p">)</span>
+             <span class="mi">22</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="s1">&#39;x est supérieur à 5&#39;</span><span class="p">)</span>
+             <span class="mi">24</span> <span class="n">PRECALL</span>                  <span class="mi">1</span>
+             <span class="mi">28</span> <span class="n">CALL</span>                     <span class="mi">1</span>
+             <span class="mi">38</span> <span class="n">POP_TOP</span>
+             <span class="mi">40</span> <span class="n">LOAD_CONST</span>               <span class="mi">3</span> <span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+             <span class="mi">42</span> <span class="n">RETURN_VALUE</span>
+
+  <span class="mi">2</span>          <span class="mi">44</span> <span class="n">LOAD_CONST</span>               <span class="mi">3</span> <span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+             <span class="mi">46</span> <span class="n">RETURN_VALUE</span>
+</pre></div>
+</div>
+<p><strong>4. Exécution par la machine virtuelle Python</strong></p>
+<p>Le bytecode est ensuite exécuté par la machine virtuelle Python (PVM, <em>Python Virtual Machine</em> en anglais). La machine virtuelle est une partie de l’interpréteur Python qui traduit le bytecode en instructions-machine spécifiques à la plateforme sur laquelle l’interpréteur Python est exécuté. C’est l’étape où le programme effectue réellement ses opérations (création d’objet en mémoire, calculs, affichage à l’écran, etc.).</p>
+<p><strong>5. Gestion de la mémoire et collecte des objets non utilisés</strong></p>
+<p>Pendant l’exécution des instructions du code source, l’interpréteur alloue de la mémoire pour les objets créés (comme les numériques, les listes, les dictionnaires, etc.). Lorsque ces objets ne sont plus utilisés, Python dispose d’un système de ramasse-miette (<strong>garbage collection</strong> en anglais) qui libère automatiquement la mémoire non utilisée, évitant ainsi un accroissement inutile de la mémoire utilisée.</p>
+</section>
+</section>
+<section id="bibliotheques">
+<h2>Bibliothèques<a class="headerlink" href="#bibliotheques" title="Link to this heading">#</a></h2>
+<p>Comme tous les langages informatiques, le langage Python offre un nombre limité de fonctionnalités essentielles. Les bibliothèques sont là pour apporter de nouvelles fonctionnalités plus riches et d’un usage courant.</p>
+<section id="bibliotheque-standard-python">
+<h3>Bibliothèque standard Python<a class="headerlink" href="#bibliotheque-standard-python" title="Link to this heading">#</a></h3>
+<p>La bibliothèque standard est la bibliothèque distribuée avec Python, elle offre un éventail de plus de 200 modules, dont le module <code class="docutils literal notranslate"><span class="pre">builtins</span></code> qui est automatiquement chargé au lancement de l’interpréteur Python pour fournir les fonctions natives, comme <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">format()</span></code>, <code class="docutils literal notranslate"><span class="pre">len()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code> ou encore <code class="docutils literal notranslate"><span class="pre">max()</span></code>.</p>
+<p>L’instruction d’importation sert à charger les modules, sa syntaxe utilise les mots-clés <code class="docutils literal notranslate"><span class="pre">import</span></code>, <code class="docutils literal notranslate"><span class="pre">from</span></code> et <code class="docutils literal notranslate"><span class="pre">as</span></code>. L’exemple suivent d’un code à deux instructions présentes 1. l’importation du module <code class="docutils literal notranslate"><span class="pre">math</span></code> qui fournit l’accès à des fonctions mathématiques 2. l’utilisation de la fonction trigonométrique <code class="docutils literal notranslate"><span class="pre">sin()</span></code> du module <code class="docutils literal notranslate"><span class="pre">math</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>  <span class="c1"># importation du module math</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># assigne à y la valeur du sinus de 0.1 radian</span>
+</pre></div>
+</div>
+<p>Les modules de la bibliothèque standard proposent des fonctions mathématiques (ex. : <code class="docutils literal notranslate"><span class="pre">math</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code>, <code class="docutils literal notranslate"><span class="pre">fractions</span></code>, <code class="docutils literal notranslate"><span class="pre">random</span></code>, <code class="docutils literal notranslate"><span class="pre">statistics</span></code>), des d’accès aux services du système d’exploitation (ex. : <code class="docutils literal notranslate"><span class="pre">os</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">logging</span></code>), des communications et de traitements de données provenant d’internet (ex. : <code class="docutils literal notranslate"><span class="pre">socket</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, <code class="docutils literal notranslate"><span class="pre">html</span></code>, <code class="docutils literal notranslate"><span class="pre">webbrowser</span></code>,<code class="docutils literal notranslate"><span class="pre">json</span></code>), des d’interfaces utilisateur graphiques à base de fenêtres, menus, boites de dialogue (ex: <code class="docutils literal notranslate"><span class="pre">tkinter</span></code>) … La liste exhaustive des modules de la bibliothèque standard avec leurs documentations est disponible sur la page <a class="reference external" href="https://docs.python.org/fr/3/library">https://docs.python.org/fr/3/library</a></p>
+<a class="reference internal image-reference" href="../_images/logo_modules_python.png"><img alt="../_images/logo_modules_python.png" class="align-center" src="../_images/logo_modules_python.png" style="width: 280px;" /></a>
+</section>
+<section id="bibliotheques-tierces">
+<h3>Bibliothèques tierces<a class="headerlink" href="#bibliotheques-tierces" title="Link to this heading">#</a></h3>
+<p>Les bibliothèques tierces pour Python sont des collections de modules et de fonctions créées par des développeurs et des développeuses externes à l’équipe principale de Python. Elles étendent les fonctionnalités de base du langage pour répondre à des besoins spécifiques dans différents domaines.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_numpy.png"><img alt="../_images/logo_numpy.png" class="align-left" src="../_images/logo_numpy.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://numpy.org/">NumPy</a> fournit des matrices ou tableaux multidimensionnels ainsi que des fonctions opérant sur ces tableaux comme des fonctions mathématiques ou logiques, les tris, les sélections, les statistiques de base…</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_matplotlib.png"><img alt="../_images/logo_matplotlib.png" class="align-left" src="../_images/logo_matplotlib.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://matplotlib.org/">Matplotlib</a> permet de visualiser des données en créant des graphiques statiques, animés ou interactifs , en 2D et en 3D, comme les courbes, les nuages de points, les contours de champs, les diagrammes de flux, les distributions statistiques…</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_scipy.png"><img alt="../_images/logo_scipy.png" class="align-left" src="../_images/logo_scipy.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://scipy.org/">SciPi</a> propose des algorithmes d’optimisation, d’intégration, d’interpolation, de recherche de valeurs propre, de résolution d’équations algébriques et différentielles, de traitement du signal, de traitement d’images…</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_pandas.png"><img alt="../_images/logo_pandas.png" class="align-left" src="../_images/logo_pandas.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> permet la manipulation et l’analyse de données structurées en tableaux à deux dimensions et de en séries temporelles. Il gère entre autres les fichiers CSV et MS Excel.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_scikit_learn.png"><img alt="../_images/logo_scikit_learn.png" class="align-left" src="../_images/logo_scikit_learn.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> propose de l’apprentissage machine avec les forêts d’arbres décisionnels, les régressions logistiques, les classements automatiques ou les machines à vecteurs de support.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_tensorflow_2.png"><img alt="../_images/logo_tensorflow_2.png" class="align-left" src="../_images/logo_tensorflow_2.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a> permet de créer et entrainer des modèles d’apprentissage machine avec en particulier avec des réseaux de neurones profonds. Il est capable d’utiliser des GPU pour accélérer les calculs et  déployer les modèles sur différentes plateformes.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_opencv.png"><img alt="../_images/logo_opencv.png" class="align-left" src="../_images/logo_opencv.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://github.com/opencv/opencv-python">OpenCV</a> propose des algorithmes pour les applications de vision comme identifier des objets, classer des actions humaines dans des vidéos, suivre des objets en mouvement, extraire des modèles 3D d’objets, suivre les mouvements oculaires…</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_graphviz_with_text.png"><img alt="../_images/logo_graphviz_with_text.png" class="align-left" src="../_images/logo_graphviz_with_text.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><a class="reference external" href="https://anaconda.org/anaconda/graphviz">Graphviz</a> permet de dessiner automatiquement des graphes orientés ou non, définis uniquement par leurs noeuds et les arcs. Le placement de noeud et le tracé des arcs sont obtenus par des algorithmes d’optimisation.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<a class="reference internal image-reference" href="../_images/logo_networkx.png"><img alt="../_images/logo_networkx.png" class="align-left" src="../_images/logo_networkx.png" style="width: 360px;" /></a>
+<p class="sd-card-text"><br /><a class="reference external" href="https://networkx.org/">NetworkX</a> permet la création, la manipulation et l’analyse des graphes et des réseaux en proposant des algorithmes de parcours de graphe, de coloration de graphe, de flux de données, génération aléatoire de graphe…</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>On peut également citer :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.sympy.org">SymPy</a> est une bibliothèque Python pour les mathématiques symboliques qui permet de faire du calcul arithmétique formel basique, de l’algèbre, des mathématiques différentielles, de la physique, de la mécanique classique ou quantique.</p></li>
+</ul>
+<!--
+
+
+### Essais 
+
+fence python
+
+```{code-block} python
+>>> int(1.337)
+1
+>>> int(+1.1337)
+1
+>>> int(-1.337)
+-1
+```
+
+fence python-repl
+
+```{code-block} python-repl
+:emphasize-lines: 2,3
+:caption: Ce code à ses lignes numérotées
+>>> int(1.337)
+1
+>>> int(+1.1337)
+1
+>>> int(-1.337)
+-1
+```
+
+fence {code-block} python
+
+```{code-block} python
+:linenos: True
+:emphasize-lines: 2,3
+:caption: Ce code à ses lignes numérotées
+import math
+print(math.pi)
+print("Hello")
+print("world.")
+```
+
+fence {code-block} python
+
+```{code-block} python-console
+>>> a = 'foo'
+>>> print(a)
+foo
+>>> 1 / 0
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ZeroDivisionError: integer division or modulo by zer
+```
+
+```{note} En bref
+- Le langage Python est un langage interpréter
+- Un interpreteur Python est l'application qui exécute le code source instruction par instruction
+```
+
+--></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="1_info_python.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Informatique</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ldd3_104_be1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">BE1 - Objet Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langage-python">Langage Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#commentaires">Commentaires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lexemes">Lexèmes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objets-python">Objets Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#types-d-objet">Types d’objet</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#muabilite-des-objets">Muabilité des objets</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identite-d-un-objet">Identité d’un objet</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-lien-etiquette-objet">Variables (lien étiquette-objet)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-simples">Instructions simples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raise-levee-d-exception"><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctions-natives">Fonctions natives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreteur-python">Interpréteur Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#role-d-un-interpreteur-python">Rôle d’un interpréteur Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-d-interpreteur-python">Exemples d’interpréteur Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctionnement-d-un-interpreteur-python">Fonctionnement d’un interpréteur Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheques">Bibliothèques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheque-standard-python">Bibliothèque standard Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheques-tierces">Bibliothèques tierces</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruno Denis
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
