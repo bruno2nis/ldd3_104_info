@@ -363,7 +363,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-simples">Instructions simples</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raise-levee-d-exception"><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a></li>
@@ -744,7 +743,7 @@ Symboles de contrôle</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2442851834944
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2104494447232
 </pre></div>
 </div>
 </div>
@@ -957,33 +956,15 @@ sémantique : un assignation augmentée peut se réécrire comme l’assignation
 </table>
 </div>
 <p>Remarque : l’instruction <code class="docutils literal notranslate"><span class="pre">del</span></code> supprime des noms, pas des objets ; lorsque plus aucun nom ne réfère à un objet Python, ce dernier devient inatteignable et il a pour vocation d’être supprimé de la mémoire par un mécanisme interne à l’interpréteur Python, le  <strong>ramasse-miette</strong> (garbage-collector en anglais).</p>
-</section>
-<section id="raise-levee-d-exception">
-<h4><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception<a class="headerlink" href="#raise-levee-d-exception" title="Link to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou&quot;</span><span class="p">)</span>
-<span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Test d&#39;exception&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou2&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>coucou
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Test d&#39;exception&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coucou2&quot;</span><span class="p">)</span>
+<!-- 
+#### `raise` levée d'exception
 
-<span class="ne">Exception</span>: Test d&#39;exception
-</pre></div>
-</div>
-</div>
-</div>
+```{code-cell} python
+print("coucou")
+raise Exception("Test d'exception")
+print("coucou2")
+```
+-->
 </section>
 </section>
 <section id="instructions-composees">
@@ -1004,7 +985,7 @@ sémantique : un assignation augmentée peut se réécrire comme l’assignation
 <li><p>Chaque entête de clause commence par un “mot-clé” spécifique et se termine par le caractère deux-points <code class="docutils literal notranslate"><span class="pre">:</span></code></p></li>
 <li><p>Une “suite” est un groupe d’instructions contrôlées par une clause</p></li>
 </ul>
-<a class="reference internal image-reference" href="../_images/BE1_instruction_composee_01.png"><img alt="../_images/BE1_instruction_composee_01.png" src="../_images/BE1_instruction_composee_01.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/BE1_instruction_composee_01.png"><img alt="../_images/BE1_instruction_composee_01.png" class="align-center" src="../_images/BE1_instruction_composee_01.png" style="width: 300px;" /></a>
 <p>Les entêtes des clauses d’une instruction composée particulière sont toutes placées au même niveau d’indentation.</p>
 <p>Les suites se composent d’une ou plusieurs instructions en retrait (niveau d’indentation supplémentaire) sur les lignes suivantes. Comme les suites ne peuvent être vides, il est utile de disposer d’une instruction bouche-trou pour conserver la cohérence syntaxique d’une instruction composée, parfois même temporairement pour faire des premiers tests d’exécution. L’instruction simple <code class="docutils literal notranslate"><span class="pre">pass</span></code> est l’opération vide ; quand elle est exécutée, rien ne se passe.</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id4">
@@ -1534,7 +1515,6 @@ ZeroDivisionError: integer division or modulo by zer
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-simples">Instructions simples</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raise-levee-d-exception"><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a></li>

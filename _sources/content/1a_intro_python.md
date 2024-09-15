@@ -500,14 +500,15 @@ Exemple du comportement de quelques instructions
 
 Remarque : l'instruction `del` supprime des noms, pas des objets ; lorsque plus aucun nom ne réfère à un objet Python, ce dernier devient inatteignable et il a pour vocation d'être supprimé de la mémoire par un mécanisme interne à l'interpréteur Python, le  **ramasse-miette** (garbage-collector en anglais). 
 
+<!-- 
 #### `raise` levée d'exception
 
 ```{code-cell} python
 print("coucou")
 raise Exception("Test d'exception")
 print("coucou2")
-
 ```
+-->
 
 ### Instructions composées
 
@@ -527,6 +528,7 @@ La figure suivante illustre la syntaxe d'une instruction composée.
 
 ```{image} img/BE1_instruction_composee_01.png
 :width: 300px
+:align: center
 ```
 
 Les entêtes des clauses d'une instruction composée particulière sont toutes placées au même niveau d'indentation.
