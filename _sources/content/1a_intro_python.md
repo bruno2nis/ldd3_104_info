@@ -282,11 +282,13 @@ Les lexèmes identifiés sont :
 ### Objets Python
 
 Avec Python toutes les données sont représentées sous forme d’objets. Un objet est une entité stockée dans la mémoire de la machine hôte, qui possède :
-- une valeur
-- un type (nommée aussi classe)
-- une identité
-- et éventuellement des attributs-données (ou simplement attributs) et des attributs-méthodes (ou simplement méthodes)
-
+- une **valeur** - On dit que les objets `a` et `b` possèdent la même valeur si l'évaluation de l'expression de comparaison `a == b` retourne `True` (ou plus exactement un objet de type booléen et de valeur égale à `True`). Python ne dispose pas de méthode canonique pour accéder à la valeur d'un objet.
+- un **type** - Chaque objet est l'instance d'une *classe* que l'on appelle aussi le type de l'objet. Un objet conserve toujours le même type au cours de son existence en mémoire, on parle de typage fort du langage Python. La fonction native `type()` retourne le type (la classe) de l'objet passé en argument. On dit que les objets `a` et `b` possèdent le même type si l'évaluation de l'expression `type(a) == type(b)` retourne `True`
+- une **identité** - Chaque objet possède une identité unique qui ne change jamais au cours de son existence en mémoire, on parle d'identifiant. La fonction native `id()` retourne l'identifiant de l'objet passé en argument. On dit que les objets `a` et `b` ont la même identité s'ils ne font qu'un, c'est-à-dire si l'évaluation de l'expression `id(a) == id(b)` retourne `True`, c'est-à-dire si l'évaluation de l'expression `a is b` retourne `True`.
+- des **attributs-données**, éventuellement aucun - Les attributs-données, parfois simplement nommés attributs, sont des données de n'importe quel type qui caractérisent l'objet. Elle sont dites encapsulées dans l'objet. Pour désigner un attribut nommé `nom_attr` de l'objet `obj` il y a deux possibilités : 
+  - la notation "pointée" `obj.nom_attr`
+  - la fonction native `getattr(obj, nom_attr)` 
+- des **attributs-méthodes**, éventuellement aucun - Les attribut-méthodes, parfois simplement nommées méthodes, sont utiles pour définir des comportements spécifiques à l'objet, permettant ainsi une grande flexibilité et encapsulation des données. Ce sont des fonctions encapsulées qui s'appliquent à l'objet qui la possède. Pour appeler la méthode `meth()` de l'objet `obj`, il est également possible d'utiliser la notation pointée : `obj.meth()` avec éventuellement des arguments à transmettre entre les paranthèses.
 La figure suivante illustre graphiquement la notion d’objet Python. À droite, une version détaillée qui montre tout ce qui est encapsulé dans l’objet (sa valeur, son type, son identité, ses attributs-données et ses attributs-méthodes) et à gauche une représentation compacte avec juste son type et sa valeur.
 
 ```{figure} img/objet_01.png
@@ -384,6 +386,146 @@ Conventions de nommage des variables ([PEP8](https://peps.python.org/pep-0008/#f
 - [snake case](https://fr.wikipedia.org/wiki/Snake_case) : les noms de variables doivent être en minuscules avec les mots séparés par des tirets bas `_`, exemple `nom_de_variable`
 - N'utilisez jamais les caractères `l` (lettre L minuscule) ou `I` (lettre i majuscule) comme noms de variables à caractère unique, car ils se confondent trop facilement selon la police de caractères utilisée. Idem pour le caractère `O` (lettre o majuscule) qui peut se confondre avec le chiffre 0.
 
+#### Conteneurs
+
+On appelle **conteneur** un objet Python ayant vocation à en contenir d’autres objets que l'on appelle ses **éléments**. Des exemples de conteneurs sont les chaines de caractères les listes, les ensembles ou les dictionnaires. On dit que `x` est conteneur s’il supporte l'opérateur d'appartenance `in`
+
+- `x in c` renvoie `True` si l'objet `x` est contenu dans le conteneur `c`, sinon `False`
+- `x not in c` renvoie `True` si l'objet `x` n'est pas dans le conteneur `c`, sinon `True`. Équivalent à `not (x in c)`
+
+``` python
+"o" in "Bonjour"  # renvoi True car le caractère "o" est dans la chaine
+"A" in "Bonjour"  # renvoi False car le caractère "A" n'est pas dans la chaine
+```
+
+On appelle **longueur** d'un abject de type conteneur le nombre d'éléments qu'il contient. Les conteneurs possèdent la méthode spéciale `__len__()` qui donne leur longueur. Exemples
+
+``` python
+"Robotique".__len__()  # donne 9, le nombre de caractères de la chaine "Robotique"
+"".__len__()  # donne 0, le nombre de caractères de la chaine vide ""
+```
+
+Python propose également une fonction native pour obtenir le nombre d'éléments d'un objet.
+- `len(s)` renvoie la longueur (nombre d'éléments) de l'objet `s`. Dans la pratique, `len(s)` renvoie `s.__len__()`.
+
+``` python
+len("Robotique")  # donne 9, le nombre de caractères de la chaine
+```
+
+#### Séquences
+
+On appelle **séquence**, un objet conteneur qui contient des éléments ordonnés. Voici quelques séquences natives : `str` (les chaines de caractères vues précédemment), `list` (les listes), `tuple` (les n-uplets), `range` (les intervalles) ou `bytes` (les séquences d'octets). 
+
+Les séquences sont **itérables**, il existe un protocole pour parcourir leurs éléments un à un (plus de détails à venir dans la section "8.5 Itérables et itérateurs").
+
+Les séquences sont **Indiçable**, il existe un protocole pour atteindre un élément par un nombre entier, un indice.
+
+#### Indiçage (indexing)
+
+On appelle l'**indice** (*index* en anglais) d'un élément de séquences, un entier qui caractérise la position de l'élément dans la séquence. Python indice les éléments d'une séquence de deux manières complémentaires :
+- l'indice `0` est attribué au premier élément et les éléments suivants sont indicés de manière croissante de 1 en 1,
+- l'indice `-1` est attribué au dernier élément et les éléments précédents sont indicés de manière décroissante de -1 en -1.
+
+Les indices positifs et négatifs sont illustrés sur le diagramme ci-dessous sur l'exemple de la chaine de caractères `"Robobique"`.
+
+``` none
+|  R |  o |  b |  o |  t |  i |  q |  u |  e | Chaine de caractères (séquence)
+|----|----|----|----|----|----|----|----|----|
+|  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 | indices positifs
+| -9 | -8 | -7 | -6 | -5 | -4 | -3 | -2 | -1 | indices négatifs
+```
+
+On notera qu'un élément de la séquence est désigné par deux indices distincts, un entier positif et un entier négatif. En revanche, un indice réfère à un et un seul élément, s'il existe. Cela permet de référer à un élément par sa position relative au début de la séquence ou par sa position relative à la fin de la séquence selon les besoins.
+
+On appelle **indiçage** (*indexing* en anglais) l'opération qui désigne un élément dans une séquence à l'aide d'un indice. Python offre un accès efficace aux éléments d'une séquence par les méthodes spéciales `__getitem__()`, `__setitem__()` ou `__delitem__()` selon les besoins. Exemple pour obtenir à un élément :
+
+``` python
+"Robotique".__getitem__(2)  # donne 'b', l'élément d'indice 2 de "Robotique"
+"Robotique".__getitem__(-5)  # donne 't', l'élément d'indice -5 de "Robotique"
+```
+
+Python propose un [sucre syntaxique](https://fr.wikipedia.org/wiki/Sucre_syntaxique) pour l'indiçage, une possibilité d'écriture plus succincte et plus intuitive, en accolant à une instance de séquence l'indice entre crochets. La syntaxe est `objet_de_type_sequence[indice]`. Exemples :
+
+``` python
+"Robotique"[2]  # donne 'b', équivalent à "Robotique".__getitem__(2)
+"Robotique"[-5]  # donne 't', équivalent à "Robotique".__getitem__(-5)
+s = "Robotique"
+s[5]  # donne 'i', équivalent à s.__getitem__(5)
+```
+
+#### Tranchage (slicing)
+
+On appelle **tranche** (*slice* en anglais) une séquence d'indices d'éléments d'une séquence. Python propose le type d'objet `slice` pour représenter les tranches en compréhension, c'est-à-dire sans lister un à un les indices . On peut créer une tranche à l'aide du constructeur d'instances `slice()` des manières suivantes :
+
+- `slice(stop)` renvoie un objet tranche désignant les éléments d'une séquence allant du 1er inclus (indice 0) jusqu'à l'élément d'indice `stop` exclu. Si `stop` est `None` la tranche va jusqu'au dernier élément inclus. 
+- `slice(start, stop)` renvoie un objet tranche désignant les éléments d'une séquence allant de l'élément d'indice `start` inclus, jusqu'à l'élément d'indice `stop` exclu. Si `start` est `None` la tranche commence à l'indice 0, si `stop` est `None` tranche va jusqu'au dernier élément inclus.
+- `slice(start, stop, step)` renvoie un objet tranche désignant les éléments d'une séquence allant de l'élément d'indice `start` inclus, jusqu'à l'élément d'indice `stop` exclu en progressant par pas de `step` éléments. Si `step` est négatif, la progression se fait en sens inverse.
+  - si `step` est positif : si `start` est `None` la tranche commence au premier élément, si `stop` est `None` la tranche va jusqu'au dernier élément inclus.
+  - si `step` est négatif : si `start` est `None` la tranche commence au dernier élément, si `stop` est `None` la tranche va jusqu'au premier élément inclus.
+  - si `step` est `None`, la tranche progresse d’un élément en un élément.
+
+Exemples :
+
+``` python
+slice(7)  # tranche de 0 à 7 exclu (0, 1, 2, 4, 5, 6)
+slice(3, 7)  # tranche de 3 à 7 exclu (3, 4, 5, 6)
+slice(3, 7, 2)  # tranche de 3 à 7 exclu par pas de 2 (3, 5)
+slice(7, 3, -1)  # tranche de 7 à 3 exclu par pas de -1 (7, 6, 5, 4)
+slice(7, 3, -2)  # tranche de 7 à 3 exclu par pas de -2 (7, 5)
+slice(None)  # tranche désignant tous les éléments
+slice(None, 7)  # tranche de 0 à 7 exclu (0, 1, 2, 3, 4, 5)
+slice(7, None)  # tranche allant de 7 jusqu'au dernier inclus
+slice(None, None, 2)  # tranche allant du premier au dernier inclus, de 2 en 2
+slice(None, None, -1)  # tranche allant du dernier au premier inclus
+```
+
+Les indices `start` et `stop` peuvent être négatifs, l'un, l'autre ou les deux. Dans ce cas ils désignent les éléments d'une séquence par rapport au dernier élément.
+
+On appelle **tranchage** (*slicing* en anglais) l'opération qui désigne, à l'aide d'une tranche, des éléments dans une séquence. Comme pour l'indiçage, les méthodes spéciales `__getitem__()`, `__setitem__()` ou `__delitem__()` effectuent le tranchage d'une séquence selon les besoins. Exemple :
+
+``` python
+"Robotique".__getitem__(slice(7))  # donne 'Robotiq'
+"Robotique".__getitem__(slice(3, 7))  # donne 'otiq'
+"Robotique".__getitem__(slice(3, 7, 2))  # donne 'oi'
+"Robotique".__getitem__(slice(7, 3, -1))  # donne 'uqit'
+"Robotique".__getitem__(slice(7, 3, -2))  # donne 'ui'
+```
+
+La syntaxe simplifiée avec les crochets `[]` est aussi utilisable avec les tranches. Exemple
+
+``` python
+"Robotique"[slice(7)]  # donne 'Robotiq'
+"Robotique"[slice(3, 7)]  # donne 'otiq'
+"Robotique"[slice(3, 7, 2)]  # donne 'oi'
+```
+
+Python propose un [sucre syntaxique](https://fr.wikipedia.org/wiki/Sucre_syntaxique) supplémentaire pour le tranchage avec la syntaxe de crochets `[]`, en remplaçant `[slice(start, stop, step)]` par `[start:stop:step]`.
+
+| Exemple de tranches        | Sucre syntaxique équivalent, uniquement entre `[]` | Commentaire |
+|----------------------------|---------------------|---------------------------|
+| `slice(stop)`              | `:stop` ou `0:stop` | les `stop` premiers       |
+| `slice(start, stop)`       | `start:stop`        | de `start` à `stop` exclu |
+| `slice(start, stop, step)` | `start:stop:step`   | de `start` à `stop` exclu, de `step` en `step` |
+| `slice(start, None)`       | `start:`            | de `start` jusqu'au dernier inclus |
+| `slice(None, stop, step)`  | `:stop:step`        | si `step` > 0, du premier jusqu'à `stop` exclu, de `step` en `step` <br/>si `step` < 0, du dernier jusqu'à `stop` exclu, de `step` en `step` |
+| `slice(start, None, step)` | `start::step`       | si `step` > 0, de `start` jusqu'au dernier inclus, de `step` en `step`<br/>si `step` < 0, de `start` jusqu'au premier inclus, de `step` en `step` |
+| `slice(None, None, step)`  | `::step`            | si `step` > 0, du premier jusqu'au dernier, de `step` en `step` <br/>si `step` < 0, du dernier jusqu'au premier, de `step` en `step` |
+
+Exemples de tranchage avec l'utilisation des deux sucres syntaxiques
+
+``` python
+"Robotique"[:7]  # donne 'Robotiq', équivalent à "Robotique"[slice(7)] ou à
+                 # "Robotique".__getitem__(slice(7))
+                 
+"Robotique"[3:7]  # donne 'otiq', équivalent à "Robotique"[slice(3, 7)] ou à
+                  # "Robotique".__getitem__(slice(3, 7))
+                  
+"Robotique"[3:7:2]  # donne 'oi', équivalent à "Robotique"[slice(3, 7, 2)]
+                    # ou à "Robotique".__getitem__(slice(3, 7, 2))
+s = "Robotique"
+s[::-1]  # donne 'euqitoboR', équivalent à s.__getitem__(slice(None, None, -1))
+```
+
 ### Instructions simples
 
 Les instructions sont les unités de base qui composent un code Python. Les instructions simples effectuent une action spécifique comme la création d'un objet Python, la gestion des noms dans l'espace de non, la levée d'exception ou le contrôle du flux d'instruction. 
@@ -397,8 +539,8 @@ Les instructions sont les unités de base qui composent un code Python. Les inst
 * - Création d'objets
   - - expressions
       - opérations arithmétiques (`+`, `-`, `*`, `/`, `**`, `//`, `%`, `@`)
+      - opérations sur les bits (opérateur `&`, `|`, `^`, `<<`, `>>`)
       - opérations booléennes (opérateurs `and`, `or`, `not`)
-      - opérations bit à bit (opérateur `&`, `|`, `^`, `<<`, `>>`)
       - comparaisons de valeur (opérateurs `<`, `>`, `==`, `>=`, `<=`, `!=`)
       - comparaisons d'identifiants (opérateurs `is`, `is not`)
       - tests d'appartenance (opérateurs `in`, `not in`)
@@ -422,6 +564,84 @@ Les instructions sont les unités de base qui composent un code Python. Les inst
   - - `import` importe des objets, des noms d'un autre code source
     - `pass` Opération vide
 ```
+
+#### Expressions
+
+##### Expressions arithmétiques
+
+| Opération | Résultat | 
+|-----------|--------- |
+| `x + y`   | somme de x et y |
+| `x - y`   | différence de x et y | 
+| `x * y`   | produit de x et y | 
+| `x / y`   | quotient de x par y, résultat de la division | 
+| `x ** y`  | x à la puissance y | 
+| `-x`      | négatif de x |
+| `+x`      | x inchangé | 
+| `x // y`  | quotient entier de x par y | 
+| `x % y`   | reste de la division de x par y | 
+
+
+##### Expressions sur les bits
+
+Les opérateurs sur le bits sont souvent utilisés pour manipuler des registres de microcontrôleur, en particulier en informatique embarquée, par exemple dans les projets LDD3 108-208.
+
+| Opération | Résultat |
+|-----------|--------- |
+| `x \| y`  | "ou" bit à bit de x et y  | 
+| `x ^ y`   | "ou exclusif" bit à bit de x et y  | 
+| `x & y`   | "et" bit à bit de x et y  | 
+| `x << y`  | x décalé vers la gauche de n bits,<br/>équivalent à la multiplication par `pow(2, n)` | 
+| `x >> y`  | x décalé vers la droite de n bits,<br/>équivalent à la division par `pow(2, n)` | 
+| `~x`      | les bits de x inversés | 
+
+##### Opérations booléennes
+
+Pour construire des expressions booléennes, Python propose trois opérateurs booléens `and` (conjonction), `or` (disjonction) et`not` (négation). Lorsqu'ils opèrent sur des booléens, la sémantique de ces trois opérateurs est présentée dans la table de vérité ci-dessous ; elle est conforme aux usages.
+
+| Résultat de<br/>`exp1` | Résultat de<br/>`exp2` | Résultat de<br/>`exp1 and exp2` | Résultat de<br/>`exp1 or exp2` | Résultat de<br/>`not exp1` |
+|---------|---------|---------|---------|---------|
+| `True`  | `True`  | `True`  | `True`  | `False` |
+| `True`  | `False` | `False` | `True`  | `False` |
+| `False` | `True`  | `False` | `True`  | `True`  |
+| `False` | `False` | `False` | `False` | `True`  |
+
+##### Comparaisons de valeurs numériques
+
+Python propose six opérateurs pour comparer la valeur de deux objets `<`, `>`, `==`, `>=`, `<=` et `!=` qui permet de construire des expressions de comparaison. Les objets n'ont pas besoin d'être du même type.
+
+| Opération | Résultat |
+|-----------|--------- |
+| `x == y` |test d'égalité, renvoie `True` si la valeur de `x` est égale à la valeur de `y`, sinon `False`|
+| `x != y` |test d'inégalité, renvoie `True` si la valeur de `x` est différente de la valeur de `y`, sinon `False`|
+| `x > y` |test de supériorité stricte, renvoie `True` si la valeur de `x` est strictement supérieure de la valeur de `y`, sinon `False`|
+| `x >= y`| test de supériorité, renvoie `True` si la valeur de `x` est supérieure ou égale de la valeur de `y`, sinon `False`|
+| `x < y` |test d'infériorité stricte, renvoie `True` si la valeur de `x` est strictement inférieure de la valeur de `y`, sinon `False`|
+| `x <= y` |test d'infériorité, renvoie `True` si la valeur de `x` est inférieure ou égale de la valeur de `y`, sinon `False`|
+
+##### Priorité des opérateurs
+
+La liste suivante résume les priorités de ces opérateurs, du plus prioritaire (portée la plus courte) au moins prioritaire (portée la plus grande) :
+
+- `(expression...)`,
+- opérateurs arithmétiques
+    - `**` (puissance), 
+    - `-x` `+x` `~` (négatif, positif, inversion bit à bit), 
+    - `*` `/` `//` `%` (multiplication, division, division entière, reste), 
+    - `+` `-` (addition, soustraction), 
+    - `<<` `>>` (décalages), 
+    - `&` ("et" bit à bit), 
+    - `^` ("ou exclusif" bit à bit), 
+    - `|` ("ou" bit à bit)
+- opérateurs de comparaison de valeur
+    - `<`, `>`, `==`, `>=`, `<=` et `!=` (même priorité)
+- oéprateurs de comparaison de valeur
+    -`<`, `>`, `==`, `>=`, `<=` et `!=` (même priorité)
+- opérateurs booléens
+    - `not`
+    - `and`
+    - `or`
+
 
 #### `=` instruction d'assignation 
 
@@ -500,15 +720,63 @@ Exemple du comportement de quelques instructions
 
 Remarque : l'instruction `del` supprime des noms, pas des objets ; lorsque plus aucun nom ne réfère à un objet Python, ce dernier devient inatteignable et il a pour vocation d'être supprimé de la mémoire par un mécanisme interne à l'interpréteur Python, le  **ramasse-miette** (garbage-collector en anglais). 
 
-<!-- 
+
 #### `raise` levée d'exception
 
+syntaxe 1 : `raise`<br />
+semantique : `raise` propage l'exception en cours de traitement, aussi dénommée exception active. Si aucune exception n'est active, une exception `RuntimeError` est levée, indiquant que c'est une erreur.
+
 ```{code-cell} python
-print("coucou")
-raise Exception("Test d'exception")
-print("coucou2")
+raise
 ```
--->
+syntaxe 2 : `raise <expression>`<br />
+semantique : `raise`  évalue 'la première l'expression `<expression>` en tant qu'objet exception. Ce doit être une sous-classe ou une instance de `BaseException`. Si c'est une classe, l'instance de l'exception est obtenue en instanciant la classe sans argument (au moment voulu). Le type de l'exception est la classe de l'instance de l'exception, la value est l'instance elle-même.
+
+```{code-cell} python
+raise Exception("Mon exception")
+```
+
+#### `assert` test de débogage
+
+Les instructions assert sont une manière pratique d'insérer des tests de débogage au sein d'un code source
+
+syntaxe 1 : `assert <expression_de_test>`<br />
+semantique : ne faire rien si `<expression_de_test>` vaut `True`, sinon lève l'exception `AssertionError`.
+
+syntaxe 2 : `assert <expression_de_test>, <chaine_de_caracteres>`<br />
+semantique : ne faire rien si `<expression_de_test>` vaut `True`, sinon lève l'exception `AssertionError` avec le message <chaine_de_caracteres>
+
+Exemples
+
+```{code-cell} python
+a = 1
+assert a == 1, "valeur incorrecte pour a"
+```
+
+```{code-cell} python
+a = 3
+assert a == 1, "valeur incorrecte pour a"
+```
+
+#### `pass` opération vide
+
+Quand `pass` est exécutée, rien ne se passe. Elle est utile comme bouche-trou lorsqu'une instruction est syntaxiquement requise mais qu'aucun code ne doit être exécuté. Par exemple :
+
+``` python
+if a < 0:
+    pass  # TODO: prévoir un traitement pour gérer les valeurs négatives
+```
+
+#### `import` importation de modules
+
+syntaxe1 : `import <nom_module>`<br />
+sémantique : trouve un module `module`, le charge et l'initialise si nécessaire puis définit le noms `<nom_module>` dans l'espace des noms locaux de la portée où l'instruction `import` apparaît.
+
+``` python
+import math
+
+math.pi  # accès à un objet dans le module math avec la notation pointée
+```
 
 ### Instructions composées
 
@@ -541,7 +809,7 @@ Les suites se composent d'une ou plusieurs instructions en retrait (niveau d'ind
 * - Catégorie
   - Instruction composée
 * - Contrôle de flux d’instructions
-  - - `if` exécution comparaison
+  - - `if` exécution après comparaison
     - `while` répétition conditionnelle
     - `for` itération
     - `match` filtrage par motif
@@ -552,6 +820,93 @@ Les suites se composent d'une ou plusieurs instructions en retrait (niveau d'ind
 * - Gestion d'environnement
   - - `with` gestionnaire de contextes
     - `try` gestionnaire d'exception
+```
+
+#### `if` exécution conditionnelle
+
+L'instruction `if` est utilisée pour exécuter des instructions en fonction d'une condition
+
+Syntaxe : l'instruction composée `if` est contituée de :
+- 1 clause "if" : `if <expression_de_test>: <suite>`
+- 0 à n clauses "elif" : `elif <expression_de_test>: <suite>`
+- 0 à une clause "else" : `else: <suite>`
+
+Sémantique : L'instruction composée `if` sélectionne exactement une des suites en évaluant les expressions `<expression_de_test>` une par une jusqu'à ce qu'une soit vraie. Ensuite cette `<suite>` est exécutée (et aucune autre partie de l'instruction if n'est exécutée ou évaluée) Si toutes les expressions `<expression_de_test>` sont fausses, la suite de la clause "else", si elle existe, est exécutée. 
+
+Exemple :
+
+```{code-cell} python
+x = 12
+# ═════ début d'une instruction composée ═══╗
+#┌──────── début d'une clause  ───────────┐ ║
+if x < 0:             # <-- entête        │ ║
+    print("négatif")  # <- suite indentée │ ║
+#└────────────────────────────────────────┘ ║
+#┌──────── début d'une clause  ───────────┐ ║
+elif x == 0:          # <-- entête        │ ║
+    print("nul")      # <- suite indentée │ ║
+#└────────────────────────────────────────┘ ║
+#┌──────── début d'une clause  ───────────┐ ║
+else:                 # <-- entête        │ ║
+    print("positif")  # <- suite indentée │ ║
+#└────────────────────────────────────────┘ ║
+# ══════════════════════════════════════════╝  
+```
+
+#### `for` itérations
+
+L'instruction composée `for` est utilisée pour itérer sur les éléments d'une séquence (par exemple une chaine, un n-uplet ou une liste) ou un autre objet itérable
+
+Syntaxe : l'instruction composée `for` est constituée de :
+- 1 clause "for" : `for <nom_cible> in <expression>: <suite>`
+- 0 à une clause "else" : `else: <suite>`
+
+Sémantique : L'expression `<expression>` n'est évaluée qu'une seule fois ; elle doit produire un objet itérable. Un itérateur est créé pour cet itérable. Le premier élément produit par l'itérateur est assigné au nom à la liste cible `<nom_cible>`, puis la `<suite>` est exécutée. Lorsque les éléments de l'itérateur sont épuisés, la `<suite>` de la clause "else", si elle existe, est exécutée et la boucle se termine.
+- Une instruction `break` exécutée dans la première suite termine la boucle sans exécuter la suite de la clause "else". 
+- Une instruction `continue` exécutée dans la première suite saute le reste de la suite et continue avec l'élément suivant, ou avec la clause "else" s'il n'y a pas d'élément suivant.
+
+Exemple :
+
+```{code-cell} python
+# ═════ début d'une instruction composée ═══╗
+#┌──────── début d'une clause  ───────────┐ ║
+for i in range(4):    # <-- entête        │ ║
+    print(f"{i = }")  # <- suite indentée │ ║
+#└────────────────────────────────────────┘ ║
+#┌──────── début d'une clause  ───────────┐ ║
+else:                 # <-- entête        │ ║
+    print("fin !")    # <- suite indentée │ ║
+#└────────────────────────────────────────┘ ║
+# ══════════════════════════════════════════╝  
+```
+
+#### `while` répétition conditionnelle
+
+L'instruction composée `while` est utilisée pour exécuter des instructions de manière répétée tant qu'une expression est vraie :
+
+Syntaxe : l'instruction composée `while` est constituée de :
+- 1 clause "while" : `for <expression_de_test>: <suite>`
+- 0 à une clause "else" : `else: <suite>`
+
+Sémantique : L'expression `<expression_de_test>` est évaluée manière répétée et, tant qu'elle est vraie, exécute la première suite ; si l'expression est fausse (ce qui peut arriver même lors du premier test), la suite de la clause "else", si elle existe, est exécutée et la boucle se termine.
+- Une instruction `break` exécutée dans la première suite termine la boucle sans exécuter la suite de la clause "else". 
+- Une instruction `continue` exécutée dans la première suite saute le reste de la suite et retourne au test de l'expression `<expression_de_test>`
+
+Exemple :
+
+```{code-cell} python
+i = 4
+# ═════ début d'une instruction composée ═══╗
+#┌──────── début d'une clause  ───────────┐ ║
+while i > 0:          # <-- entête        │ ║
+    print(f"{i = }")  # ├─ suite indentée │ ║
+    i = i -1          # │                 │ ║
+#└────────────────────────────────────────┘ ║
+#┌──────── début d'une clause  ───────────┐ ║
+else:                 # <-- entête        │ ║
+    print("fin !")    # <- suite indentée │ ║
+#└────────────────────────────────────────┘ ║
+# ══════════════════════════════════════════╝  
 ```
 
 ### Fonctions natives
