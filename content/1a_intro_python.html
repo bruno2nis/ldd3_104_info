@@ -358,14 +358,35 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#muabilite-des-objets">Muabilité des objets</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identite-d-un-objet">Identité d’un objet</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-lien-etiquette-objet">Variables (lien étiquette-objet)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conteneurs">Conteneurs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequences">Séquences</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indicage-indexing">Indiçage (indexing)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tranchage-slicing">Tranchage (slicing)</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-simples">Instructions simples</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-arithmetiques">Expressions arithmétiques</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-sur-les-bits">Expressions sur les bits</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-booleennes">Opérations booléennes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaisons-de-valeurs-numeriques">Comparaisons de valeurs numériques</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#priorite-des-operateurs">Priorité des opérateurs</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raise-levee-d-exception"><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-test-de-debogage"><code class="docutils literal notranslate"><span class="pre">assert</span></code> test de débogage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-operation-vide"><code class="docutils literal notranslate"><span class="pre">pass</span></code> opération vide</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-importation-de-modules"><code class="docutils literal notranslate"><span class="pre">import</span></code> importation de modules</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-execution-conditionnelle"><code class="docutils literal notranslate"><span class="pre">if</span></code> exécution conditionnelle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-iterations"><code class="docutils literal notranslate"><span class="pre">for</span></code> itérations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#while-repetition-conditionnelle"><code class="docutils literal notranslate"><span class="pre">while</span></code> répétition conditionnelle</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctions-natives">Fonctions natives</a></li>
 </ul>
 </li>
@@ -658,12 +679,18 @@ Symboles de contrôle</div>
 <h3>Objets Python<a class="headerlink" href="#objets-python" title="Link to this heading">#</a></h3>
 <p>Avec Python toutes les données sont représentées sous forme d’objets. Un objet est une entité stockée dans la mémoire de la machine hôte, qui possède :</p>
 <ul class="simple">
-<li><p>une valeur</p></li>
-<li><p>un type (nommée aussi classe)</p></li>
-<li><p>une identité</p></li>
-<li><p>et éventuellement des attributs-données (ou simplement attributs) et des attributs-méthodes (ou simplement méthodes)</p></li>
+<li><p>une <strong>valeur</strong> - On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> possèdent la même valeur si l’évaluation de l’expression de comparaison <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code> (ou plus exactement un objet de type booléen et de valeur égale à <code class="docutils literal notranslate"><span class="pre">True</span></code>). Python ne dispose pas de méthode canonique pour accéder à la valeur d’un objet.</p></li>
+<li><p>un <strong>type</strong> - Chaque objet est l’instance d’une <em>classe</em> que l’on appelle aussi le type de l’objet. Un objet conserve toujours le même type au cours de son existence en mémoire, on parle de typage fort du langage Python. La fonction native <code class="docutils literal notranslate"><span class="pre">type()</span></code> retourne le type (la classe) de l’objet passé en argument. On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> possèdent le même type si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">type(a)</span> <span class="pre">==</span> <span class="pre">type(b)</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p>une <strong>identité</strong> - Chaque objet possède une identité unique qui ne change jamais au cours de son existence en mémoire, on parle d’identifiant. La fonction native <code class="docutils literal notranslate"><span class="pre">id()</span></code> retourne l’identifiant de l’objet passé en argument. On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> ont la même identité s’ils ne font qu’un, c’est-à-dire si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">id(a)</span> <span class="pre">==</span> <span class="pre">id(b)</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code>, c’est-à-dire si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">is</span> <span class="pre">b</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p>des <strong>attributs-données</strong>, éventuellement aucun - Les attributs-données, parfois simplement nommés attributs, sont des données de n’importe quel type qui caractérisent l’objet. Elle sont dites encapsulées dans l’objet. Pour désigner un attribut nommé <code class="docutils literal notranslate"><span class="pre">nom_attr</span></code> de l’objet <code class="docutils literal notranslate"><span class="pre">obj</span></code> il y a deux possibilités :</p>
+<ul>
+<li><p>la notation “pointée” <code class="docutils literal notranslate"><span class="pre">obj.nom_attr</span></code></p></li>
+<li><p>la fonction native <code class="docutils literal notranslate"><span class="pre">getattr(obj,</span> <span class="pre">nom_attr)</span></code></p></li>
 </ul>
-<p>La figure suivante illustre graphiquement la notion d’objet Python. À droite, une version détaillée qui montre tout ce qui est encapsulé dans l’objet (sa valeur, son type, son identité, ses attributs-données et ses attributs-méthodes) et à gauche une représentation compacte avec juste son type et sa valeur.</p>
+</li>
+<li><p>des <strong>attributs-méthodes</strong>, éventuellement aucun - Les attribut-méthodes, parfois simplement nommées méthodes, sont utiles pour définir des comportements spécifiques à l’objet, permettant ainsi une grande flexibilité et encapsulation des données. Ce sont des fonctions encapsulées qui s’appliquent à l’objet qui la possède. Pour appeler la méthode <code class="docutils literal notranslate"><span class="pre">meth()</span></code> de l’objet <code class="docutils literal notranslate"><span class="pre">obj</span></code>, il est également possible d’utiliser la notation pointée : <code class="docutils literal notranslate"><span class="pre">obj.meth()</span></code> avec éventuellement des arguments à transmettre entre les paranthèses.
+La figure suivante illustre graphiquement la notion d’objet Python. À droite, une version détaillée qui montre tout ce qui est encapsulé dans l’objet (sa valeur, son type, son identité, ses attributs-données et ses attributs-méthodes) et à gauche une représentation compacte avec juste son type et sa valeur.</p></li>
+</ul>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/objet_01.png"><img alt="../_images/objet_01.png" src="../_images/objet_01.png" style="width: 300px;" /></a>
 <figcaption>
@@ -743,7 +770,7 @@ Symboles de contrôle</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2104494447232
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2335512649664
 </pre></div>
 </div>
 </div>
@@ -776,6 +803,160 @@ Symboles de contrôle</div>
 <li><p>N’utilisez jamais les caractères <code class="docutils literal notranslate"><span class="pre">l</span></code> (lettre L minuscule) ou <code class="docutils literal notranslate"><span class="pre">I</span></code> (lettre i majuscule) comme noms de variables à caractère unique, car ils se confondent trop facilement selon la police de caractères utilisée. Idem pour le caractère <code class="docutils literal notranslate"><span class="pre">O</span></code> (lettre o majuscule) qui peut se confondre avec le chiffre 0.</p></li>
 </ul>
 </section>
+<section id="conteneurs">
+<h4>Conteneurs<a class="headerlink" href="#conteneurs" title="Link to this heading">#</a></h4>
+<p>On appelle <strong>conteneur</strong> un objet Python ayant vocation à en contenir d’autres objets que l’on appelle ses <strong>éléments</strong>. Des exemples de conteneurs sont les chaines de caractères les listes, les ensembles ou les dictionnaires. On dit que <code class="docutils literal notranslate"><span class="pre">x</span></code> est conteneur s’il supporte l’opérateur d’appartenance <code class="docutils literal notranslate"><span class="pre">in</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">in</span> <span class="pre">c</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’objet <code class="docutils literal notranslate"><span class="pre">x</span></code> est contenu dans le conteneur <code class="docutils literal notranslate"><span class="pre">c</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">c</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’objet <code class="docutils literal notranslate"><span class="pre">x</span></code> n’est pas dans le conteneur <code class="docutils literal notranslate"><span class="pre">c</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">True</span></code>. Équivalent à <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">(x</span> <span class="pre">in</span> <span class="pre">c)</span></code></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;o&quot;</span> <span class="ow">in</span> <span class="s2">&quot;Bonjour&quot;</span>  <span class="c1"># renvoi True car le caractère &quot;o&quot; est dans la chaine</span>
+<span class="s2">&quot;A&quot;</span> <span class="ow">in</span> <span class="s2">&quot;Bonjour&quot;</span>  <span class="c1"># renvoi False car le caractère &quot;A&quot; n&#39;est pas dans la chaine</span>
+</pre></div>
+</div>
+<p>On appelle <strong>longueur</strong> d’un abject de type conteneur le nombre d’éléments qu’il contient. Les conteneurs possèdent la méthode spéciale <code class="docutils literal notranslate"><span class="pre">__len__()</span></code> qui donne leur longueur. Exemples</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>  <span class="c1"># donne 9, le nombre de caractères de la chaine &quot;Robotique&quot;</span>
+<span class="s2">&quot;&quot;</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>  <span class="c1"># donne 0, le nombre de caractères de la chaine vide &quot;&quot;</span>
+</pre></div>
+</div>
+<p>Python propose également une fonction native pour obtenir le nombre d’éléments d’un objet.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len(s)</span></code> renvoie la longueur (nombre d’éléments) de l’objet <code class="docutils literal notranslate"><span class="pre">s</span></code>. Dans la pratique, <code class="docutils literal notranslate"><span class="pre">len(s)</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">s.__len__()</span></code>.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Robotique&quot;</span><span class="p">)</span>  <span class="c1"># donne 9, le nombre de caractères de la chaine</span>
+</pre></div>
+</div>
+</section>
+<section id="sequences">
+<h4>Séquences<a class="headerlink" href="#sequences" title="Link to this heading">#</a></h4>
+<p>On appelle <strong>séquence</strong>, un objet conteneur qui contient des éléments ordonnés. Voici quelques séquences natives : <code class="docutils literal notranslate"><span class="pre">str</span></code> (les chaines de caractères vues précédemment), <code class="docutils literal notranslate"><span class="pre">list</span></code> (les listes), <code class="docutils literal notranslate"><span class="pre">tuple</span></code> (les n-uplets), <code class="docutils literal notranslate"><span class="pre">range</span></code> (les intervalles) ou <code class="docutils literal notranslate"><span class="pre">bytes</span></code> (les séquences d’octets).</p>
+<p>Les séquences sont <strong>itérables</strong>, il existe un protocole pour parcourir leurs éléments un à un (plus de détails à venir dans la section “8.5 Itérables et itérateurs”).</p>
+<p>Les séquences sont <strong>Indiçable</strong>, il existe un protocole pour atteindre un élément par un nombre entier, un indice.</p>
+</section>
+<section id="indicage-indexing">
+<h4>Indiçage (indexing)<a class="headerlink" href="#indicage-indexing" title="Link to this heading">#</a></h4>
+<p>On appelle l’<strong>indice</strong> (<em>index</em> en anglais) d’un élément de séquences, un entier qui caractérise la position de l’élément dans la séquence. Python indice les éléments d’une séquence de deux manières complémentaires :</p>
+<ul class="simple">
+<li><p>l’indice <code class="docutils literal notranslate"><span class="pre">0</span></code> est attribué au premier élément et les éléments suivants sont indicés de manière croissante de 1 en 1,</p></li>
+<li><p>l’indice <code class="docutils literal notranslate"><span class="pre">-1</span></code> est attribué au dernier élément et les éléments précédents sont indicés de manière décroissante de -1 en -1.</p></li>
+</ul>
+<p>Les indices positifs et négatifs sont illustrés sur le diagramme ci-dessous sur l’exemple de la chaine de caractères <code class="docutils literal notranslate"><span class="pre">&quot;Robobique&quot;</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>|  R |  o |  b |  o |  t |  i |  q |  u |  e | Chaine de caractères (séquence)
+|----|----|----|----|----|----|----|----|----|
+|  0 |  1 |  2 |  3 |  4 |  5 |  6 |  7 |  8 | indices positifs
+| -9 | -8 | -7 | -6 | -5 | -4 | -3 | -2 | -1 | indices négatifs
+</pre></div>
+</div>
+<p>On notera qu’un élément de la séquence est désigné par deux indices distincts, un entier positif et un entier négatif. En revanche, un indice réfère à un et un seul élément, s’il existe. Cela permet de référer à un élément par sa position relative au début de la séquence ou par sa position relative à la fin de la séquence selon les besoins.</p>
+<p>On appelle <strong>indiçage</strong> (<em>indexing</em> en anglais) l’opération qui désigne un élément dans une séquence à l’aide d’un indice. Python offre un accès efficace aux éléments d’une séquence par les méthodes spéciales <code class="docutils literal notranslate"><span class="pre">__getitem__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__setitem__()</span></code> ou <code class="docutils literal notranslate"><span class="pre">__delitem__()</span></code> selon les besoins. Exemple pour obtenir à un élément :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># donne &#39;b&#39;, l&#39;élément d&#39;indice 2 de &quot;Robotique&quot;</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># donne &#39;t&#39;, l&#39;élément d&#39;indice -5 de &quot;Robotique&quot;</span>
+</pre></div>
+</div>
+<p>Python propose un <a class="reference external" href="https://fr.wikipedia.org/wiki/Sucre_syntaxique">sucre syntaxique</a> pour l’indiçage, une possibilité d’écriture plus succincte et plus intuitive, en accolant à une instance de séquence l’indice entre crochets. La syntaxe est <code class="docutils literal notranslate"><span class="pre">objet_de_type_sequence[indice]</span></code>. Exemples :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Robotique&quot;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># donne &#39;b&#39;, équivalent à &quot;Robotique&quot;.__getitem__(2)</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># donne &#39;t&#39;, équivalent à &quot;Robotique&quot;.__getitem__(-5)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Robotique&quot;</span>
+<span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># donne &#39;i&#39;, équivalent à s.__getitem__(5)</span>
+</pre></div>
+</div>
+</section>
+<section id="tranchage-slicing">
+<h4>Tranchage (slicing)<a class="headerlink" href="#tranchage-slicing" title="Link to this heading">#</a></h4>
+<p>On appelle <strong>tranche</strong> (<em>slice</em> en anglais) une séquence d’indices d’éléments d’une séquence. Python propose le type d’objet <code class="docutils literal notranslate"><span class="pre">slice</span></code> pour représenter les tranches en compréhension, c’est-à-dire sans lister un à un les indices . On peut créer une tranche à l’aide du constructeur d’instances <code class="docutils literal notranslate"><span class="pre">slice()</span></code> des manières suivantes :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slice(stop)</span></code> renvoie un objet tranche désignant les éléments d’une séquence allant du 1er inclus (indice 0) jusqu’à l’élément d’indice <code class="docutils literal notranslate"><span class="pre">stop</span></code> exclu. Si <code class="docutils literal notranslate"><span class="pre">stop</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code> la tranche va jusqu’au dernier élément inclus.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice(start,</span> <span class="pre">stop)</span></code> renvoie un objet tranche désignant les éléments d’une séquence allant de l’élément d’indice <code class="docutils literal notranslate"><span class="pre">start</span></code> inclus, jusqu’à l’élément d’indice <code class="docutils literal notranslate"><span class="pre">stop</span></code> exclu. Si <code class="docutils literal notranslate"><span class="pre">start</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code> la tranche commence à l’indice 0, si <code class="docutils literal notranslate"><span class="pre">stop</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code> tranche va jusqu’au dernier élément inclus.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> renvoie un objet tranche désignant les éléments d’une séquence allant de l’élément d’indice <code class="docutils literal notranslate"><span class="pre">start</span></code> inclus, jusqu’à l’élément d’indice <code class="docutils literal notranslate"><span class="pre">stop</span></code> exclu en progressant par pas de <code class="docutils literal notranslate"><span class="pre">step</span></code> éléments. Si <code class="docutils literal notranslate"><span class="pre">step</span></code> est négatif, la progression se fait en sens inverse.</p>
+<ul>
+<li><p>si <code class="docutils literal notranslate"><span class="pre">step</span></code> est positif : si <code class="docutils literal notranslate"><span class="pre">start</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code> la tranche commence au premier élément, si <code class="docutils literal notranslate"><span class="pre">stop</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code> la tranche va jusqu’au dernier élément inclus.</p></li>
+<li><p>si <code class="docutils literal notranslate"><span class="pre">step</span></code> est négatif : si <code class="docutils literal notranslate"><span class="pre">start</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code> la tranche commence au dernier élément, si <code class="docutils literal notranslate"><span class="pre">stop</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code> la tranche va jusqu’au premier élément inclus.</p></li>
+<li><p>si <code class="docutils literal notranslate"><span class="pre">step</span></code> est <code class="docutils literal notranslate"><span class="pre">None</span></code>, la tranche progresse d’un élément en un élément.</p></li>
+</ul>
+</li>
+</ul>
+<p>Exemples :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># tranche de 0 à 7 exclu (0, 1, 2, 4, 5, 6)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>  <span class="c1"># tranche de 3 à 7 exclu (3, 4, 5, 6)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># tranche de 3 à 7 exclu par pas de 2 (3, 5)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># tranche de 7 à 3 exclu par pas de -1 (7, 6, 5, 4)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># tranche de 7 à 3 exclu par pas de -2 (7, 5)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># tranche désignant tous les éléments</span>
+<span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>  <span class="c1"># tranche de 0 à 7 exclu (0, 1, 2, 3, 4, 5)</span>
+<span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># tranche allant de 7 jusqu&#39;au dernier inclus</span>
+<span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># tranche allant du premier au dernier inclus, de 2 en 2</span>
+<span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># tranche allant du dernier au premier inclus</span>
+</pre></div>
+</div>
+<p>Les indices <code class="docutils literal notranslate"><span class="pre">start</span></code> et <code class="docutils literal notranslate"><span class="pre">stop</span></code> peuvent être négatifs, l’un, l’autre ou les deux. Dans ce cas ils désignent les éléments d’une séquence par rapport au dernier élément.</p>
+<p>On appelle <strong>tranchage</strong> (<em>slicing</em> en anglais) l’opération qui désigne, à l’aide d’une tranche, des éléments dans une séquence. Comme pour l’indiçage, les méthodes spéciales <code class="docutils literal notranslate"><span class="pre">__getitem__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__setitem__()</span></code> ou <code class="docutils literal notranslate"><span class="pre">__delitem__()</span></code> effectuent le tranchage d’une séquence selon les besoins. Exemple :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>  <span class="c1"># donne &#39;Robotiq&#39;</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>  <span class="c1"># donne &#39;otiq&#39;</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># donne &#39;oi&#39;</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># donne &#39;uqit&#39;</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># donne &#39;ui&#39;</span>
+</pre></div>
+</div>
+<p>La syntaxe simplifiée avec les crochets <code class="docutils literal notranslate"><span class="pre">[]</span></code> est aussi utilisable avec les tranches. Exemple</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Robotique&quot;</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span>  <span class="c1"># donne &#39;Robotiq&#39;</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>  <span class="c1"># donne &#39;otiq&#39;</span>
+<span class="s2">&quot;Robotique&quot;</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>  <span class="c1"># donne &#39;oi&#39;</span>
+</pre></div>
+</div>
+<p>Python propose un <a class="reference external" href="https://fr.wikipedia.org/wiki/Sucre_syntaxique">sucre syntaxique</a> supplémentaire pour le tranchage avec la syntaxe de crochets <code class="docutils literal notranslate"><span class="pre">[]</span></code>, en remplaçant <code class="docutils literal notranslate"><span class="pre">[slice(start,</span> <span class="pre">stop,</span> <span class="pre">step)]</span></code> par <code class="docutils literal notranslate"><span class="pre">[start:stop:step]</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Exemple de tranches</p></th>
+<th class="head"><p>Sucre syntaxique équivalent, uniquement entre <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></th>
+<th class="head"><p>Commentaire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice(stop)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">:stop</span></code> ou <code class="docutils literal notranslate"><span class="pre">0:stop</span></code></p></td>
+<td><p>les <code class="docutils literal notranslate"><span class="pre">stop</span></code> premiers</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slice(start,</span> <span class="pre">stop)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">start:stop</span></code></p></td>
+<td><p>de <code class="docutils literal notranslate"><span class="pre">start</span></code> à <code class="docutils literal notranslate"><span class="pre">stop</span></code> exclu</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code></p></td>
+<td><p>de <code class="docutils literal notranslate"><span class="pre">start</span></code> à <code class="docutils literal notranslate"><span class="pre">stop</span></code> exclu, de <code class="docutils literal notranslate"><span class="pre">step</span></code> en <code class="docutils literal notranslate"><span class="pre">step</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slice(start,</span> <span class="pre">None)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">start:</span></code></p></td>
+<td><p>de <code class="docutils literal notranslate"><span class="pre">start</span></code> jusqu’au dernier inclus</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice(None,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">:stop:step</span></code></p></td>
+<td><p>si <code class="docutils literal notranslate"><span class="pre">step</span></code> &gt; 0, du premier jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> exclu, de <code class="docutils literal notranslate"><span class="pre">step</span></code> en <code class="docutils literal notranslate"><span class="pre">step</span></code> <br/>si <code class="docutils literal notranslate"><span class="pre">step</span></code> &lt; 0, du dernier jusqu’à <code class="docutils literal notranslate"><span class="pre">stop</span></code> exclu, de <code class="docutils literal notranslate"><span class="pre">step</span></code> en <code class="docutils literal notranslate"><span class="pre">step</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slice(start,</span> <span class="pre">None,</span> <span class="pre">step)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">start::step</span></code></p></td>
+<td><p>si <code class="docutils literal notranslate"><span class="pre">step</span></code> &gt; 0, de <code class="docutils literal notranslate"><span class="pre">start</span></code> jusqu’au dernier inclus, de <code class="docutils literal notranslate"><span class="pre">step</span></code> en <code class="docutils literal notranslate"><span class="pre">step</span></code><br/>si <code class="docutils literal notranslate"><span class="pre">step</span></code> &lt; 0, de <code class="docutils literal notranslate"><span class="pre">start</span></code> jusqu’au premier inclus, de <code class="docutils literal notranslate"><span class="pre">step</span></code> en <code class="docutils literal notranslate"><span class="pre">step</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">slice(None,</span> <span class="pre">None,</span> <span class="pre">step)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">::step</span></code></p></td>
+<td><p>si <code class="docutils literal notranslate"><span class="pre">step</span></code> &gt; 0, du premier jusqu’au dernier, de <code class="docutils literal notranslate"><span class="pre">step</span></code> en <code class="docutils literal notranslate"><span class="pre">step</span></code> <br/>si <code class="docutils literal notranslate"><span class="pre">step</span></code> &lt; 0, du dernier jusqu’au premier, de <code class="docutils literal notranslate"><span class="pre">step</span></code> en <code class="docutils literal notranslate"><span class="pre">step</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Exemples de tranchage avec l’utilisation des deux sucres syntaxiques</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Robotique&quot;</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>  <span class="c1"># donne &#39;Robotiq&#39;, équivalent à &quot;Robotique&quot;[slice(7)] ou à</span>
+                 <span class="c1"># &quot;Robotique&quot;.__getitem__(slice(7))</span>
+                 
+<span class="s2">&quot;Robotique&quot;</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>  <span class="c1"># donne &#39;otiq&#39;, équivalent à &quot;Robotique&quot;[slice(3, 7)] ou à</span>
+                  <span class="c1"># &quot;Robotique&quot;.__getitem__(slice(3, 7))</span>
+                  
+<span class="s2">&quot;Robotique&quot;</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># donne &#39;oi&#39;, équivalent à &quot;Robotique&quot;[slice(3, 7, 2)]</span>
+                    <span class="c1"># ou à &quot;Robotique&quot;.__getitem__(slice(3, 7, 2))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Robotique&quot;</span>
+<span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># donne &#39;euqitoboR&#39;, équivalent à s.__getitem__(slice(None, None, -1))</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="instructions-simples">
 <h3>Instructions simples<a class="headerlink" href="#instructions-simples" title="Link to this heading">#</a></h3>
@@ -793,8 +974,8 @@ Symboles de contrôle</div>
 <li><p>expressions</p>
 <ul>
 <li><p>opérations arithmétiques (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>)</p></li>
+<li><p>opérations sur les bits (opérateur <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>)</p></li>
 <li><p>opérations booléennes (opérateurs <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>)</p></li>
-<li><p>opérations bit à bit (opérateur <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>)</p></li>
 <li><p>comparaisons de valeur (opérateurs <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>)</p></li>
 <li><p>comparaisons d’identifiants (opérateurs <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>)</p></li>
 <li><p>tests d’appartenance (opérateurs <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>)</p></li>
@@ -841,6 +1022,187 @@ Symboles de contrôle</div>
 </tbody>
 </table>
 </div>
+<section id="expressions">
+<h4>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">#</a></h4>
+<section id="expressions-arithmetiques">
+<h5>Expressions arithmétiques<a class="headerlink" href="#expressions-arithmetiques" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opération</p></th>
+<th class="head"><p>Résultat</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
+<td><p>somme de x et y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
+<td><p>différence de x et y</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
+<td><p>produit de x et y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></td>
+<td><p>quotient de x par y, résultat de la division</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code></p></td>
+<td><p>x à la puissance y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-x</span></code></p></td>
+<td><p>négatif de x</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+x</span></code></p></td>
+<td><p>x inchangé</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span></code></p></td>
+<td><p>quotient entier de x par y</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
+<td><p>reste de la division de x par y</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="expressions-sur-les-bits">
+<h5>Expressions sur les bits<a class="headerlink" href="#expressions-sur-les-bits" title="Link to this heading">#</a></h5>
+<p>Les opérateurs sur le bits sont souvent utilisés pour manipuler des registres de microcontrôleur, en particulier en informatique embarquée, par exemple dans les projets LDD3 108-208.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opération</p></th>
+<th class="head"><p>Résultat</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">|</span> <span class="pre">y</span></code></p></td>
+<td><p>“ou” bit à bit de x et y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code></p></td>
+<td><p>“ou exclusif” bit à bit de x et y</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&amp;</span> <span class="pre">y</span></code></p></td>
+<td><p>“et” bit à bit de x et y</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p>x décalé vers la gauche de n bits,<br/>équivalent à la multiplication par <code class="docutils literal notranslate"><span class="pre">pow(2,</span> <span class="pre">n)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p>x décalé vers la droite de n bits,<br/>équivalent à la division par <code class="docutils literal notranslate"><span class="pre">pow(2,</span> <span class="pre">n)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~x</span></code></p></td>
+<td><p>les bits de x inversés</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="operations-booleennes">
+<h5>Opérations booléennes<a class="headerlink" href="#operations-booleennes" title="Link to this heading">#</a></h5>
+<p>Pour construire des expressions booléennes, Python propose trois opérateurs booléens <code class="docutils literal notranslate"><span class="pre">and</span></code> (conjonction), <code class="docutils literal notranslate"><span class="pre">or</span></code> (disjonction) et<code class="docutils literal notranslate"><span class="pre">not</span></code> (négation). Lorsqu’ils opèrent sur des booléens, la sémantique de ces trois opérateurs est présentée dans la table de vérité ci-dessous ; elle est conforme aux usages.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Résultat de<br/><code class="docutils literal notranslate"><span class="pre">exp1</span></code></p></th>
+<th class="head"><p>Résultat de<br/><code class="docutils literal notranslate"><span class="pre">exp2</span></code></p></th>
+<th class="head"><p>Résultat de<br/><code class="docutils literal notranslate"><span class="pre">exp1</span> <span class="pre">and</span> <span class="pre">exp2</span></code></p></th>
+<th class="head"><p>Résultat de<br/><code class="docutils literal notranslate"><span class="pre">exp1</span> <span class="pre">or</span> <span class="pre">exp2</span></code></p></th>
+<th class="head"><p>Résultat de<br/><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">exp1</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="comparaisons-de-valeurs-numeriques">
+<h5>Comparaisons de valeurs numériques<a class="headerlink" href="#comparaisons-de-valeurs-numeriques" title="Link to this heading">#</a></h5>
+<p>Python propose six opérateurs pour comparer la valeur de deux objets <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> et <code class="docutils literal notranslate"><span class="pre">!=</span></code> qui permet de construire des expressions de comparaison. Les objets n’ont pas besoin d’être du même type.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Opération</p></th>
+<th class="head"><p>Résultat</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p>test d’égalité, renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> est égale à la valeur de <code class="docutils literal notranslate"><span class="pre">y</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code></p></td>
+<td><p>test d’inégalité, renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> est différente de la valeur de <code class="docutils literal notranslate"><span class="pre">y</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p>test de supériorité stricte, renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> est strictement supérieure de la valeur de <code class="docutils literal notranslate"><span class="pre">y</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>test de supériorité, renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> est supérieure ou égale de la valeur de <code class="docutils literal notranslate"><span class="pre">y</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p>test d’infériorité stricte, renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> est strictement inférieure de la valeur de <code class="docutils literal notranslate"><span class="pre">y</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td><p>test d’infériorité, renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si la valeur de <code class="docutils literal notranslate"><span class="pre">x</span></code> est inférieure ou égale de la valeur de <code class="docutils literal notranslate"><span class="pre">y</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="priorite-des-operateurs">
+<h5>Priorité des opérateurs<a class="headerlink" href="#priorite-des-operateurs" title="Link to this heading">#</a></h5>
+<p>La liste suivante résume les priorités de ces opérateurs, du plus prioritaire (portée la plus courte) au moins prioritaire (portée la plus grande) :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(expression...)</span></code>,</p></li>
+<li><p>opérateurs arithmétiques</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">**</span></code> (puissance),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-x</span></code> <code class="docutils literal notranslate"><span class="pre">+x</span></code> <code class="docutils literal notranslate"><span class="pre">~</span></code> (négatif, positif, inversion bit à bit),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> <code class="docutils literal notranslate"><span class="pre">/</span></code> <code class="docutils literal notranslate"><span class="pre">//</span></code> <code class="docutils literal notranslate"><span class="pre">%</span></code> (multiplication, division, division entière, reste),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> <code class="docutils literal notranslate"><span class="pre">-</span></code> (addition, soustraction),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> (décalages),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (“et” bit à bit),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> (“ou exclusif” bit à bit),</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> (“ou” bit à bit)</p></li>
+</ul>
+</li>
+<li><p>opérateurs de comparaison de valeur</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> et <code class="docutils literal notranslate"><span class="pre">!=</span></code> (même priorité)</p></li>
+</ul>
+</li>
+<li><p>oéprateurs de comparaison de valeur
+-<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> et <code class="docutils literal notranslate"><span class="pre">!=</span></code> (même priorité)</p></li>
+<li><p>opérateurs booléens</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">and</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">or</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
 <section id="instruction-d-assignation">
 <h4><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation<a class="headerlink" href="#instruction-d-assignation" title="Link to this heading">#</a></h4>
 <p>L’instruction d’<strong>assignation</strong>, ou plus simplement l’assignation, construit l’association entre un nom (étiquette) et un objet. Une fois nommé, un objet pourra être réutilisé autant de fois que nécessaire dans le code. la syntaxe de base d’une instruction d’assignation est</p>
@@ -956,15 +1318,101 @@ sémantique : un assignation augmentée peut se réécrire comme l’assignation
 </table>
 </div>
 <p>Remarque : l’instruction <code class="docutils literal notranslate"><span class="pre">del</span></code> supprime des noms, pas des objets ; lorsque plus aucun nom ne réfère à un objet Python, ce dernier devient inatteignable et il a pour vocation d’être supprimé de la mémoire par un mécanisme interne à l’interpréteur Python, le  <strong>ramasse-miette</strong> (garbage-collector en anglais).</p>
-<!-- 
-#### `raise` levée d'exception
+</section>
+<section id="raise-levee-d-exception">
+<h4><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception<a class="headerlink" href="#raise-levee-d-exception" title="Link to this heading">#</a></h4>
+<p>syntaxe 1 : <code class="docutils literal notranslate"><span class="pre">raise</span></code><br />
+semantique : <code class="docutils literal notranslate"><span class="pre">raise</span></code> propage l’exception en cours de traitement, aussi dénommée exception active. Si aucune exception n’est active, une exception <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> est levée, indiquant que c’est une erreur.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">raise</span>
 
-```{code-cell} python
-print("coucou")
-raise Exception("Test d'exception")
-print("coucou2")
-```
--->
+<span class="ne">RuntimeError</span>: No active exception to reraise
+</pre></div>
+</div>
+</div>
+</div>
+<p>syntaxe 2 : <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">&lt;expression&gt;</span></code><br />
+semantique : <code class="docutils literal notranslate"><span class="pre">raise</span></code>  évalue ‘la première l’expression <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> en tant qu’objet exception. Ce doit être une sous-classe ou une instance de <code class="docutils literal notranslate"><span class="pre">BaseException</span></code>. Si c’est une classe, l’instance de l’exception est obtenue en instanciant la classe sans argument (au moment voulu). Le type de l’exception est la classe de l’instance de l’exception, la value est l’instance elle-même.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Mon exception&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Mon exception&quot;</span><span class="p">)</span>
+
+<span class="ne">Exception</span>: Mon exception
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="assert-test-de-debogage">
+<h4><code class="docutils literal notranslate"><span class="pre">assert</span></code> test de débogage<a class="headerlink" href="#assert-test-de-debogage" title="Link to this heading">#</a></h4>
+<p>Les instructions assert sont une manière pratique d’insérer des tests de débogage au sein d’un code source</p>
+<p>syntaxe 1 : <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">&lt;expression_de_test&gt;</span></code><br />
+semantique : ne faire rien si <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code>, sinon lève l’exception <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code>.</p>
+<p>syntaxe 2 : <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">&lt;expression_de_test&gt;,</span> <span class="pre">&lt;chaine_de_caracteres&gt;</span></code><br />
+semantique : ne faire rien si <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> vaut <code class="docutils literal notranslate"><span class="pre">True</span></code>, sinon lève l’exception <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> avec le message &lt;chaine_de_caracteres&gt;</p>
+<p>Exemples</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;valeur incorrecte pour a&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">assert</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;valeur incorrecte pour a&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">assert</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;valeur incorrecte pour a&quot;</span>
+
+<span class="ne">AssertionError</span>: valeur incorrecte pour a
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pass-operation-vide">
+<h4><code class="docutils literal notranslate"><span class="pre">pass</span></code> opération vide<a class="headerlink" href="#pass-operation-vide" title="Link to this heading">#</a></h4>
+<p>Quand <code class="docutils literal notranslate"><span class="pre">pass</span></code> est exécutée, rien ne se passe. Elle est utile comme bouche-trou lorsqu’une instruction est syntaxiquement requise mais qu’aucun code ne doit être exécuté. Par exemple :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">pass</span>  <span class="c1"># TODO: prévoir un traitement pour gérer les valeurs négatives</span>
+</pre></div>
+</div>
+</section>
+<section id="import-importation-de-modules">
+<h4><code class="docutils literal notranslate"><span class="pre">import</span></code> importation de modules<a class="headerlink" href="#import-importation-de-modules" title="Link to this heading">#</a></h4>
+<p>syntaxe1 : <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;nom_module&gt;</span></code><br />
+sémantique : trouve un module <code class="docutils literal notranslate"><span class="pre">module</span></code>, le charge et l’initialise si nécessaire puis définit le noms <code class="docutils literal notranslate"><span class="pre">&lt;nom_module&gt;</span></code> dans l’espace des noms locaux de la portée où l’instruction <code class="docutils literal notranslate"><span class="pre">import</span></code> apparaît.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">math</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># accès à un objet dans le module math avec la notation pointée</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="instructions-composees">
@@ -998,7 +1446,7 @@ print("coucou2")
 <tbody>
 <tr class="row-even"><td><p>Contrôle de flux d’instructions</p></td>
 <td><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> exécution comparaison</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code> exécution après comparaison</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">while</span></code> répétition conditionnelle</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">for</span></code> itération</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">match</span></code> filtrage par motif</p></li>
@@ -1023,6 +1471,126 @@ print("coucou2")
 </tbody>
 </table>
 </div>
+<section id="if-execution-conditionnelle">
+<h4><code class="docutils literal notranslate"><span class="pre">if</span></code> exécution conditionnelle<a class="headerlink" href="#if-execution-conditionnelle" title="Link to this heading">#</a></h4>
+<p>L’instruction <code class="docutils literal notranslate"><span class="pre">if</span></code> est utilisée pour exécuter des instructions en fonction d’une condition</p>
+<p>Syntaxe : l’instruction composée <code class="docutils literal notranslate"><span class="pre">if</span></code> est contituée de :</p>
+<ul class="simple">
+<li><p>1 clause “if” : <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">&lt;expression_de_test&gt;:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
+<li><p>0 à n clauses “elif” : <code class="docutils literal notranslate"><span class="pre">elif</span> <span class="pre">&lt;expression_de_test&gt;:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
+<li><p>0 à une clause “else” : <code class="docutils literal notranslate"><span class="pre">else:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
+</ul>
+<p>Sémantique : L’instruction composée <code class="docutils literal notranslate"><span class="pre">if</span></code> sélectionne exactement une des suites en évaluant les expressions <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> une par une jusqu’à ce qu’une soit vraie. Ensuite cette <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> est exécutée (et aucune autre partie de l’instruction if n’est exécutée ou évaluée) Si toutes les expressions <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> sont fausses, la suite de la clause “else”, si elle existe, est exécutée.</p>
+<p>Exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="c1"># ═════ début d&#39;une instruction composée ═══╗</span>
+<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>             <span class="c1"># &lt;-- entête        │ ║</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;négatif&quot;</span><span class="p">)</span>  <span class="c1"># &lt;- suite indentée │ ║</span>
+<span class="c1">#└────────────────────────────────────────┘ ║</span>
+<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>          <span class="c1"># &lt;-- entête        │ ║</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nul&quot;</span><span class="p">)</span>      <span class="c1"># &lt;- suite indentée │ ║</span>
+<span class="c1">#└────────────────────────────────────────┘ ║</span>
+<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="k">else</span><span class="p">:</span>                 <span class="c1"># &lt;-- entête        │ ║</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;positif&quot;</span><span class="p">)</span>  <span class="c1"># &lt;- suite indentée │ ║</span>
+<span class="c1">#└────────────────────────────────────────┘ ║</span>
+<span class="c1"># ══════════════════════════════════════════╝  </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>positif
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="for-iterations">
+<h4><code class="docutils literal notranslate"><span class="pre">for</span></code> itérations<a class="headerlink" href="#for-iterations" title="Link to this heading">#</a></h4>
+<p>L’instruction composée <code class="docutils literal notranslate"><span class="pre">for</span></code> est utilisée pour itérer sur les éléments d’une séquence (par exemple une chaine, un n-uplet ou une liste) ou un autre objet itérable</p>
+<p>Syntaxe : l’instruction composée <code class="docutils literal notranslate"><span class="pre">for</span></code> est constituée de :</p>
+<ul class="simple">
+<li><p>1 clause “for” : <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">&lt;nom_cible&gt;</span> <span class="pre">in</span> <span class="pre">&lt;expression&gt;:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
+<li><p>0 à une clause “else” : <code class="docutils literal notranslate"><span class="pre">else:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
+</ul>
+<p>Sémantique : L’expression <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code> n’est évaluée qu’une seule fois ; elle doit produire un objet itérable. Un itérateur est créé pour cet itérable. Le premier élément produit par l’itérateur est assigné au nom à la liste cible <code class="docutils literal notranslate"><span class="pre">&lt;nom_cible&gt;</span></code>, puis la <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> est exécutée. Lorsque les éléments de l’itérateur sont épuisés, la <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> de la clause “else”, si elle existe, est exécutée et la boucle se termine.</p>
+<ul class="simple">
+<li><p>Une instruction <code class="docutils literal notranslate"><span class="pre">break</span></code> exécutée dans la première suite termine la boucle sans exécuter la suite de la clause “else”.</p></li>
+<li><p>Une instruction <code class="docutils literal notranslate"><span class="pre">continue</span></code> exécutée dans la première suite saute le reste de la suite et continue avec l’élément suivant, ou avec la clause “else” s’il n’y a pas d’élément suivant.</p></li>
+</ul>
+<p>Exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ═════ début d&#39;une instruction composée ═══╗</span>
+<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>    <span class="c1"># &lt;-- entête        │ ║</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># &lt;- suite indentée │ ║</span>
+<span class="c1">#└────────────────────────────────────────┘ ║</span>
+<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="k">else</span><span class="p">:</span>                 <span class="c1"># &lt;-- entête        │ ║</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fin !&quot;</span><span class="p">)</span>    <span class="c1"># &lt;- suite indentée │ ║</span>
+<span class="c1">#└────────────────────────────────────────┘ ║</span>
+<span class="c1"># ══════════════════════════════════════════╝  </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i = 0
+i = 1
+i = 2
+i = 3
+fin !
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="while-repetition-conditionnelle">
+<h4><code class="docutils literal notranslate"><span class="pre">while</span></code> répétition conditionnelle<a class="headerlink" href="#while-repetition-conditionnelle" title="Link to this heading">#</a></h4>
+<p>L’instruction composée <code class="docutils literal notranslate"><span class="pre">while</span></code> est utilisée pour exécuter des instructions de manière répétée tant qu’une expression est vraie :</p>
+<p>Syntaxe : l’instruction composée <code class="docutils literal notranslate"><span class="pre">while</span></code> est constituée de :</p>
+<ul class="simple">
+<li><p>1 clause “while” : <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">&lt;expression_de_test&gt;:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
+<li><p>0 à une clause “else” : <code class="docutils literal notranslate"><span class="pre">else:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
+</ul>
+<p>Sémantique : L’expression <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> est évaluée manière répétée et, tant qu’elle est vraie, exécute la première suite ; si l’expression est fausse (ce qui peut arriver même lors du premier test), la suite de la clause “else”, si elle existe, est exécutée et la boucle se termine.</p>
+<ul class="simple">
+<li><p>Une instruction <code class="docutils literal notranslate"><span class="pre">break</span></code> exécutée dans la première suite termine la boucle sans exécuter la suite de la clause “else”.</p></li>
+<li><p>Une instruction <code class="docutils literal notranslate"><span class="pre">continue</span></code> exécutée dans la première suite saute le reste de la suite et retourne au test de l’expression <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code></p></li>
+</ul>
+<p>Exemple :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># ═════ début d&#39;une instruction composée ═══╗</span>
+<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>          <span class="c1"># &lt;-- entête        │ ║</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># ├─ suite indentée │ ║</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span><span class="mi">1</span>          <span class="c1"># │                 │ ║</span>
+<span class="c1">#└────────────────────────────────────────┘ ║</span>
+<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="k">else</span><span class="p">:</span>                 <span class="c1"># &lt;-- entête        │ ║</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fin !&quot;</span><span class="p">)</span>    <span class="c1"># &lt;- suite indentée │ ║</span>
+<span class="c1">#└────────────────────────────────────────┘ ║</span>
+<span class="c1"># ══════════════════════════════════════════╝  </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i = 4
+i = 3
+i = 2
+i = 1
+fin !
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="fonctions-natives">
 <h3>Fonctions natives<a class="headerlink" href="#fonctions-natives" title="Link to this heading">#</a></h3>
@@ -1510,14 +2078,35 @@ ZeroDivisionError: integer division or modulo by zer
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#muabilite-des-objets">Muabilité des objets</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identite-d-un-objet">Identité d’un objet</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-lien-etiquette-objet">Variables (lien étiquette-objet)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conteneurs">Conteneurs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sequences">Séquences</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#indicage-indexing">Indiçage (indexing)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tranchage-slicing">Tranchage (slicing)</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-simples">Instructions simples</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions">Expressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-arithmetiques">Expressions arithmétiques</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#expressions-sur-les-bits">Expressions sur les bits</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-booleennes">Opérations booléennes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#comparaisons-de-valeurs-numeriques">Comparaisons de valeurs numériques</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#priorite-des-operateurs">Priorité des opérateurs</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instruction-d-assignation"><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#del-instruction-de-suppression"><code class="docutils literal notranslate"><span class="pre">del</span></code> instruction de suppression</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#raise-levee-d-exception"><code class="docutils literal notranslate"><span class="pre">raise</span></code> levée d’exception</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-test-de-debogage"><code class="docutils literal notranslate"><span class="pre">assert</span></code> test de débogage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-operation-vide"><code class="docutils literal notranslate"><span class="pre">pass</span></code> opération vide</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-importation-de-modules"><code class="docutils literal notranslate"><span class="pre">import</span></code> importation de modules</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-execution-conditionnelle"><code class="docutils literal notranslate"><span class="pre">if</span></code> exécution conditionnelle</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-iterations"><code class="docutils literal notranslate"><span class="pre">for</span></code> itérations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#while-repetition-conditionnelle"><code class="docutils literal notranslate"><span class="pre">while</span></code> répétition conditionnelle</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctions-natives">Fonctions natives</a></li>
 </ul>
 </li>
