@@ -15,9 +15,9 @@ kernelspec:
 ## Grammaire
 
 La syntaxe d'un code source en langage Python est définie par une **grammaire formelle** (disponible ici : https://docs.python.org/fr/3/reference/grammar.html). Elle spécifie comment un axiome et des symboles non terminaux sont construits à partir de symboles terminaux et de règles de productions. Concrètement,
-- **l'axiome** représente l'ensemble des codes source Python possible
+- **l'axiome** représente l'ensemble des codes sources Python possible
 - **les symboles terminaux** sont des éléments lexicaux de base (lexèmes) comme des mots-clés, des nombres, des identifiants, des opérateurs...
-- **les règles de production** décrivent les assemblages possibles de lexèmes en nouveaux éléments intermédiaires (les symboles non terminaux) et elles décrivent aussi les assemblages des symboles non terminaux entre eux pour construire l'axiome (les codes source possibles)
+- **les règles de production** décrivent les assemblages possibles de lexèmes en nouveaux éléments intermédiaires (les symboles non terminaux) et elles décrivent aussi les assemblages des symboles non terminaux entre eux pour construire l'axiome (les codes sources possibles)
 
 Pour interpréter un code source, il faut commencer par une **analyse lexicale** qui identifie les lexèmes et qui accessoirement élimine les commentaires et les lignes vides, puis continuer par une **analyse syntaxique** en s'appuyant sur les de production de la grammaire (règle de syntaxe) pour identifier les instructions et leur structure.
 
@@ -56,7 +56,7 @@ Les principales utilisations des commentaires sont :
 # meilleur chemin est possible et les performances sont accrues.
 ```
 
-- étiqueter des sections de code spécifiques où se trouvent des problèmes identifiés ou des axes d'amélioration. On peut citer à titre d'exemple les étiquettes BUG, FIXME, et TODO souvent écrites est anglais pour les compacités.
+- étiqueter des sections de code spécifiques où se trouvent des problèmes identifiés ou des axes d'amélioration. On peut citer à titre d'exemple les étiquettes BUG, FIXME, et TODO. Les étiquettes sont souvent écrites en anglais pour les compacités.
 
 ``` python
 # TODO: Ajouter une condition
@@ -67,7 +67,7 @@ Les principales utilisations des commentaires sont :
 
 ## Lexèmes
 
-Les lexèmes (*tokens* en anglais) sont des symboles lexicaux comme `+`, `-`, `(`, `)`, `for`, `if`, `23`, `"Bonjour"` qui représentent des symboles élémentaires (symboles terminaux) pour la grammaire du langage. Ils se répartissent en différentes catégories selon leur signification : les **identifiants** d'objet, les **mots-clés** réservés, les **littéraux** d'objet, les **opérateurs** comme l'addition ou la division et les **délimiteurs** comme `;` `(` ou `)` pour séparer ou regrouper des éléments.
+Les lexèmes (*tokens* en anglais) sont des symboles lexicaux comme `+`, `-`, `(`, `)`, `for`, `if`, `23`, ou `"Bonjour"` qui représentent des symboles élémentaires (symboles terminaux) pour la grammaire du langage. Ils se répartissent en différentes catégories selon leur signification : les **identifiants** d'objet, les **mots-clés** réservés, les **littéraux** d'objet, les **opérateurs** comme l'addition ou la division et les **délimiteurs** comme `;` `(` ou `)` pour séparer ou regrouper des éléments.
 
 
 
@@ -254,10 +254,10 @@ Les lexèmes identifiés sont :
 ## Objets Python
 
 Avec Python toutes les données sont représentées sous forme d’objets. Un objet est une entité stockée dans la mémoire de la machine hôte, qui possède :
-- une **valeur** - On dit que les objets `a` et `b` possèdent la même valeur si l'évaluation de l'expression de comparaison `a == b` retourne `True` (ou plus exactement un objet de type booléen et de valeur égale à `True`). Python ne dispose pas de méthode canonique pour accéder à la valeur d'un objet.
-- un **type** - Chaque objet est l'instance d'une *classe* que l'on appelle aussi le type de l'objet. Un objet conserve toujours le même type au cours de son existence en mémoire, on parle de typage fort du langage Python. La fonction native `type()` retourne le type (la classe) de l'objet passé en argument. On dit que les objets `a` et `b` possèdent le même type si l'évaluation de l'expression `type(a) == type(b)` retourne `True`
-- une **identité** - Chaque objet possède une identité unique qui ne change jamais au cours de son existence en mémoire, on parle d'identifiant. La fonction native `id()` retourne l'identifiant de l'objet passé en argument. On dit que les objets `a` et `b` ont la même identité s'ils ne font qu'un, c'est-à-dire si l'évaluation de l'expression `id(a) == id(b)` retourne `True`, c'est-à-dire si l'évaluation de l'expression `a is b` retourne `True`.
-- des **attributs-données**, éventuellement aucun - Les attributs-données, parfois simplement nommés attributs, sont des données de n'importe quel type qui caractérisent l'objet. Elle sont dites encapsulées dans l'objet. Pour désigner un attribut nommé `nom_attr` de l'objet `obj` il y a deux possibilités : 
+- une **valeur** - on dit que les objets `a` et `b` possèdent la même valeur si l'évaluation de l'expression de comparaison `a == b` retourne `True` (ou plus exactement un objet de type booléen et de valeur égale à `True`). Python ne dispose pas de méthode canonique pour accéder à la valeur d'un objet.
+- un **type** - chaque objet est l'instance d'une *classe* que l'on appelle aussi le type de l'objet. Un objet conserve toujours le même type au cours de son existence en mémoire, on parle de typage fort du langage Python. La fonction native `type()` retourne le type (la classe) de l'objet passé en argument. On dit que les objets `a` et `b` possèdent le même type si l'évaluation de l'expression `type(a) == type(b)` retourne `True`
+- une **identité** - chaque objet possède une identité unique qui ne change jamais au cours de son existence en mémoire, on parle d'identifiant. La fonction native `id()` retourne l'identifiant de l'objet passé en argument. On dit que les objets `a` et `b` ont la même identité s'ils ne font qu'un, c'est-à-dire si l'évaluation de l'expression `id(a) == id(b)` retourne `True`, c'est-à-dire si l'évaluation de l'expression `a is b` retourne `True`.
+- des **attributs-données**, éventuellement aucun - Les attributs-données, parfois simplement nommés attributs, sont des données de n'importe quel type qui caractérisent l'objet. Ils sont dits encapsulés dans l'objet. Pour désigner un attribut nommé `nom_attr` de l'objet `obj` il y a deux possibilités : 
   - la notation "pointée" `obj.nom_attr`
   - la fonction native `getattr(obj, nom_attr)` 
 - des **attributs-méthodes**, éventuellement aucun - Les attributs-méthodes, parfois simplement nommées méthodes, sont utiles pour définir des comportements spécifiques à l'objet, permettant ainsi une grande flexibilité et encapsulation des données. Ce sont des fonctions encapsulées qui s'appliquent à l'objet qui la possède. Pour appeler la méthode `meth()` de l'objet `obj`, il est également possible d'utiliser la notation pointée : `obj.meth()` avec éventuellement des arguments à transmettre entre les parenthèses.
@@ -352,7 +352,7 @@ La constitution d'un nom de variable est soumise à des règles impératives iss
 Règles de nommage des variables
 - *Utiliser uniquement des lettres, des chiffres, et des tirets bas* : un nom de variable est composé de lettres (a-z, A-Z), de chiffres (0-9) et de tirets bas (_)
 - *Ne pas commencer par un chiffre* : un nom de variable ne peut pas commencer par un chiffre
-- *Ne pas utiliser les mots réservés* : les mots réservés du langage ne peuvent pas être utilisés comme noms de variables, exemples if, for, while, True, False, etc
+- *Ne pas utiliser les mots réservés* : les mots réservés du langage ne peuvent pas être utilisés comme noms de variables, exemples if, for, while, True, False, etc.
 
 Conventions de nommage des variables ([PEP8](https://peps.python.org/pep-0008/#function-and-variable-names)])
 - [snake case](https://fr.wikipedia.org/wiki/Snake_case) : les noms de variables doivent être en minuscules avec les mots séparés par des tirets bas `_`, exemple `nom_de_variable`
@@ -617,7 +617,7 @@ La liste suivante résume les priorités de ces opérateurs, du plus prioritaire
 
 ### `=` instruction d'assignation 
 
-L'instruction d'**assignation**, ou plus simplement l'assignation, construit l'association entre un nom (étiquette) et un objet. Une fois nommé, un objet pourra être réutilisé autant de fois que nécessaire dans le code. la syntaxe de base d'une instruction d'assignation est
+L'instruction d'**assignation**, ou plus simplement l'assignation, construit l'association entre un nom (une étiquette) et un objet. Une fois nommé, un objet pourra être réutilisé autant de fois que nécessaire dans le code. la syntaxe de base d'une instruction d'assignation est
 
 ``` python
 nom_de_variable = expression
@@ -747,12 +747,12 @@ if a < 0:
 
 L'importation de modules en Python joue un rôle crucial dans la modularité et la réutilisabilité du code source, elle permet :
 - la réutilisation de code existant sans avoir à le réécrire. Par exemple, le module `math` fournit des fonctions mathématiques couramment utilisées, telles que `sin()`, `cos()`, et des données comme `pi`.
-- la structuration du code en le répartissant dans plusieurs modules stockés dans des fichiers distincts, puis importés selon les besoins.
+- la structuration du code en le répartissant dans plusieurs modules stockés dans des fichiers distincts, puis en l'important selon les besoins.
 - l'encapsulation des fonctions et des variables, chaque module a sa propre *portée* dans l'espace de noms, ce qui permet d'éviter les collisions de noms entre les différents modules et le code source principal. 
  
 Une **portée** est une étendue de l'espace des noms qui est accessible par défaut aux instructions d'un code. Le code du programme principal crée et accède à des noms dans la portée que l'on nommera "main (global)" tandis que le code d'un module "nom_du_module" crée et accède à des noms dans la portée "nom_du_modul (global)"
 
-Quand un module est importé pour la première fois, Python recherche le module et, s'il est trouvé, crée un objet module en l'initialisant. Si le module n'est pas trouvé, une exception `ModuleNotFoundError` est levée. Python implémente plusieurs stratégies pour rechercher le module d'un nom donné quand le mécanisme d'importation est invoqué (par exemple dans le chemin des bibliothèques de la distribution Python ou dans l'emplacement du code source en cours d'exécution).
+Quand un module est importé pour la première fois, Python recherche le module et, s'il est trouvé, crée un objet de type module en l'initialisant. Si le module n'est pas trouvé, une exception `ModuleNotFoundError` est levée. Python implémente plusieurs stratégies pour rechercher le module d'un nom donné quand le mécanisme d'importation est invoqué (par exemple dans le chemin des bibliothèques de la distribution Python ou dans l'emplacement du code source en cours d'exécution).
 
 Syntaxe 1 : `import <nom_module>`<br />
 sémantique : trouve un module `<nom_module>`, le charge et l'initialise si nécessaire puis définit le nom `<nom_module>` dans la portée où l'instruction `import` apparait. 
@@ -827,6 +827,14 @@ On voit sur l'illustration suivante que le module `math` n'a pas de nom assigné
 
 <img src="img/import_03.png" width="400px" />
 
+### `return` terminaison de fonction
+
+Le rôle de l'instruction `return` est de terminer l'appel une fonction, de ce fait elle ne peut être utilisée qu'à l'intérieur de l'instruction composée `def` de définition d'une fonction (ou d'une méthode).
+
+Syntaxe 1 : `return`<br />
+Syntaxe 2 : `return <expression_1>, <expression_2>, ... <expression_n>`
+
+Sémantique : l'instruction renvoie au code appelant la suite d'objets correspondant à l'évaluation de gauche à droite des expressions, puis termine l'appel à la fonction en supprimant son cadre d'exécution ce qui supprime tous les noms de l'espace de nommage local à la fonction, et enfin, fait reprendre le cours de l'exécution des instructions au niveau du au code appelant.
 
 ## Instructions composées
 
@@ -881,7 +889,7 @@ Syntaxe : l'instruction composée `if` est contituée de :
 - 0 à n clauses "elif" : `elif <expression_de_test>: <suite>`
 - 0 à une clause "else" : `else: <suite>`
 
-Sémantique : L'instruction composée `if` sélectionne exactement une des suites en évaluant les expressions `<expression_de_test>` une par une jusqu'à ce qu'une soit vraie. Ensuite cette `<suite>` est exécutée (et aucune autre partie de l'instruction if n'est exécutée ou évaluée) Si toutes les expressions `<expression_de_test>` sont fausses, la suite de la clause "else", si elle existe, est exécutée. 
+Sémantique : L'instruction composée `if` sélectionne exactement une des suites en évaluant les expressions `<expression_de_test>` une par une jusqu'à ce qu'une soit vraie. Ensuite cette `<suite>` est exécutée (et aucune autre partie de l'instruction if n'est exécutée ou évaluée). Si toutes les expressions `<expression_de_test>` sont fausses, la suite de la clause "else", si elle existe, est exécutée. 
 
 Exemple :
 
@@ -905,7 +913,7 @@ else:                 # <-- entête        │ ║
 
 ### `for` itérations
 
-L'instruction composée `for` est utilisée pour itérer sur les éléments d'une séquence (par exemple une chaine, un n-uplet ou une liste) ou un autre objet itérable
+L'instruction composée `for` est utilisée pour itérer sur les éléments d'une séquence (par exemple une chaine, un n-uplet ou une liste) ou un autre objet itérable.
 
 Syntaxe : l'instruction composée `for` est constituée de :
 - 1 clause "for" : `for <nom_cible> in <expression>: <suite>`
@@ -918,12 +926,12 @@ Sémantique : L'expression `<expression>` n'est évaluée qu'une seule fois ; el
 Exemple :
 
 ```{code-cell} python
-# ═════ début d'une instruction composée ═══╗
-#┌──────── début d'une clause  ───────────┐ ║
+# ═════ début de l'instruction composée ════╗
+#┌──────── début de clause  ──────────────┐ ║
 for i in range(4):    # <-- entête        │ ║
     print(f"{i = }")  # <- suite indentée │ ║
 #└────────────────────────────────────────┘ ║
-#┌──────── début d'une clause  ───────────┐ ║
+#┌──────── début de clause  ──────────────┐ ║
 else:                 # <-- entête        │ ║
     print("fin !")    # <- suite indentée │ ║
 #└────────────────────────────────────────┘ ║
@@ -946,7 +954,7 @@ Exemple :
 
 ```{code-cell} python
 i = 4
-# ═════ début d'une instruction composée ═══╗
+# ═════ début de l'instruction composée ════╗
 #┌──────── début d'une clause  ───────────┐ ║
 while i > 0:          # <-- entête        │ ║
     print(f"{i = }")  # ├─ suite indentée │ ║
@@ -963,7 +971,7 @@ else:                 # <-- entête        │ ║
 
 Voir [fonctions utilisateur](./2b_fonction_python.md)
 
-### `class` définition d'une classe d'objet 
+### `class` définition d'une classe d'objets 
 
 Voir [classes utilisateur](./3b_classe_python.md)
 

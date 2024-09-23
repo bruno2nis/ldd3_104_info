@@ -350,7 +350,14 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#def-definition-d-une-fonction-utilisateur"><code class="docutils literal notranslate"><span class="pre">def</span></code> definition d’une fonction utilisateur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-fonction-def">Définition d’une fonction (<code class="docutils literal notranslate"><span class="pre">def</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appel-a-une-fonction">Appel à une fonction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#portee-des-noms-d-objets">Portée des noms d’objets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-arguments-parametres">Association arguments-paramètres</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombre-d-arguments-fixe">Nombre d’arguments fixe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-d-une-fonction-docstring">Documentation d’une fonction (Docstring)</a></li>
 </ul>
             </nav>
         </div>
@@ -367,37 +374,559 @@ document.write(`
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>En programmation, une fonction est un bloc de code autonome qui encapsule une tâche spécifique ou un groupe de tâches connexe. Par exemple <code class="docutils literal notranslate"><span class="pre">len()</span></code> est une fonction qui renvoie la longueur de l’argument qui lui a été passé.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;un&quot;</span><span class="p">,</span> <span class="s2">&quot;deux&quot;</span><span class="p">,</span> <span class="s2">&quot;trois&quot;</span><span class="p">,</span> <span class="s2">&quot;quatre&quot;</span><span class="p">]</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
 <p>La fonction native <code class="docutils literal notranslate"><span class="pre">len()</span></code> remplit une tâche spécifique. Le code qui accomplit la tâche est défini quelque part, mais vous n’avez pas besoin de savoir où ou même comment le code fonctionne. Tout ce qu’il faut connaitre, c’est l’interface de la fonction :</p>
 <ol class="arabic simple">
-<li><p>Quels arguments faut-ils (éventuellement) lui fournir ?</p></li>
+<li><p>Quels arguments faut-il (éventuellement) lui fournir ?</p></li>
 <li><p>Quelles valeurs retourne-t-elle (éventuellement) ?</p></li>
 </ol>
-<p>Ensuite, la fonction est appellée en passant les arguments appropriés. L’exécution du code se détourne vers le corps de la fonction. Lorsque la fonction est terminée, l’exécution retourne à l’intruction de code où elle était resté. La fonction peut ou non renvoyer des données. Les fonction définis par l’utilisateur fonctionnent de la même manière.</p>
+<p>Ensuite, la fonction est appelée en passant les arguments appropriés. L’exécution du code se détourne vers le corps de la fonction. Lorsque la fonction est terminée, l’exécution retourne à l’instruction de code où elle était restée. La fonction peut ou non renvoyer des données. Les fonctions définies par l’utilisateur fonctionnent de la même manière.</p>
 <p>Les fonctions permettent</p>
 <ul class="simple">
 <li><p>une abstraction et une réutilisabilité</p></li>
-<li><p>une modularité en décomposant des opérations complexes en opérations plus simple</p></li>
+<li><p>une modularité en décomposant des opérations complexes en des opérations plus simples</p></li>
 <li><p>de séparer l’espace de noms global en portées locales pour éviter les confits de noms</p></li>
 </ul>
 </section>
-<section id="def-definition-d-une-fonction-utilisateur">
-<h2><code class="docutils literal notranslate"><span class="pre">def</span></code> definition d’une fonction utilisateur<a class="headerlink" href="#def-definition-d-une-fonction-utilisateur" title="Link to this heading">#</a></h2>
-<p>Une instruction composée de type définition de fonction ne contient d’une seule clause.</p>
+<section id="definition-d-une-fonction-def">
+<h2>Définition d’une fonction (<code class="docutils literal notranslate"><span class="pre">def</span></code>)<a class="headerlink" href="#definition-d-une-fonction-def" title="Link to this heading">#</a></h2>
+<p>Une instruction composée de type définition de fonction ne contient qu’une seule clause.</p>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/fonction_01.png"><img alt="../_images/fonction_01.png" src="../_images/fonction_01.png" style="width: 250px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Structure de l’instruction composée  <code class="docutils literal notranslate"><span class="pre">def</span></code></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Syntaxe 1 :  <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">&lt;nom_de_fonction&gt;</span> <span class="pre">(&lt;liste_de_paramètres&gt;):</span>&#160; <span class="pre">&lt;suite&gt;</span></code> (une seule clause)</p>
+<p>La syntaxe de la définition d’une fonction est</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="o">&lt;</span><span class="n">nom_de_fonction</span><span class="o">&gt;</span> <span class="p">(</span> <span class="o">&lt;</span><span class="n">liste_de_paramètres</span><span class="o">&gt;</span> <span class="p">)</span> <span class="p">:</span>  
+    <span class="o">&lt;</span><span class="n">suite</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 <p>où</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">def</span></code> est un mot-clé (lexème)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;nom_de_fonction&gt;</span></code> est un identifiant Python (lexème) qui nom la fonction</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;liste_de_paramètres&gt;</span></code> est une liste facultative, séparée par des virgules, de paramètres pouvant être transmis à la fonction</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> est le corps de la fonction, une liste d’instructons</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;nom_de_fonction&gt;</span></code> est un identifiant Python (lexème) qui nomme la fonction</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;paramètres&gt;</span></code> est une suite facultative de paramètres pouvant être transmis à la fonction, les paramètres sont séparés par des virgules,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> est le corps de la fonction, il s’agit d’un bloc d’instructions qui doit être non vide et indenté.</p></li>
 </ul>
-<p>Le corps de la fonction est le bloc de code qui est exécuté lorsque la fonction est appelée, il est défini par l’indentation par rapport à l’entête de la clause.</p>
+<p>Exemple d’une fonction identifiée par le nom <code class="docutils literal notranslate"><span class="pre">fib</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ════ début de l&#39;instruction composée ═══╗</span>
+<span class="c1">#┌───────── début de clause  ───────────┐ ║</span>
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>               <span class="c1"># &lt;-- entête  │ ║</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>           <span class="c1"># ┐           │ ║</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>          <span class="c1"># ├─ suite    │ ║</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1"># │  indentée │ ║</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>   <span class="c1"># │           │ ║</span>
+    <span class="nb">print</span><span class="p">()</span>               <span class="c1"># ┘           │ ║</span>
+<span class="c1">#└──────────────────────────────────────┘ ║</span>
+<span class="c1"># ════════════════════════════════════════╝  </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="appel-a-une-fonction">
+<h2>Appel à une fonction<a class="headerlink" href="#appel-a-une-fonction" title="Link to this heading">#</a></h2>
+<p>La syntaxe de l’appel à une fonction est</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">nom_de_la_fonction</span><span class="o">&gt;</span> <span class="p">(</span> <span class="o">&lt;</span><span class="n">arguments</span><span class="o">&gt;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>où</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;nom_de_la_fonction&gt;</span></code> est l’identifiant de la fonction dans l’espace de nom.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;arguments&gt;</span></code> est une suite, éventuellement vide, d’arguments à transmettre à la fonction.</p></li>
+</ul>
+<p>L’exécution d’une fonction renvoie un objet qui est déterminé par la manière dont la fonction se termine.</p>
+<ul class="simple">
+<li><p>si la fonction exécute l’instruction <code class="docutils literal notranslate"><span class="pre">return</span></code>, alors elle se termine et renvoie l’objet à la droite du mot-clé <code class="docutils literal notranslate"><span class="pre">return</span></code> <br />
+Exemple : <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">3</span></code> renvoie l’entier <code class="docutils literal notranslate"><span class="pre">3</span></code>,  <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">[1,</span> <span class="pre">2]</span></code> renvoie la liste <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2]</span></code> et <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">1,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">[4,</span> <span class="pre">5]</span></code> renvoie le n-uplet <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">[4,</span> <span class="pre">5])</span></code> (identique à <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">(1,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">[4,</span> <span class="pre">5])</span></code>). L’instruction <code class="docutils literal notranslate"><span class="pre">return</span></code> peut apparaitre plusieurs fois dans u</p></li>
+<li><p>si l’exécution des instructions du bloc <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> arrive à la fin du bloc avoir exécuté d’instruction <code class="docutils literal notranslate"><span class="pre">return</span></code>, alors elle se termine et renvoie l’objet <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+</ul>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Exemple <code class="docutils literal notranslate"><span class="pre">factoriel_1()</span></code></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factoriel_1</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
+        <span class="n">res</span> <span class="o">*=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">retour</span> <span class="o">=</span> <span class="n">factoriel_1</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;retour =&quot;</span><span class="p">,</span> <span class="n">retour</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>retour = None
+</pre></div>
+</div>
+<p class="sd-card-text">Lors de l’appel à <code class="docutils literal notranslate"><span class="pre">factoriel_1()</span></code>, aucune instruction <code class="docutils literal notranslate"><span class="pre">return</span></code> n’arrête l’enchainement des instructions du bloc de code de la fonction. Après l’exécution de la dernière instruction du bloc (instruction composée <code class="docutils literal notranslate"><span class="pre">for</span></code>), la fonction se termine et renvoie l’objet <code class="docutils literal notranslate"><span class="pre">None</span></code> à son appelant.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Exemple <code class="docutils literal notranslate"><span class="pre">factoriel_2()</span></code></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factoriel_2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span> 
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
+        <span class="n">res</span> <span class="o">*=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">retour</span> <span class="o">=</span> <span class="n">factoriel_2</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;retour =&quot;</span><span class="p">,</span> <span class="n">retour</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>retour = 24
+</pre></div>
+</div>
+<p class="sd-card-text">Lors de l’appel à <code class="docutils literal notranslate"><span class="pre">factoriel_2()</span></code>, l’instruction <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">res</span></code> arrête l’enchainement des instructions du bloc de code de la fonction et renvoie l’objet <code class="docutils literal notranslate"><span class="pre">res</span></code> (qui ici est l’entier <code class="docutils literal notranslate"><span class="pre">24</span></code>) à son appelant.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="portee-des-noms-d-objets">
+<h2>Portée des noms d’objets<a class="headerlink" href="#portee-des-noms-d-objets" title="Link to this heading">#</a></h2>
+<p>Lors de l’exécution d’une instruction, les noms des objets accessibles sont dans un sous-ensemble de l’espace des noms appelés “portée” (<em>scope</em> en anglais). Lorsque le nom est accessible, le code peut accéder à l’objet Python qui a été assigné à ce nom.</p>
+<p>La structuration de la portée des noms est l’image de la structuration du code source en modules, en fonctions et en sous-fonctions. Ci-dessous un exemple de code avec ses portées de noms associées. La portée du code principale porte généralement le nom “main” tandis que le code d’un module porte le nom du module. Le code principal et ceux des modules sont eux-mêmes inclus dans une portée nommée “Built-in” (portée native) qui contient tous les noms du module builtins (ex: int, float, list, dict, print, abs, pow, …).</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Exemple de code</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;main&quot;</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+<span class="linenos"> 4</span>    <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;f1&quot;</span>
+<span class="linenos"> 5</span>    <span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;b de f1&quot;</span>
+<span class="linenos"> 6</span>    <span class="k">def</span> <span class="nf">f1_1</span><span class="p">():</span>
+<span class="linenos"> 7</span>        <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;f1_1&quot;</span>
+<span class="linenos"> 8</span>        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;voit&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;voit&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">f1_1</span><span class="p">()</span>
+<span class="linenos">11</span>        
+<span class="linenos">12</span><span class="k">def</span> <span class="nf">f2</span><span class="p">():</span>
+<span class="linenos">13</span>    <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;f2&quot;</span>
+<span class="linenos">14</span>    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;voit&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="linenos">15</span>    
+<span class="linenos">16</span><span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;b de main&quot;</span>
+<span class="linenos">17</span><span class="n">c</span> <span class="o">=</span> <span class="s2">&quot;c de main&quot;</span>
+<span class="linenos">18</span><span class="n">f1</span><span class="p">()</span>
+<span class="linenos">19</span><span class="n">f2</span><span class="p">()</span>
+<span class="linenos">20</span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;voit&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;et&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Portées de noms associés</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>┌── main ───────────┐ 
+│                   │
+│ ┌── f1 ─────────┐ │
+│ │               │ │
+│ │               │ │
+│ │ ┌── f1_1 ───┐ │ │
+│ │ │           │ │ │
+│ │ └───────────┘ │ │
+│ │               │ │
+│ └───────────────┘ │
+│                   │
+│ ┌── f2 ─────────┐ │
+│ │               │ │
+│ └───────────────┘ │
+│                   │
+│                   │
+│                   │
+│                   │
+│                   │
+└───────────────────┘
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Python distinct quatre types de portées :</p>
+<ul class="simple">
+<li><p><strong>Globale</strong> est la portée du code principal (du programme ou du module), celle où il exécute sa 1re instruction</p></li>
+<li><p><strong>Built-in</strong> est la portée native qui englobe la portée globale</p></li>
+<li><p><strong>Locale</strong> est, pour une instruction, la portée où elle se situe (portée relative)</p></li>
+<li><p><strong>Englobante</strong> est la portée qui englobe la portée où se trouve l’instruction.</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>┌── Built-in ───────────┐ 
+│                       │
+│ ┌─ Globale ─────────┐ │
+│ │                   │ │
+│ │ ┌─ Englobante ──┐ │ │
+│ │ │               │ │ │
+│ │ │ ┌─Locale ───┐ │ │ │
+│ │ │ │           │ │ │ │
+│ │ │ └───────────┘ │ │ │
+│ │ └───────────────┘ │ │
+│ └───────────────────┘ │
+└───────────────────────┘
+</pre></div>
+</div>
+<p>Illustration de ces quatre types de portée pour quelques instructions :</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>type de portée</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;f1_1&quot;</span></code><br />ligne 7</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;f2&quot;</span></code> en ligne 13</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">f1()</span></code><br />ligne 18</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Locale</p></td>
+<td><p>f1_1 (*)</p></td>
+<td><p>f2</p></td>
+<td><p>main</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enblobante</p></td>
+<td><p>f1</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Global</p></td>
+<td><p>main</p></td>
+<td><p>main</p></td>
+<td><p>main</p></td>
+</tr>
+<tr class="row-odd"><td><p>Built-in</p></td>
+<td><p>builtins</p></td>
+<td><p>builtins</p></td>
+<td><p>builtins</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>(*) certaines instructions peuvent avoir une succession de portée englobante avant d’atteindre la portée globale</p>
+<p>L’interpréteur exécute le code source principal dans une portée englobante appelée builtins qui contient toutes les fonctions natives, les types natifs et les constantes natives.</p>
+<p>L’exécution d’une fonction introduit un nouveau sous-espace de nom (table de symboles) utilisé pour stocker les noms locaux créés par la fonction.</p>
+<p>En revanche, les références de variables (noms) sont recherchées dans la table des symboles locaux, puis dans les tables des symboles locaux des fonctions englobantes, puis dans la table des symboles globaux et finalement dans la table des noms natifs (built_in).</p>
+<p>Par conséquent, bien qu’elles puissent être référencées, il est impossible d’assigner un objet à un nom de la portée globale ou à un nom d’une portée englobante (sauf pour les noms de la portée globale qui apparaissent dans une instruction <code class="docutils literal notranslate"><span class="pre">global</span></code> et sauf pour les  noms des portées englobantes qui apparaissent dans une instruction <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code>).</p>
+</section>
+<section id="association-arguments-parametres">
+<h2>Association arguments-paramètres<a class="headerlink" href="#association-arguments-parametres" title="Link to this heading">#</a></h2>
+<p>Au moment de l’appel à une fonction, un objet python doit être assigné à chaque paramètre de la fonction. Cela donne lieu à la création de noms d’objet dans l’espace de nom de la portée <strong>locale</strong> à la fonction.</p>
+<p>Pour cela les <strong>arguments</strong> fournis sont associés aux <strong>paramètres</strong> selon différentes stratégie.</p>
+<section id="nombre-d-arguments-fixe">
+<h3>Nombre d’arguments fixe<a class="headerlink" href="#nombre-d-arguments-fixe" title="Link to this heading">#</a></h3>
+<p>L’association de base assigne simplement les arguments aux paramètres de même rang, comme l’illustre le tableau suivant.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Arguments | Paramètres de |       Assignations
+ d&#39;appel  |  la fonction  |        à l&#39;appel
+----------|---------------|------------------------
+ &lt;arg_1&gt;  | &lt;nom_param_1&gt; | &lt;nom_param_1&gt; = &lt;arg_1&gt;
+ &lt;arg_2&gt;  | &lt;nom_param_2&gt; | &lt;nom_param_2&gt; = &lt;arg_2&gt;
+  .   .   |   .   .   .   |  .   .   .       .   .
+ &lt;arg_n&gt;  | &lt;nom_param_n&gt; | &lt;nom_param_n&gt; = &lt;arg_n&gt;
+
+</pre></div>
+</div>
+<p>Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">affiche_salutation</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">civilite</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Affiche une salutation personnalisée.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">,</span> <span class="n">civilite</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">)</span>
+
+
+<span class="n">affiche_salutation</span><span class="p">(</span><span class="s2">&quot;Lovelace&quot;</span><span class="p">,</span> <span class="s2">&quot;Ada&quot;</span><span class="p">,</span> <span class="s2">&quot;Mme&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bonjour Mme Ada Lovelace
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’appel <code class="docutils literal notranslate"><span class="pre">affiche_salutation(&quot;Lovelace&quot;,</span> <span class="pre">&quot;Ada&quot;,</span> <span class="pre">&quot;Mme&quot;)</span></code> génère les trois assignations suivantes dans la portée locale de la fonction</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nom</span> <span class="o">=</span> <span class="s2">&quot;Lovelace&quot;</span>
+<span class="n">prenom</span> <span class="o">=</span> <span class="s2">&quot;Ada&quot;</span>
+<span class="n">civilité</span> <span class="o">=</span> <span class="s2">&quot;Mme&quot;</span>
+</pre></div>
+</div>
+<!--
+Puis le block de code de la fonction est exécuté.
+
+
+Au moment de l'appel à une fonction, les **arguments** fournis sont associés aux **paramètres** attendus par la fonction. La manière de les associer offre de nombreuses possibilité comme les exemples suivants le montre. Ce sont des appels à la même fonction native `print()` avec une grande diversité dans la liste des arguments ; leur nombre est variable, l'argument pour le paramètre `sep` est parfois omis.
+
+```{code-cell} python
+print()
+print("Bonjour")
+print("ens", "paris", "saclay")
+print("ens", "paris", "saclay", sep="-")
+```
+
+### Association positionnelle
+
+Lorsqu'un argument est un simple objet, c'est un **argument positionnel**. Au moment de l'appel, les arguments positionnels sont associés aux paramètres de même rang.
+
+Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :
+
+```{code-cell} python
+def affiche_salutation(nom, prenom, civilite):
+    """Affiche une salutation personnalisée."""
+    print("Bonjour", civilite, prenom, nom)
+
+
+affiche_salutation("Lovelace", "Ada", "Mme")
+```
+
+Les paramètres peuvent avoir une valeur par défaut, dans ce cas ils n'ont pas besoin d'être associés à un argument au moment de l'appel. Les paramètres sans valeur par défaut sont dits **paramètres positionnels**, les paramètres avec une valeur par défaut sont dits **paramètres positionnels ou nommés**, il suivent la syntaxe suivante dans la définition de la fonction :
+
+`<nom_parametre> = <valeur_par_défaut>`
+
+Dans la définition d'une fonction, après le premier paramètre par défaut, tous les paramètres suivant doivent être aussi par défaut, car l'assossiation positionnelle n'est plus possible.
+
+Exemple d'une fonction avec deux paramètre par défaut `prenom=""` et `civilite=""` :
+
+```{code-cell} python
+def affiche_salutation_2(nom, prenom="", civilite=""):
+    """Affiche une salutation personnalisée."""
+    mots = ["Bonjour"]
+    if civilite: 
+        mots.append(civilite)
+    if prenom: 
+        mots.append(prenom)
+    mots.append(nom)
+    print(" ".join(mots))
+
+affiche_salutation_2("Lovelace", "Ada", "Mme")
+affiche_salutation_2("Lovelace", "Ada")  # affiche "Bonjour Ada Lovelace"
+affiche_salutation_2("Lovelace") # affiche "Bonjour Lovelace"
+```
+
+Dans l'exemple précédant, les appels à la fonction se font avec une association positionnelle, cela oblige à passer le 2e argument si l'on souhaite passer l'argument de civilité qui se place en 3e position.
+
+### Association par nom
+
+Les **arguments nommés** sont les arguments associés explicitement à un paramètre auquel ils doivent être associés en mentionnant le nom du dit paramètre. La syntaxe d'un argument nommées dans l'appel de la fonction est la suivante
+
+ `<nom_parametre> = <argument>`
+ 
+ Dans l'appel à une fonction, après le premier argument nommée, tous les arguments suivant doivent aussi être nommées, car l'association positionnelle n'est plus possible.
+
+Exemple :
+
+```{code-cell} python
+affiche_salutation_2("Lovelace", civilite="Ada")
+```
+
+## Emballage et déballage
+
+ -->
+</section>
+</section>
+<section id="documentation-d-une-fonction-docstring">
+<h2>Documentation d’une fonction (Docstring)<a class="headerlink" href="#documentation-d-une-fonction-docstring" title="Link to this heading">#</a></h2>
+<p>Toutes les fonctions, comme les modules, les classes et les méthodes, devraient avoir une chaine littérale de caractères comme première instruction. Cette chaine est appelée chaine de documentation (<em>docstring</em> en anglais) car elle sert aux outils de documentation du code source comme la fonction native <code class="docutils literal notranslate"><span class="pre">help()</span></code>. En créant un objet de type fonction, l’interpréteur Python lui ajoute l’attribut-donnée <code class="docutils literal notranslate"><span class="pre">__doc__</span></code> qui réfère à cette chaine de documentation.</p>
+<p>Il existe des conventions pour l’utilisation de ces chaines de documentation publiées dans les propositions <a class="reference external" href="https://peps.python.org/pep-0008/">PEP 8</a> et <a class="reference external" href="https://peps.python.org/pep-0257/">PEP 257</a>.</p>
+<p>Globalement</p>
+<ul class="simple">
+<li><p>elles sont placées entre “””Trois guillemets”””</p></li>
+<li><p>lignes où elles apparaissent doivent avoir une longueur de 72 caractères maximum (espaces vides inclus)</p></li>
+</ul>
+<p>Pour les chaines de documentation à une seule ligne</p>
+<ul class="simple">
+<li><p>tout est sur une seule ligne (guillemets compris)</p></li>
+<li><p>le contenu est une phrase qui se termine par un point <code class="docutils literal notranslate"><span class="pre">.</span></code> et qui résume ce que fait la fonction : <code class="docutils literal notranslate"><span class="pre">Fait</span> <span class="pre">ceci.</span></code> ou <code class="docutils literal notranslate"><span class="pre">Fait</span> <span class="pre">cela.</span></code></p></li>
+</ul>
+<p>Exemple d’une fonction documentée avec une seule ligne</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcul les deux racines d&#39;une équation du second degrés.&quot;&quot;&quot;</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
+
+
+<span class="n">help</span><span class="p">(</span><span class="n">racine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function racine in module __main__:
+
+racine(a, b, c)
+    Calcul les deux racines d&#39;une équation du second degrés.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour les chaines de documentation multilignes, elles sont composées des éléments suivants</p>
+<ul class="simple">
+<li><p>une ligne de résumé</p></li>
+<li><p>une ligne vide</p></li>
+<li><p>Tout autre développement de la documentation</p></li>
+<li><p>une autre ligne vide</p></li>
+</ul>
+<p>Exemple d’une fonction documentée sur plusieurs lignes, mais sans format particulier</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcul les deux racines d&#39;une équation du second degré.</span>
+
+<span class="sd">    L&#39;équation du second degré est de la forme ax² + bx + c = 0.</span>
+<span class="sd">    La résolution s&#39;appuie sur le calcule du discriminant.</span>
+<span class="sd">    Note: les solutions peuvent être des nombres complexes</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
+
+
+<span class="n">help</span><span class="p">(</span><span class="n">racine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function racine in module __main__:
+
+racine(a, b, c)
+    Calcul les deux racines d&#39;une équation du second degré.
+    
+    L&#39;équation du second degré est de la forme ax² + bx + c = 0.
+    La résolution s&#39;appuie sur le calcule du discriminant.
+    Note: les solutions peuvent être des nombres complexes
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pour la partie “développement” de la documentation, il existe des formats spécifiques qui facilitent de travail des codeurs et des outils de générateur de documentation en ligne. Les formatages les plus répandus sont</p>
+<ul class="simple">
+<li><p><em>Google docstrings</em> (proposé et recommandé par Google)</p></li>
+<li><p><em>reStructuredText</em> (peu lisible, mais très riche)</p></li>
+<li><p><a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html"><em>NumPy/SciPy docstrings</em></a> (titre le meilleur des deux précédents)</p></li>
+</ul>
+<p>Exemple d’une fonction documentée sur plusieurs lignes avec le format NumPy/SciPy docstrings</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcul les deux racines d&#39;une équation du second degrés.</span>
+
+<span class="sd">    L&#39;équation du second degré est de la forme ax² + bx + c = 0.</span>
+<span class="sd">    Le discriminant est calculé dans un premier temps, puis</span>
+<span class="sd">    chacune des deux solutions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a : int, float</span>
+<span class="sd">        Coefficient du terme au x².</span>
+<span class="sd">    b : int, float</span>
+<span class="sd">        Coefficient du terme x.</span>
+<span class="sd">    c : int, float</span>
+<span class="sd">        Coefficient constant</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x1 : real, complex</span>
+<span class="sd">        Une solution de l&#39;équation.</span>
+<span class="sd">    x2 : real, complex</span>
+<span class="sd">        Une solution de l&#39;équation.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; racine(1, -3, 2)</span>
+<span class="sd">    (1.0, 2.0)</span>
+
+<span class="sd">    &gt;&gt;&gt; racine(2, 2, -1.5)</span>
+<span class="sd">    (-1.5, 0.5)</span>
+
+<span class="sd">    &gt;&gt;&gt; racine(2, 2, 1)</span>
+<span class="sd">    ((-0.5-0.5j), (-0.5+0.5j))</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Les deux solutions renvoyées peuvent être identiques.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span>
+
+
+<span class="n">help</span><span class="p">(</span><span class="n">racine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function racine in module __main__:
+
+racine(a, b, c)
+    Calcul les deux racines d&#39;une équation du second degrés.
+    
+    L&#39;équation du second degré est de la forme ax² + bx + c = 0.
+    Le discriminant est calculé dans un premier temps, puis
+    chacune des deux solutions.
+    
+    Parameters
+    ----------
+    a : int, float
+        Coefficient du terme au x².
+    b : int, float
+        Coefficient du terme x.
+    c : int, float
+        Coefficient constant
+    
+    Returns
+    -------
+    x1 : real, complex
+        Une solution de l&#39;équation.
+    x2 : real, complex
+        Une solution de l&#39;équation.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; racine(1, -3, 2)
+    (1.0, 2.0)
+    
+    &gt;&gt;&gt; racine(2, 2, -1.5)
+    (-1.5, 0.5)
+    
+    &gt;&gt;&gt; racine(2, 2, 1)
+    ((-0.5-0.5j), (-0.5+0.5j))
+    
+    Notes
+    -----
+    Les deux solutions renvoyées peuvent être identiques.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -466,7 +995,14 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#def-definition-d-une-fonction-utilisateur"><code class="docutils literal notranslate"><span class="pre">def</span></code> definition d’une fonction utilisateur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-fonction-def">Définition d’une fonction (<code class="docutils literal notranslate"><span class="pre">def</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appel-a-une-fonction">Appel à une fonction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#portee-des-noms-d-objets">Portée des noms d’objets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#association-arguments-parametres">Association arguments-paramètres</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nombre-d-arguments-fixe">Nombre d’arguments fixe</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-d-une-fonction-docstring">Documentation d’une fonction (Docstring)</a></li>
 </ul>
   </nav></div>
 

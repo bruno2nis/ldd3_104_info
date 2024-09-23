@@ -380,6 +380,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-test-de-debogage"><code class="docutils literal notranslate"><span class="pre">assert</span></code> test de débogage</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-operation-vide"><code class="docutils literal notranslate"><span class="pre">pass</span></code> opération vide</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-importation-de-modules"><code class="docutils literal notranslate"><span class="pre">import</span></code> importation de modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-terminaison-de-fonction"><code class="docutils literal notranslate"><span class="pre">return</span></code> terminaison de fonction</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a><ul class="nav section-nav flex-column">
@@ -387,7 +388,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-iterations"><code class="docutils literal notranslate"><span class="pre">for</span></code> itérations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-repetition-conditionnelle"><code class="docutils literal notranslate"><span class="pre">while</span></code> répétition conditionnelle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#def-definition-d-un-fonction"><code class="docutils literal notranslate"><span class="pre">def</span></code> définition d’un fonction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-definition-d-une-classe-d-objet"><code class="docutils literal notranslate"><span class="pre">class</span></code> définition d’une classe d’objet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-definition-d-une-classe-d-objets"><code class="docutils literal notranslate"><span class="pre">class</span></code> définition d’une classe d’objets</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctions-natives">Fonctions natives</a></li>
@@ -408,9 +409,9 @@ document.write(`
 <h2>Grammaire<a class="headerlink" href="#grammaire" title="Link to this heading">#</a></h2>
 <p>La syntaxe d’un code source en langage Python est définie par une <strong>grammaire formelle</strong> (disponible ici : <a class="reference external" href="https://docs.python.org/fr/3/reference/grammar.html">https://docs.python.org/fr/3/reference/grammar.html</a>). Elle spécifie comment un axiome et des symboles non terminaux sont construits à partir de symboles terminaux et de règles de productions. Concrètement,</p>
 <ul class="simple">
-<li><p><strong>l’axiome</strong> représente l’ensemble des codes source Python possible</p></li>
+<li><p><strong>l’axiome</strong> représente l’ensemble des codes sources Python possible</p></li>
 <li><p><strong>les symboles terminaux</strong> sont des éléments lexicaux de base (lexèmes) comme des mots-clés, des nombres, des identifiants, des opérateurs…</p></li>
-<li><p><strong>les règles de production</strong> décrivent les assemblages possibles de lexèmes en nouveaux éléments intermédiaires (les symboles non terminaux) et elles décrivent aussi les assemblages des symboles non terminaux entre eux pour construire l’axiome (les codes source possibles)</p></li>
+<li><p><strong>les règles de production</strong> décrivent les assemblages possibles de lexèmes en nouveaux éléments intermédiaires (les symboles non terminaux) et elles décrivent aussi les assemblages des symboles non terminaux entre eux pour construire l’axiome (les codes sources possibles)</p></li>
 </ul>
 <p>Pour interpréter un code source, il faut commencer par une <strong>analyse lexicale</strong> qui identifie les lexèmes et qui accessoirement élimine les commentaires et les lignes vides, puis continuer par une <strong>analyse syntaxique</strong> en s’appuyant sur les de production de la grammaire (règle de syntaxe) pour identifier les instructions et leur structure.</p>
 </section>
@@ -446,7 +447,7 @@ document.write(`
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>étiqueter des sections de code spécifiques où se trouvent des problèmes identifiés ou des axes d’amélioration. On peut citer à titre d’exemple les étiquettes BUG, FIXME, et TODO souvent écrites est anglais pour les compacités.</p></li>
+<li><p>étiqueter des sections de code spécifiques où se trouvent des problèmes identifiés ou des axes d’amélioration. On peut citer à titre d’exemple les étiquettes BUG, FIXME, et TODO. Les étiquettes sont souvent écrites en anglais pour les compacités.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Ajouter une condition</span>
 
@@ -457,7 +458,7 @@ document.write(`
 </section>
 <section id="lexemes">
 <h2>Lexèmes<a class="headerlink" href="#lexemes" title="Link to this heading">#</a></h2>
-<p>Les lexèmes (<em>tokens</em> en anglais) sont des symboles lexicaux comme <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;Bonjour&quot;</span></code> qui représentent des symboles élémentaires (symboles terminaux) pour la grammaire du langage. Ils se répartissent en différentes catégories selon leur signification : les <strong>identifiants</strong> d’objet, les <strong>mots-clés</strong> réservés, les <strong>littéraux</strong> d’objet, les <strong>opérateurs</strong> comme l’addition ou la division et les <strong>délimiteurs</strong> comme <code class="docutils literal notranslate"><span class="pre">;</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> ou <code class="docutils literal notranslate"><span class="pre">)</span></code> pour séparer ou regrouper des éléments.</p>
+<p>Les lexèmes (<em>tokens</em> en anglais) sont des symboles lexicaux comme <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">23</span></code>, ou <code class="docutils literal notranslate"><span class="pre">&quot;Bonjour&quot;</span></code> qui représentent des symboles élémentaires (symboles terminaux) pour la grammaire du langage. Ils se répartissent en différentes catégories selon leur signification : les <strong>identifiants</strong> d’objet, les <strong>mots-clés</strong> réservés, les <strong>littéraux</strong> d’objet, les <strong>opérateurs</strong> comme l’addition ou la division et les <strong>délimiteurs</strong> comme <code class="docutils literal notranslate"><span class="pre">;</span></code> <code class="docutils literal notranslate"><span class="pre">(</span></code> ou <code class="docutils literal notranslate"><span class="pre">)</span></code> pour séparer ou regrouper des éléments.</p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -642,10 +643,10 @@ Symboles de contrôle</div>
 <h2>Objets Python<a class="headerlink" href="#objets-python" title="Link to this heading">#</a></h2>
 <p>Avec Python toutes les données sont représentées sous forme d’objets. Un objet est une entité stockée dans la mémoire de la machine hôte, qui possède :</p>
 <ul class="simple">
-<li><p>une <strong>valeur</strong> - On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> possèdent la même valeur si l’évaluation de l’expression de comparaison <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code> (ou plus exactement un objet de type booléen et de valeur égale à <code class="docutils literal notranslate"><span class="pre">True</span></code>). Python ne dispose pas de méthode canonique pour accéder à la valeur d’un objet.</p></li>
-<li><p>un <strong>type</strong> - Chaque objet est l’instance d’une <em>classe</em> que l’on appelle aussi le type de l’objet. Un objet conserve toujours le même type au cours de son existence en mémoire, on parle de typage fort du langage Python. La fonction native <code class="docutils literal notranslate"><span class="pre">type()</span></code> retourne le type (la classe) de l’objet passé en argument. On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> possèdent le même type si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">type(a)</span> <span class="pre">==</span> <span class="pre">type(b)</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
-<li><p>une <strong>identité</strong> - Chaque objet possède une identité unique qui ne change jamais au cours de son existence en mémoire, on parle d’identifiant. La fonction native <code class="docutils literal notranslate"><span class="pre">id()</span></code> retourne l’identifiant de l’objet passé en argument. On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> ont la même identité s’ils ne font qu’un, c’est-à-dire si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">id(a)</span> <span class="pre">==</span> <span class="pre">id(b)</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code>, c’est-à-dire si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">is</span> <span class="pre">b</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
-<li><p>des <strong>attributs-données</strong>, éventuellement aucun - Les attributs-données, parfois simplement nommés attributs, sont des données de n’importe quel type qui caractérisent l’objet. Elle sont dites encapsulées dans l’objet. Pour désigner un attribut nommé <code class="docutils literal notranslate"><span class="pre">nom_attr</span></code> de l’objet <code class="docutils literal notranslate"><span class="pre">obj</span></code> il y a deux possibilités :</p>
+<li><p>une <strong>valeur</strong> - on dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> possèdent la même valeur si l’évaluation de l’expression de comparaison <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code> (ou plus exactement un objet de type booléen et de valeur égale à <code class="docutils literal notranslate"><span class="pre">True</span></code>). Python ne dispose pas de méthode canonique pour accéder à la valeur d’un objet.</p></li>
+<li><p>un <strong>type</strong> - chaque objet est l’instance d’une <em>classe</em> que l’on appelle aussi le type de l’objet. Un objet conserve toujours le même type au cours de son existence en mémoire, on parle de typage fort du langage Python. La fonction native <code class="docutils literal notranslate"><span class="pre">type()</span></code> retourne le type (la classe) de l’objet passé en argument. On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> possèdent le même type si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">type(a)</span> <span class="pre">==</span> <span class="pre">type(b)</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code></p></li>
+<li><p>une <strong>identité</strong> - chaque objet possède une identité unique qui ne change jamais au cours de son existence en mémoire, on parle d’identifiant. La fonction native <code class="docutils literal notranslate"><span class="pre">id()</span></code> retourne l’identifiant de l’objet passé en argument. On dit que les objets <code class="docutils literal notranslate"><span class="pre">a</span></code> et <code class="docutils literal notranslate"><span class="pre">b</span></code> ont la même identité s’ils ne font qu’un, c’est-à-dire si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">id(a)</span> <span class="pre">==</span> <span class="pre">id(b)</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code>, c’est-à-dire si l’évaluation de l’expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">is</span> <span class="pre">b</span></code> retourne <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p>des <strong>attributs-données</strong>, éventuellement aucun - Les attributs-données, parfois simplement nommés attributs, sont des données de n’importe quel type qui caractérisent l’objet. Ils sont dits encapsulés dans l’objet. Pour désigner un attribut nommé <code class="docutils literal notranslate"><span class="pre">nom_attr</span></code> de l’objet <code class="docutils literal notranslate"><span class="pre">obj</span></code> il y a deux possibilités :</p>
 <ul>
 <li><p>la notation “pointée” <code class="docutils literal notranslate"><span class="pre">obj.nom_attr</span></code></p></li>
 <li><p>la fonction native <code class="docutils literal notranslate"><span class="pre">getattr(obj,</span> <span class="pre">nom_attr)</span></code></p></li>
@@ -733,7 +734,7 @@ La figure suivante illustre graphiquement la notion d’objet Python. À droite,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2192948877440
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2290012508672
 </pre></div>
 </div>
 </div>
@@ -758,7 +759,7 @@ La figure suivante illustre graphiquement la notion d’objet Python. À droite,
 <ul class="simple">
 <li><p><em>Utiliser uniquement des lettres, des chiffres, et des tirets bas</em> : un nom de variable est composé de lettres (a-z, A-Z), de chiffres (0-9) et de tirets bas (_)</p></li>
 <li><p><em>Ne pas commencer par un chiffre</em> : un nom de variable ne peut pas commencer par un chiffre</p></li>
-<li><p><em>Ne pas utiliser les mots réservés</em> : les mots réservés du langage ne peuvent pas être utilisés comme noms de variables, exemples if, for, while, True, False, etc</p></li>
+<li><p><em>Ne pas utiliser les mots réservés</em> : les mots réservés du langage ne peuvent pas être utilisés comme noms de variables, exemples if, for, while, True, False, etc.</p></li>
 </ul>
 <p>Conventions de nommage des variables (<a class="reference external" href="https://peps.python.org/pep-0008/#function-and-variable-names">PEP8</a>])</p>
 <ul class="simple">
@@ -1168,7 +1169,7 @@ La figure suivante illustre graphiquement la notion d’objet Python. À droite,
 </section>
 <section id="instruction-d-assignation">
 <h3><code class="docutils literal notranslate"><span class="pre">=</span></code> instruction d’assignation<a class="headerlink" href="#instruction-d-assignation" title="Link to this heading">#</a></h3>
-<p>L’instruction d’<strong>assignation</strong>, ou plus simplement l’assignation, construit l’association entre un nom (étiquette) et un objet. Une fois nommé, un objet pourra être réutilisé autant de fois que nécessaire dans le code. la syntaxe de base d’une instruction d’assignation est</p>
+<p>L’instruction d’<strong>assignation</strong>, ou plus simplement l’assignation, construit l’association entre un nom (une étiquette) et un objet. Une fois nommé, un objet pourra être réutilisé autant de fois que nécessaire dans le code. la syntaxe de base d’une instruction d’assignation est</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nom_de_variable</span> <span class="o">=</span> <span class="n">expression</span>
 </pre></div>
 </div>
@@ -1374,11 +1375,11 @@ sémantique : ne faire rien si <code class="docutils literal notranslate"><span 
 <p>L’importation de modules en Python joue un rôle crucial dans la modularité et la réutilisabilité du code source, elle permet :</p>
 <ul class="simple">
 <li><p>la réutilisation de code existant sans avoir à le réécrire. Par exemple, le module <code class="docutils literal notranslate"><span class="pre">math</span></code> fournit des fonctions mathématiques couramment utilisées, telles que <code class="docutils literal notranslate"><span class="pre">sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, et des données comme <code class="docutils literal notranslate"><span class="pre">pi</span></code>.</p></li>
-<li><p>la structuration du code en le répartissant dans plusieurs modules stockés dans des fichiers distincts, puis importés selon les besoins.</p></li>
+<li><p>la structuration du code en le répartissant dans plusieurs modules stockés dans des fichiers distincts, puis en l’important selon les besoins.</p></li>
 <li><p>l’encapsulation des fonctions et des variables, chaque module a sa propre <em>portée</em> dans l’espace de noms, ce qui permet d’éviter les collisions de noms entre les différents modules et le code source principal.</p></li>
 </ul>
 <p>Une <strong>portée</strong> est une étendue de l’espace des noms qui est accessible par défaut aux instructions d’un code. Le code du programme principal crée et accède à des noms dans la portée que l’on nommera “main (global)” tandis que le code d’un module “nom_du_module” crée et accède à des noms dans la portée “nom_du_modul (global)”</p>
-<p>Quand un module est importé pour la première fois, Python recherche le module et, s’il est trouvé, crée un objet module en l’initialisant. Si le module n’est pas trouvé, une exception <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> est levée. Python implémente plusieurs stratégies pour rechercher le module d’un nom donné quand le mécanisme d’importation est invoqué (par exemple dans le chemin des bibliothèques de la distribution Python ou dans l’emplacement du code source en cours d’exécution).</p>
+<p>Quand un module est importé pour la première fois, Python recherche le module et, s’il est trouvé, crée un objet de type module en l’initialisant. Si le module n’est pas trouvé, une exception <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> est levée. Python implémente plusieurs stratégies pour rechercher le module d’un nom donné quand le mécanisme d’importation est invoqué (par exemple dans le chemin des bibliothèques de la distribution Python ou dans l’emplacement du code source en cours d’exécution).</p>
 <p>Syntaxe 1 : <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;nom_module&gt;</span></code><br />
 sémantique : trouve un module <code class="docutils literal notranslate"><span class="pre">&lt;nom_module&gt;</span></code>, le charge et l’initialise si nécessaire puis définit le nom <code class="docutils literal notranslate"><span class="pre">&lt;nom_module&gt;</span></code> dans la portée où l’instruction <code class="docutils literal notranslate"><span class="pre">import</span></code> apparait.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> 
@@ -1442,6 +1443,13 @@ sémantique : trouve un module <code class="docutils literal notranslate"><span 
 </div>
 <p>On voit sur l’illustration suivante que le module <code class="docutils literal notranslate"><span class="pre">math</span></code> n’a pas de nom assigné dans la portée du programme principal. Hormis la fonction <code class="docutils literal notranslate"><span class="pre">sin()</span></code> et le flottant <code class="docutils literal notranslate"><span class="pre">3.14...</span></code> auxquels le programme principal peut accéder par les noms <code class="docutils literal notranslate"><span class="pre">sin</span></code> et <code class="docutils literal notranslate"><span class="pre">pi</span></code> dans sa portée, les autres objets du module sont inaccessibles.</p>
 <a class="reference internal image-reference" href="../_images/import_03.png"><img alt="../_images/import_03.png" src="../_images/import_03.png" style="width: 400px;" /></a>
+</section>
+<section id="return-terminaison-de-fonction">
+<h3><code class="docutils literal notranslate"><span class="pre">return</span></code> terminaison de fonction<a class="headerlink" href="#return-terminaison-de-fonction" title="Link to this heading">#</a></h3>
+<p>Le rôle de l’instruction <code class="docutils literal notranslate"><span class="pre">return</span></code> est de terminer l’appel une fonction, de ce fait elle ne peut être utilisée qu’à l’intérieur de l’instruction composée <code class="docutils literal notranslate"><span class="pre">def</span></code> de définition d’une fonction (ou d’une méthode).</p>
+<p>Syntaxe 1 : <code class="docutils literal notranslate"><span class="pre">return</span></code><br />
+Syntaxe 2 : <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&lt;expression_1&gt;,</span> <span class="pre">&lt;expression_2&gt;,</span> <span class="pre">...</span> <span class="pre">&lt;expression_n&gt;</span></code></p>
+<p>Sémantique : l’instruction renvoie au code appelant la suite d’objets correspondant à l’évaluation de gauche à droite des expressions, puis termine l’appel à la fonction en supprimant son cadre d’exécution ce qui supprime tous les noms de l’espace de nommage local à la fonction, et enfin, fait reprendre le cours de l’exécution des instructions au niveau du au code appelant.</p>
 </section>
 </section>
 <section id="instructions-composees">
@@ -1509,7 +1517,7 @@ sémantique : trouve un module <code class="docutils literal notranslate"><span 
 <li><p>0 à n clauses “elif” : <code class="docutils literal notranslate"><span class="pre">elif</span> <span class="pre">&lt;expression_de_test&gt;:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
 <li><p>0 à une clause “else” : <code class="docutils literal notranslate"><span class="pre">else:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
 </ul>
-<p>Sémantique : L’instruction composée <code class="docutils literal notranslate"><span class="pre">if</span></code> sélectionne exactement une des suites en évaluant les expressions <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> une par une jusqu’à ce qu’une soit vraie. Ensuite cette <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> est exécutée (et aucune autre partie de l’instruction if n’est exécutée ou évaluée) Si toutes les expressions <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> sont fausses, la suite de la clause “else”, si elle existe, est exécutée.</p>
+<p>Sémantique : L’instruction composée <code class="docutils literal notranslate"><span class="pre">if</span></code> sélectionne exactement une des suites en évaluant les expressions <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> une par une jusqu’à ce qu’une soit vraie. Ensuite cette <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> est exécutée (et aucune autre partie de l’instruction if n’est exécutée ou évaluée). Si toutes les expressions <code class="docutils literal notranslate"><span class="pre">&lt;expression_de_test&gt;</span></code> sont fausses, la suite de la clause “else”, si elle existe, est exécutée.</p>
 <p>Exemple :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1540,7 +1548,7 @@ sémantique : trouve un module <code class="docutils literal notranslate"><span 
 </section>
 <section id="for-iterations">
 <h3><code class="docutils literal notranslate"><span class="pre">for</span></code> itérations<a class="headerlink" href="#for-iterations" title="Link to this heading">#</a></h3>
-<p>L’instruction composée <code class="docutils literal notranslate"><span class="pre">for</span></code> est utilisée pour itérer sur les éléments d’une séquence (par exemple une chaine, un n-uplet ou une liste) ou un autre objet itérable</p>
+<p>L’instruction composée <code class="docutils literal notranslate"><span class="pre">for</span></code> est utilisée pour itérer sur les éléments d’une séquence (par exemple une chaine, un n-uplet ou une liste) ou un autre objet itérable.</p>
 <p>Syntaxe : l’instruction composée <code class="docutils literal notranslate"><span class="pre">for</span></code> est constituée de :</p>
 <ul class="simple">
 <li><p>1 clause “for” : <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">&lt;nom_cible&gt;</span> <span class="pre">in</span> <span class="pre">&lt;expression&gt;:</span> <span class="pre">&lt;suite&gt;</span></code></p></li>
@@ -1554,12 +1562,12 @@ sémantique : trouve un module <code class="docutils literal notranslate"><span 
 <p>Exemple :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ═════ début d&#39;une instruction composée ═══╗</span>
-<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ═════ début de l&#39;instruction composée ════╗</span>
+<span class="c1">#┌──────── début de clause  ──────────────┐ ║</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>    <span class="c1"># &lt;-- entête        │ ║</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># &lt;- suite indentée │ ║</span>
 <span class="c1">#└────────────────────────────────────────┘ ║</span>
-<span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
+<span class="c1">#┌──────── début de clause  ──────────────┐ ║</span>
 <span class="k">else</span><span class="p">:</span>                 <span class="c1"># &lt;-- entête        │ ║</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fin !&quot;</span><span class="p">)</span>    <span class="c1"># &lt;- suite indentée │ ║</span>
 <span class="c1">#└────────────────────────────────────────┘ ║</span>
@@ -1595,7 +1603,7 @@ fin !
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="c1"># ═════ début d&#39;une instruction composée ═══╗</span>
+<span class="c1"># ═════ début de l&#39;instruction composée ════╗</span>
 <span class="c1">#┌──────── début d&#39;une clause  ───────────┐ ║</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>          <span class="c1"># &lt;-- entête        │ ║</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="si">= }</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># ├─ suite indentée │ ║</span>
@@ -1624,8 +1632,8 @@ fin !
 <h3><code class="docutils literal notranslate"><span class="pre">def</span></code> définition d’un fonction<a class="headerlink" href="#def-definition-d-un-fonction" title="Link to this heading">#</a></h3>
 <p>Voir <a class="reference internal" href="2b_fonction_python.html"><span class="std std-doc">fonctions utilisateur</span></a></p>
 </section>
-<section id="class-definition-d-une-classe-d-objet">
-<h3><code class="docutils literal notranslate"><span class="pre">class</span></code> définition d’une classe d’objet<a class="headerlink" href="#class-definition-d-une-classe-d-objet" title="Link to this heading">#</a></h3>
+<section id="class-definition-d-une-classe-d-objets">
+<h3><code class="docutils literal notranslate"><span class="pre">class</span></code> définition d’une classe d’objets<a class="headerlink" href="#class-definition-d-une-classe-d-objets" title="Link to this heading">#</a></h3>
 <p>Voir <a class="reference internal" href="3b_classe_python.html"><span class="std std-doc">classes utilisateur</span></a></p>
 </section>
 </section>
@@ -1862,6 +1870,7 @@ fin !
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-test-de-debogage"><code class="docutils literal notranslate"><span class="pre">assert</span></code> test de débogage</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pass-operation-vide"><code class="docutils literal notranslate"><span class="pre">pass</span></code> opération vide</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-importation-de-modules"><code class="docutils literal notranslate"><span class="pre">import</span></code> importation de modules</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-terminaison-de-fonction"><code class="docutils literal notranslate"><span class="pre">return</span></code> terminaison de fonction</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-composees">Instructions composées</a><ul class="nav section-nav flex-column">
@@ -1869,7 +1878,7 @@ fin !
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-iterations"><code class="docutils literal notranslate"><span class="pre">for</span></code> itérations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-repetition-conditionnelle"><code class="docutils literal notranslate"><span class="pre">while</span></code> répétition conditionnelle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#def-definition-d-un-fonction"><code class="docutils literal notranslate"><span class="pre">def</span></code> définition d’un fonction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-definition-d-une-classe-d-objet"><code class="docutils literal notranslate"><span class="pre">class</span></code> définition d’une classe d’objet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-definition-d-une-classe-d-objets"><code class="docutils literal notranslate"><span class="pre">class</span></code> définition d’une classe d’objets</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fonctions-natives">Fonctions natives</a></li>
