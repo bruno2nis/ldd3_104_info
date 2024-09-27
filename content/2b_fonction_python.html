@@ -572,7 +572,7 @@ Portées de noms associés</div>
 </div>
 </div>
 </div>
-<p>Python distinct quatre types de portées :</p>
+<p>Python distingue quatre types de portées :</p>
 <ul class="simple">
 <li><p><strong>Globale</strong> est la portée du code principal (du programme ou du module), celle où il exécute sa 1re instruction</p></li>
 <li><p><strong>Built-in</strong> est la portée native qui englobe la portée globale</p></li>
@@ -635,7 +635,7 @@ Portées de noms associés</div>
 <section id="association-arguments-parametres">
 <h2>Association arguments-paramètres<a class="headerlink" href="#association-arguments-parametres" title="Link to this heading">#</a></h2>
 <p>Au moment de l’appel à une fonction, un objet python doit être assigné à chaque paramètre de la fonction. Cela donne lieu à la création de noms d’objet dans l’espace de nom de la portée <strong>locale</strong> à la fonction.</p>
-<p>Pour cela les <strong>arguments</strong> fournis sont associés aux <strong>paramètres</strong> selon différentes stratégie.</p>
+<p>Pour cela les <strong>arguments</strong> fournis sont associés aux <strong>paramètres</strong> selon différentes stratégies.</p>
 <section id="nombre-d-arguments-fixe">
 <h3>Nombre d’arguments fixe<a class="headerlink" href="#nombre-d-arguments-fixe" title="Link to this heading">#</a></h3>
 <p>L’association de base assigne simplement les arguments aux paramètres de même rang, comme l’illustre le tableau suivant.</p>
@@ -649,7 +649,7 @@ Portées de noms associés</div>
 
 </pre></div>
 </div>
-<p>Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :</p>
+<p>Exemple où les trois arguments passés sont de simples chaines de caractères littérales :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">affiche_salutation</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">civilite</span><span class="p">):</span>
@@ -677,7 +677,7 @@ Portées de noms associés</div>
 Puis le block de code de la fonction est exécuté.
 
 
-Au moment de l'appel à une fonction, les **arguments** fournis sont associés aux **paramètres** attendus par la fonction. La manière de les associer offre de nombreuses possibilité comme les exemples suivants le montre. Ce sont des appels à la même fonction native `print()` avec une grande diversité dans la liste des arguments ; leur nombre est variable, l'argument pour le paramètre `sep` est parfois omis.
+Au moment de l'appel à une fonction, les **arguments** fournis sont associés aux **paramètres** attendus par la fonction. La manière de les associer offre de nombreuses possibilités comme les exemples suivants le montrent. Ce sont des appels à la même fonction native `print()` avec une grande diversité dans la liste des arguments ; leur nombre est variable, l'argument pour le paramètre `sep` est parfois omis.
 
 ```{code-cell} python
 print()
@@ -690,7 +690,7 @@ print("ens", "paris", "saclay", sep="-")
 
 Lorsqu'un argument est un simple objet, c'est un **argument positionnel**. Au moment de l'appel, les arguments positionnels sont associés aux paramètres de même rang.
 
-Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :
+Exemple où les trois arguments passés sont de simples chaines de caractères littérales :
 
 ```{code-cell} python
 def affiche_salutation(nom, prenom, civilite):
@@ -701,13 +701,13 @@ def affiche_salutation(nom, prenom, civilite):
 affiche_salutation("Lovelace", "Ada", "Mme")
 ```
 
-Les paramètres peuvent avoir une valeur par défaut, dans ce cas ils n'ont pas besoin d'être associés à un argument au moment de l'appel. Les paramètres sans valeur par défaut sont dits **paramètres positionnels**, les paramètres avec une valeur par défaut sont dits **paramètres positionnels ou nommés**, il suivent la syntaxe suivante dans la définition de la fonction :
+Les paramètres peuvent avoir une valeur par défaut, dans ce cas ils n'ont pas besoin d'être associés à un argument au moment de l'appel. Les paramètres sans valeur par défaut sont dits **paramètres positionnels**, les paramètres avec une valeur par défaut sont dits **paramètres positionnels ou nommés**, ils suivent la syntaxe suivante dans la définition de la fonction :
 
 `<nom_parametre> = <valeur_par_défaut>`
 
-Dans la définition d'une fonction, après le premier paramètre par défaut, tous les paramètres suivant doivent être aussi par défaut, car l'assossiation positionnelle n'est plus possible.
+Dans la définition d'une fonction, après le premier paramètre par défaut, tous les paramètres suivants doivent être aussi par défaut, car l'association positionnelle n'est plus possible.
 
-Exemple d'une fonction avec deux paramètre par défaut `prenom=""` et `civilite=""` :
+Exemple d'une fonction avec deux paramètres par défaut `prenom=""` et `civilite=""` :
 
 ```{code-cell} python
 def affiche_salutation_2(nom, prenom="", civilite=""):
@@ -725,15 +725,15 @@ affiche_salutation_2("Lovelace", "Ada")  # affiche "Bonjour Ada Lovelace"
 affiche_salutation_2("Lovelace") # affiche "Bonjour Lovelace"
 ```
 
-Dans l'exemple précédant, les appels à la fonction se font avec une association positionnelle, cela oblige à passer le 2e argument si l'on souhaite passer l'argument de civilité qui se place en 3e position.
+Dans l'exemple précédent, les appels à la fonction se font avec une association positionnelle, cela oblige à passer le 2e argument si l'on souhaite passer l'argument de civilité qui se place en 3e position.
 
 ### Association par nom
 
-Les **arguments nommés** sont les arguments associés explicitement à un paramètre auquel ils doivent être associés en mentionnant le nom du dit paramètre. La syntaxe d'un argument nommées dans l'appel de la fonction est la suivante
+Les **arguments nommés** sont les arguments associés explicitement à un paramètre auquel ils doivent être associés en mentionnant le nom du dit paramètre. La syntaxe d'un argument nommé dans l'appel de la fonction est la suivante.
 
  `<nom_parametre> = <argument>`
  
- Dans l'appel à une fonction, après le premier argument nommée, tous les arguments suivant doivent aussi être nommées, car l'association positionnelle n'est plus possible.
+ Dans l'appel à une fonction, après le premier argument nommé, tous les arguments suivants doivent aussi être nommés, car l'association positionnelle n'est plus possible.
 
 Exemple :
 
@@ -764,7 +764,7 @@ affiche_salutation_2("Lovelace", civilite="Ada")
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcul les deux racines d&#39;une équation du second degrés.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcul les deux racines d&#39;une équation du second degré.&quot;&quot;&quot;</span>
     <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">delta</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
@@ -779,7 +779,7 @@ affiche_salutation_2("Lovelace", civilite="Ada")
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function racine in module __main__:
 
 racine(a, b, c)
-    Calcul les deux racines d&#39;une équation du second degrés.
+    Calcul les deux racines d&#39;une équation du second degré.
 </pre></div>
 </div>
 </div>
@@ -835,7 +835,7 @@ racine(a, b, c)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">racine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcul les deux racines d&#39;une équation du second degrés.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcul les deux racines d&#39;une équation du second degré.</span>
 
 <span class="sd">    L&#39;équation du second degré est de la forme ax² + bx + c = 0.</span>
 <span class="sd">    Le discriminant est calculé dans un premier temps, puis</span>
@@ -887,7 +887,7 @@ racine(a, b, c)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function racine in module __main__:
 
 racine(a, b, c)
-    Calcul les deux racines d&#39;une équation du second degrés.
+    Calcul les deux racines d&#39;une équation du second degré.
     
     L&#39;équation du second degré est de la forme ax² + bx + c = 0.
     Le discriminant est calculé dans un premier temps, puis

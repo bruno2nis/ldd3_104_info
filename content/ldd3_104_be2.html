@@ -681,16 +681,16 @@ n \times (n-1)! &amp; \text{si } n &gt; 0.
 <section id="exercice-figure-alphanumerique">
 <h3>2.1 ⚙️ Exercice - Figure alphanumérique<a class="headerlink" href="#exercice-figure-alphanumerique" title="Link to this heading">#</a></h3>
 <p>Proposer et coder une fonction récursive <code class="docutils literal notranslate"><span class="pre">figure()</span></code> qui prend l’argument  <code class="docutils literal notranslate"><span class="pre">nb_ligne</span></code> , un entier, et produit la sortie suivant pour un argument égal à <code class="docutils literal notranslate"><span class="pre">5</span></code> (5 lignes qui décroissent de 5 à 1 étoile suivie de 5 lignes qui croissent de 1 à 5 étoiles)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>*****
-****
-***
-**
-*
-*
-**
-***
-****
-*****
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*****</span>
+<span class="o">****</span>
+<span class="o">***</span>
+<span class="o">**</span>
+<span class="o">*</span>
+<span class="o">*</span>
+<span class="o">**</span>
+<span class="o">***</span>
+<span class="o">****</span>
+<span class="o">*****</span>
 </pre></div>
 </div>
 <div class="cell tag_editable docutils container">
@@ -725,7 +725,7 @@ Hanoï composée de 7 disques aux couleurs de l’arc-en-ciel (Violet, Indigo, B
 </ul>
 <p>La valeur retournée par la fonction est le triplet (<span class="math notranslate nohighlight">\(D\)</span>, <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(I\)</span>)</p>
 <p>L’algorithme en pseudocode de la fonction récurrente est :</p>
-<div class="highlight-None notranslate"><div class="highlight"><pre><span></span>fonction hanoi(n, D, A, I)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fonction hanoi(n, D, A, I)
     si n &gt; 0
         hanoi(n-1, D, I, A)
         dépiler le disque au sommet D pour l&#39;empiler sur A 

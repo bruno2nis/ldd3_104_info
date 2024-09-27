@@ -193,7 +193,7 @@ print(a, "voit", b, "et", c)
 
 ::::
 
-Python distinct quatre types de portées : 
+Python distingue quatre types de portées : 
 
 - **Globale** est la portée du code principal (du programme ou du module), celle où il exécute sa 1re instruction
 - **Built-in** est la portée native qui englobe la portée globale
@@ -239,7 +239,7 @@ Par conséquent, bien qu'elles puissent être référencées, il est impossible 
 
 Au moment de l'appel à une fonction, un objet python doit être assigné à chaque paramètre de la fonction. Cela donne lieu à la création de noms d'objet dans l'espace de nom de la portée **locale** à la fonction.
 
-Pour cela les **arguments** fournis sont associés aux **paramètres** selon différentes stratégie.
+Pour cela les **arguments** fournis sont associés aux **paramètres** selon différentes stratégies.
 
 ### Nombre d'arguments fixe
 
@@ -256,7 +256,7 @@ Arguments | Paramètres de |       Assignations
 
 ```
 
-Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :
+Exemple où les trois arguments passés sont de simples chaines de caractères littérales :
 
 ```{code-cell} python
 def affiche_salutation(nom, prenom, civilite):
@@ -280,7 +280,7 @@ civilité = "Mme"
 Puis le block de code de la fonction est exécuté.
 
 
-Au moment de l'appel à une fonction, les **arguments** fournis sont associés aux **paramètres** attendus par la fonction. La manière de les associer offre de nombreuses possibilité comme les exemples suivants le montre. Ce sont des appels à la même fonction native `print()` avec une grande diversité dans la liste des arguments ; leur nombre est variable, l'argument pour le paramètre `sep` est parfois omis.
+Au moment de l'appel à une fonction, les **arguments** fournis sont associés aux **paramètres** attendus par la fonction. La manière de les associer offre de nombreuses possibilités comme les exemples suivants le montrent. Ce sont des appels à la même fonction native `print()` avec une grande diversité dans la liste des arguments ; leur nombre est variable, l'argument pour le paramètre `sep` est parfois omis.
 
 ```{code-cell} python
 print()
@@ -293,7 +293,7 @@ print("ens", "paris", "saclay", sep="-")
 
 Lorsqu'un argument est un simple objet, c'est un **argument positionnel**. Au moment de l'appel, les arguments positionnels sont associés aux paramètres de même rang.
 
-Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :
+Exemple où les trois arguments passés sont de simples chaines de caractères littérales :
 
 ```{code-cell} python
 def affiche_salutation(nom, prenom, civilite):
@@ -304,13 +304,13 @@ def affiche_salutation(nom, prenom, civilite):
 affiche_salutation("Lovelace", "Ada", "Mme")
 ```
 
-Les paramètres peuvent avoir une valeur par défaut, dans ce cas ils n'ont pas besoin d'être associés à un argument au moment de l'appel. Les paramètres sans valeur par défaut sont dits **paramètres positionnels**, les paramètres avec une valeur par défaut sont dits **paramètres positionnels ou nommés**, il suivent la syntaxe suivante dans la définition de la fonction :
+Les paramètres peuvent avoir une valeur par défaut, dans ce cas ils n'ont pas besoin d'être associés à un argument au moment de l'appel. Les paramètres sans valeur par défaut sont dits **paramètres positionnels**, les paramètres avec une valeur par défaut sont dits **paramètres positionnels ou nommés**, ils suivent la syntaxe suivante dans la définition de la fonction :
 
 `<nom_parametre> = <valeur_par_défaut>`
 
-Dans la définition d'une fonction, après le premier paramètre par défaut, tous les paramètres suivant doivent être aussi par défaut, car l'assossiation positionnelle n'est plus possible.
+Dans la définition d'une fonction, après le premier paramètre par défaut, tous les paramètres suivants doivent être aussi par défaut, car l'association positionnelle n'est plus possible.
 
-Exemple d'une fonction avec deux paramètre par défaut `prenom=""` et `civilite=""` :
+Exemple d'une fonction avec deux paramètres par défaut `prenom=""` et `civilite=""` :
 
 ```{code-cell} python
 def affiche_salutation_2(nom, prenom="", civilite=""):
@@ -328,15 +328,15 @@ affiche_salutation_2("Lovelace", "Ada")  # affiche "Bonjour Ada Lovelace"
 affiche_salutation_2("Lovelace") # affiche "Bonjour Lovelace"
 ```
 
-Dans l'exemple précédant, les appels à la fonction se font avec une association positionnelle, cela oblige à passer le 2e argument si l'on souhaite passer l'argument de civilité qui se place en 3e position.
+Dans l'exemple précédent, les appels à la fonction se font avec une association positionnelle, cela oblige à passer le 2e argument si l'on souhaite passer l'argument de civilité qui se place en 3e position.
 
 ### Association par nom
 
-Les **arguments nommés** sont les arguments associés explicitement à un paramètre auquel ils doivent être associés en mentionnant le nom du dit paramètre. La syntaxe d'un argument nommées dans l'appel de la fonction est la suivante
+Les **arguments nommés** sont les arguments associés explicitement à un paramètre auquel ils doivent être associés en mentionnant le nom du dit paramètre. La syntaxe d'un argument nommé dans l'appel de la fonction est la suivante.
 
  `<nom_parametre> = <argument>`
  
- Dans l'appel à une fonction, après le premier argument nommée, tous les arguments suivant doivent aussi être nommées, car l'association positionnelle n'est plus possible.
+ Dans l'appel à une fonction, après le premier argument nommé, tous les arguments suivants doivent aussi être nommés, car l'association positionnelle n'est plus possible.
 
 Exemple :
 
@@ -366,7 +366,7 @@ Exemple d'une fonction documentée avec une seule ligne
 
 ```{code-cell} python
 def racine(a, b, c):
-    """Calcul les deux racines d'une équation du second degrés."""
+    """Calcul les deux racines d'une équation du second degré."""
     delta = b**2 - 4 * a * c
     x1 = (-b - delta**0.5) / (2 * a)
     x2 = (-b + delta**0.5) / (2 * a)
@@ -411,7 +411,7 @@ Exemple d'une fonction documentée sur plusieurs lignes avec le format NumPy/Sci
 
 ```{code-cell}
 def racine(a, b, c):
-    """Calcul les deux racines d'une équation du second degrés.
+    """Calcul les deux racines d'une équation du second degré.
 
     L'équation du second degré est de la forme ax² + bx + c = 0.
     Le discriminant est calculé dans un premier temps, puis
