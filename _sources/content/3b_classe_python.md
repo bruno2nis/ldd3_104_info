@@ -24,7 +24,7 @@ L'**Encapsulation** est le mécanisme qui consiste à regrouper les attributs et
 
 Une **classe** décrit la structure interne des objets et les méthodes qui s'appliqueront aux objets de même famille (même classe). Les objets obtenus à partir d'une classe sont dits **instances** de la classe. 
 
-La figure ci-dessous présente une classe `MaClasse` sous la forme d'un [diagramme de classes](https://fr.wikipedia.org/wiki/Diagramme_de_classes) selon le formalisme [UML](https://fr.wikipedia.org/wiki/UML_(informatique)). Elle définie trois attributs et deux méthodes pour ses instances.
+La figure ci-dessous présente une classe `MaClasse` sous la forme d'un [diagramme de classes](https://fr.wikipedia.org/wiki/Diagramme_de_classes) selon le formalisme [UML](https://fr.wikipedia.org/wiki/UML_(informatique)). Elle définit trois attributs et deux méthodes pour ses instances.
 
 ```{mermaid}
 classDiagram
@@ -39,7 +39,7 @@ classDiagram
 
 Un objet peut appartenir à plusieurs classes : c'est le **polymorphisme**. Cela permet d'utiliser des objets de classes différentes là où est attendu un objet d'un certain type. Une façon de réaliser le polymorphisme est l'**héritage** de classe, où l'on raffine une classe parente en un autre classe (sous-classe) par des restrictions sur les valeurs possibles des attributs. Ainsi, les objets d'une sous-classe sont conformes à la classe parente. 
 
-Le diagramme de classe UML ci-dessous illustre une classe `Maclasse` qui possède deux parents `Parent_1` et `Parent_2` avec la classe `Parent_2` qui possède elle-même le parents `Parent_3`. Un objet de la classe `Maclasse` hérite de ses classes parentes, cela signifie qu'il à accès aux attributs et aux méthodes de ses parrents.
+Le diagramme de classe UML ci-dessous illustre une classe `Maclasse` qui possède deux parents `Parent_1` et `Parent_2` avec la classe `Parent_2` qui possède elle-même le parent `Parent_3`. Un objet de la classe `Maclasse` hérite de ses classes parentes, cela signifie qu'il à accès aux attributs et aux méthodes de ses parents.
 
 ```{mermaid}
 classDiagram
@@ -92,7 +92,7 @@ classDiagram
     }
 ```
 
-Pour accéder aux attributs ou aux méthodes d'une instance, la notation pointé est utilisée aussi bien pour les attributs que pour les méthodes.
+Pour accéder aux attributs ou aux méthodes d'une instance, la notation pointée est utilisée aussi bien pour les attributs que pour les méthodes.
 
 ```{code-cell} python
 c = complex(2, 3)
@@ -101,10 +101,10 @@ c.real  # donne 2.0
 
 ```{code-cell} python
 c.conjugate()  # Appel de la méthode d'instance `conjugate()`
-               # Equivalent à complex.conjugate(c)
+               # Équivalent à complex.conjugate(c)
 ```
 
-Il faut noter qu'appeller la méthode `conjugate()` depuis l'instance `c` est équivalent à appeller la méthode depuis la classe `complex` avec en 1er argument l'instance sur laquelle appliquer la méthode.
+Il faut noter qu'appeler la méthode `conjugate()` depuis l'instance `c` est équivalent à appeler la méthode depuis la classe `complex` avec en 1er argument l'instance sur laquelle appliquer la méthode.
 
 ```{code-cell} python
 c.conjugate() == complex.conjugate(c)
@@ -121,7 +121,7 @@ class <NomDeClasse> ( <ClassesParentes> ) :
 
 où
 - `class` est un mot-clé (lexème)
-- `<NomDeClasse>` est l'identifiant de la classe définie (lexème), par convention ([PEP 8](https://peps.python.org/pep-0008/#class-names)) on utilise la notation *upper camel case* pour les noms de classes définies par les utilisateurs (ex : MaClasse, GrapheOriente)
+- `<NomDeClasse>` est l'identifiant de la classe définie (lexème), par convention ([PEP 8](https://peps.python.org/pep-0008/#class-names)) on utilise la notation *upper camel case* pour les noms de classes définies par les utilisateurs (ex. : MaClasse, GrapheOriente)
 - `<ClassesParentes>` est une suite d'identifiant Python (lexème) qui nomme des classes parentes de `<NomDeClasse>`. Par défaut, si `<ClassesParentes>` ou `( <ClassesParentes> ) ` sont omis, on considère que la suite se limite à la seule classe `object`, la classe parente de toutes les classes.
 - `<suite>` est le corps de la classe, il s'agit d'un bloc d'instructions qui doit être non vide et indenté.
 
@@ -166,19 +166,19 @@ Pour vérifier qui `num` est bien un attribut de  `instance_1`, la fonction nati
 dir(instance_1)
 ```
 
-L'instruction précédente met en évidence de nombreux attributs et méthodes dans l'instance `instance_1` de la classe `MaClasse`. On y voit apparaitre à la fin le nom `num` crée par l'assignation `instance_1.num = 5`
+L'instruction précédente met en évidence de nombreux attributs et méthodes dans l'instance `instance_1` de la classe `MaClasse`. On y voit apparaitre à la fin le nom `num` créé par l'assignation `instance_1.num = 5`
 
-Les identifiants qui commencent par et finissent par deux tirets-bas `__` (*double underscore* en anglais) sont des **identifants spéciaux**, réservés par l'interpréteur Python. Ils sont hérités des classes parentes, ici la classe `object`. Les identifiants spéciaux sont parfois nommés les identifiants dunder (Double UNDERscore).
+Les identifiants qui commencent par et finissent par deux tirets bas `__` (*double underscore* en anglais) sont des **identifiants spéciaux**, réservés par l'interpréteur Python. Ils sont hérités des classes parentes, ici la classe `object`. Les identifiants spéciaux sont parfois nommés les identifiants dunder (Double UNDERscore).
 
 ## Instructions dans la définition d'une classe
 
 
 Dans le bloc d'instructions `<suite>` de la définition d'une classe, les instructions visent à définir des attributs et des méthodes :
 
-```{list-table} Eléments pouvant être présent dans le bloc &lt;suite> d'une classe
+```{list-table} Éléments pouvant être présent dans le bloc &lt;suite> d'une classe
 :header-rows: 1
 
-* - Eléments défini
+* - Éléments définis
   - Description
   - Instructions utilisées
 * - **Méthodes d'instance**
@@ -187,16 +187,16 @@ Dans le bloc d'instructions `<suite>` de la définition d'une classe, les instru
 * - **Méthodes de classe**
   - Elles sont appelées depuis une classe (notation pointée). L'appel reçoit implicitement la classe en premier argument ; par convention le premier paramètre de la définition d'une méthode de classe  qui reçoit cet argument est nommé `cls`.
   - Instruction d'assignation du retour de la fonction native `classmethod()` appelée avec comme argument, une fonction précédemment définie par l'instruction composée `def`. La syntaxe des décorateurs (sucre syntaxique) `@classmethod` est généralement utilisée.
-* - **Méthodes statique**
+* - **Méthodes statiques**
   - Elles sont appelées depuis une classe (notation pointée), mais ne reçoivent pas de premier argument implicite contrairement aux méthodes de classe ou aux méthodes d'instance.
   - Instruction d'assignation du retour de la fonction native `staticmethod()` appelée avec comme argument, à une fonction précédemment définie par l'instruction composée `def`. La syntaxe des décorateurs (sucre syntaxique) `@staticmethod` est généralement utilisée.
 * - **Attributs de classe**
   - Ils sont partagés par toutes les instances de la classe (dans l'espace de nom de la classe)
   - Instruction d'assignation
 * - **Attributs d'instance**
-  - Ils sont propre à une instance (dans l'espace de nom d'une instance)
-  - Instruction d'assignation du retour de la fonction native `property()`. La fonction `property()` prend comme arguments une fonction "assesseur", une fonction "mutateur" et une fonction "destructeur" de l'attribut d'instance. La syntaxe des décorateurs (sucre syntaxique) est aussi utilisable.<br />  
-  Génératement les attributs d'instance sont créer et modifier par des instruction dans les méthodes d'instance.
+  - Ils sont propres à une instance (dans l'espace de nom d'une instance)
+  - Instruction d'assignation du retour de la fonction native `property()`. La fonction `property()` prends comme arguments une fonction "assesseur", une fonction "mutateur" et une fonction "destructeur" de l'attribut d'instance. La syntaxe des décorateurs (sucre syntaxique) est aussi utilisable.<br />  
+  Génératement les attributs d'instance sont créés et modifier par des instructions dans les méthodes d'instance.
 ```
 
 Exemple de définition d'une fonction dans laquelle le bloc `<suite>` contient
@@ -222,7 +222,7 @@ class MaClasse2(object):
         self._y = 0  # attribut d'instance _y semi privé (début "_")
         self.__z = 1  # attribut d'instance __z privé (debut "__")
     
-    def methode_d_instance(self, param2):  # methode d'instance
+    def methode_d_instance(self, param2):  # méthode d'instance
         """Accède à tous les attributs de l'objet appelant."""
         print("------ methode_d_instance(self, param2) -------")
         print("self =", self)
@@ -249,7 +249,7 @@ class MaClasse2(object):
         print("val =", valeur)
         self._y = valeur  # assignation de l'attribut d'instance 
         
-    # Définition de l'attribut d'instance y à parir de 2 méthodes d'instances
+    # Définition de l'attribut d'instance y à partir de 2 méthodes d'instances
     y = property(assesseur_y, muatateur_y)
     
     # Méthode de classe
@@ -269,7 +269,7 @@ class MaClasse2(object):
         print("param1 =", param1)
 ```
 
-Création d'une instance de MaClasse2, ce qui génére un appel implicite de la méthode `__init__()`
+Création d'une instance de MaClasse2, ce qui génère un appel implicite de la méthode `__init__()`
 
 ```{code-cell} python
 a = MaClasse2()
