@@ -58,6 +58,8 @@ où
 - `<paramètres>` est une suite facultative de paramètres pouvant être transmis à la fonction, les paramètres sont séparés par des virgules, 
 - `<suite>` est le corps de la fonction, il s'agit d'un bloc d'instructions qui doit être non vide et indenté.
 
+La définition de la fonction n'exécute pas le corps de la fonction ; elle n'est exécutée que lorsque la fonction est appelée.
+
 Exemple d'une fonction identifiée par le nom `fib`
 
 ```{code-cell} python

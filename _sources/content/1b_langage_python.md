@@ -993,7 +993,7 @@ Pour rechercher un nom dans l'espace des noms, Python recherche séquentiellemen
 
 
 
-```{list-table} Talbleau des fonctions native
+```{list-table} Tableau des fonctions natives
 :header-rows: 1
 
 * - Catégorie
