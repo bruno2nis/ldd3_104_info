@@ -355,10 +355,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-du-point-de-vue-utilisateur">Exemples du point de vue utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-classe-class">Définition d’une classe (<code class="docutils literal notranslate"><span class="pre">class</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciation-d-un-objet">Instanciation d’un objet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a></li>
 </ul>
             </nav>
         </div>
@@ -370,11 +367,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>En construction</p>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="classes-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="classes-python">
 <h1>Classes Python<a class="headerlink" href="#classes-python" title="Link to this heading">#</a></h1>
 <section id="programmation-orientee-objet">
 <h2>Programmation orientée objet<a class="headerlink" href="#programmation-orientee-objet" title="Link to this heading">#</a></h2>
@@ -543,7 +536,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MaClasse at 0x1e61b0471d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MaClasse at 0x16f58d70bd0&gt;
 </pre></div>
 </div>
 </div>
@@ -609,8 +602,8 @@ document.write(`
 <section id="instructions-dans-la-definition-d-une-classe">
 <h2>Instructions dans la définition d’une classe<a class="headerlink" href="#instructions-dans-la-definition-d-une-classe" title="Link to this heading">#</a></h2>
 <p>Dans le bloc d’instructions <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> de la définition d’une classe, les instructions visent à définir des attributs et des méthodes :</p>
-<div class="pst-scrollable-table-container"><table class="table" id="id2">
-<caption><span class="caption-number">Table 4 </span><span class="caption-text">Eléments pouvant être présent dans le bloc &lt;suite&gt; d’une classe</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">Eléments pouvant être présent dans le bloc &lt;suite&gt; d’une classe</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Eléments défini</p></th>
 <th class="head"><p>Description</p></th>
@@ -725,7 +718,7 @@ Génératement les attributs d’instance sont créer et modifier par des instru
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ __init__(self) -------
-self = &lt;__main__.MaClasse2 object at 0x000001E61B029F10&gt;
+self = &lt;__main__.MaClasse2 object at 0x0000016F58D74790&gt;
 </pre></div>
 </div>
 </div>
@@ -747,7 +740,7 @@ self = &lt;__main__.MaClasse2 object at 0x000001E61B029F10&gt;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ muatateur_y(self, val) -------
-self = &lt;__main__.MaClasse2 object at 0x000001E61B029F10&gt;
+self = &lt;__main__.MaClasse2 object at 0x0000016F58D74790&gt;
 val = 3
 </pre></div>
 </div>
@@ -780,7 +773,7 @@ val = 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ methode_d_instance(self, param2) -------
-self = &lt;__main__.MaClasse2 object at 0x000001E61B029F10&gt;
+self = &lt;__main__.MaClasse2 object at 0x0000016F58D74790&gt;
 param2 = 92
 ------ methode_de_classe(cls) -------
 cls = &lt;class &#39;__main__.MaClasse2&#39;&gt;
@@ -795,17 +788,14 @@ param1 = 34
 <p>Appel de la méthode de classe <code class="docutils literal notranslate"><span class="pre">methode_de_classe()</span></code> depuis la classe  <code class="docutils literal notranslate"><span class="pre">MaClasse2</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MaClasse</span><span class="o">.</span><span class="n">methode_de_classe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MaClasse2</span><span class="o">.</span><span class="n">methode_de_classe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">MaClasse</span><span class="o">.</span><span class="n">methode_de_classe</span><span class="p">()</span>
-
-<span class="ne">AttributeError</span>: type object &#39;MaClasse&#39; has no attribute &#39;methode_de_classe&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ methode_de_classe(cls) -------
+cls = &lt;class &#39;__main__.MaClasse2&#39;&gt;
+attribut de classe = 123
 </pre></div>
 </div>
 </div>
@@ -825,56 +815,6 @@ param1 = 64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MaClasse2</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">methode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parametre_2</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Méthode d&#39;instance.&quot;&quot;&quot;</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># &quot;variable classique&quot; (locale à la méthode)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">parametre_2</span>  <span class="c1"># attribut de l&#39;instance (local à l&#39;objet)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ceci est une méthode d&#39;instance&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>La ligne 1 est l’entête de l’unique clause de la déclaration d’une classe</p></li>
-<li><p>La ligne 3 est le début de l’instruction composée <code class="docutils literal notranslate"><span class="pre">def</span></code> qui définit une méthode d’instance. Les deux paramètres de la définition de la méthode sont respectivement, le paramètre qui reçois l’instance passer implicitement en argument à l’appel depuis l’instance (nommée par convesion <code class="docutils literal notranslate"><span class="pre">self</span></code>) puis le paramètre <code class="docutils literal notranslate"><span class="pre">parametre_2</span></code></p></li>
-<li><p>La ligne 5 définie le nom <code class="docutils literal notranslate"><span class="pre">x</span></code>, un nom local à la fonction (méthode) qui disparaitra à la fin de l’exécution de la méthode.</p></li>
-<li><ul>
-<li><p>La ligne 6 définie le nom <code class="docutils literal notranslate"><span class="pre">x</span></code> dans l’espace de nom de l’instance avec la notation pointés <code class="docutils literal notranslate"><span class="pre">self.x</span></code>, ce nom persistera au delà de l’exécution de la méthode dans l’instance. C’est l’objet reçu dans le paramètre <code class="docutils literal notranslate"><span class="pre">parametre_2</span></code> est assigné à <code class="docutils literal notranslate"><span class="pre">self.x</span></code>.</p></li>
-</ul>
-</li>
-</ul>
-<p>L’appelle à une méthode d’instance se fait depuis une instance par la notation pointée. Exemple</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="o">=</span> <span class="n">MaClasse2</span><span class="p">()</span>  <span class="c1"># instanciation d&#39;un objet de type MaClasse</span>
-<span class="n">instance</span><span class="o">.</span><span class="n">methode</span><span class="p">(</span><span class="o">-</span><span class="mi">34</span><span class="p">)</span>  <span class="c1"># appelle de la méthode d&#39;instance `.methode()`</span>
-<span class="n">instance</span><span class="o">.</span><span class="n">x</span>  <span class="c1"># donne -34, la valeur de l&#39;attribut x</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ceci est une méthode d&#39;instance
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-34
-</pre></div>
-</div>
-</div>
-</div>
-<p>Les autres instructions qui l’on trouve dans <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code>  définissent :</p>
-<ul class="simple">
-<li><p>les <strong>attributs de classe</strong> qui sont partagés par toutes les instances de la classe (dans l’espace de nom de la classe)</p></li>
-<li><p>les <strong>attributs d’instance</strong> qui sont propre à une instance (dans l’espace de nom d’une instance)</p></li>
-<li><p>les <strong>méthodes de classe</strong> qui sont appelées depuis une classe et qui reçoivent implicitement la classe en premier argument ; par convention le premier paramètre de la définition d’une méthode de classe est nommé <code class="docutils literal notranslate"><span class="pre">cls</span></code>.</p></li>
-<li><p>les <strong>méthodes statiques</strong> qui sont appelées depuis une instance, mais qui ne reçoivent pas de premier argument implicitement contrairement aux méthodes de classe ou aux méthodes d’instance.</p></li>
-</ul>
-<section id="id1">
-<h3><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-</section>
 </section>
 </section>
 
@@ -946,10 +886,7 @@ param1 = 64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-du-point-de-vue-utilisateur">Exemples du point de vue utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-classe-class">Définition d’une classe (<code class="docutils literal notranslate"><span class="pre">class</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciation-d-un-objet">Instanciation d’un objet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"></a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a></li>
 </ul>
   </nav></div>
 

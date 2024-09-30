@@ -10,10 +10,6 @@ kernelspec:
   name: python3
 ---
 
-```{note}
-En construction
-```
-
 # Classes Python
 
 ## Programmation orientée objet
@@ -306,7 +302,7 @@ a.methode_d_instance(92)
 Appel de la méthode de classe `methode_de_classe()` depuis la classe  `MaClasse2`
 
 ```{code-cell} python
-MaClasse.methode_de_classe()
+MaClasse2.methode_de_classe()
 ```
 
 Appel de la méthode statique `methode_statique()` depuis la classe  `MaClasse2`
@@ -314,40 +310,3 @@ Appel de la méthode statique `methode_statique()` depuis la classe  `MaClasse2`
 ```{code-cell} python
 MaClasse2.methode_statique(64)
 ```
-
-
-
-
-
-```{code-cell} python
-:linenos:
-class MaClasse2:
-
-    def methode(self, parametre_2):
-        """Méthode d'instance."""
-        x = 3  # "variable classique" (locale à la méthode)
-        self.x = parametre_2  # attribut de l'instance (local à l'objet)
-        print("Ceci est une méthode d'instance")
-```
-
-- La ligne 1 est l'entête de l'unique clause de la déclaration d'une classe
-- La ligne 3 est le début de l'instruction composée `def` qui définit une méthode d'instance. Les deux paramètres de la définition de la méthode sont respectivement, le paramètre qui reçois l'instance passer implicitement en argument à l'appel depuis l'instance (nommée par convesion `self`) puis le paramètre `parametre_2`
-- La ligne 5 définie le nom `x`, un nom local à la fonction (méthode) qui disparaitra à la fin de l'exécution de la méthode. 
-- - La ligne 6 définie le nom `x` dans l'espace de nom de l'instance avec la notation pointés `self.x`, ce nom persistera au delà de l'exécution de la méthode dans l'instance. C'est l'objet reçu dans le paramètre `parametre_2` est assigné à `self.x`.
-
-L'appelle à une méthode d'instance se fait depuis une instance par la notation pointée. Exemple
-
-```{code-cell} python
-instance = MaClasse2()  # instanciation d'un objet de type MaClasse
-instance.methode(-34)  # appelle de la méthode d'instance `.methode()`
-instance.x  # donne -34, la valeur de l'attribut x
-```
-
-Les autres instructions qui l'on trouve dans `<suite>`  définissent :
-- les **attributs de classe** qui sont partagés par toutes les instances de la classe (dans l'espace de nom de la classe)
-- les **attributs d'instance** qui sont propre à une instance (dans l'espace de nom d'une instance)
-- les **méthodes de classe** qui sont appelées depuis une classe et qui reçoivent implicitement la classe en premier argument ; par convention le premier paramètre de la définition d'une méthode de classe est nommé `cls`.
-- les **méthodes statiques** qui sont appelées depuis une instance, mais qui ne reçoivent pas de premier argument implicitement contrairement aux méthodes de classe ou aux méthodes d'instance.
-
-
-###
