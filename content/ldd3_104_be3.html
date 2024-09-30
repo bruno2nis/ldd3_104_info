@@ -326,7 +326,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -342,6 +344,27 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classe-vecteur3d">1. Classe <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-representation-en-chaine-de-caracteres-str">1.1 ⚙️ Exercice - représentation en chaine de caractères <code class="docutils literal notranslate"><span class="pre">__str__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-representation-officielle-en-chaine-de-caracteres-repr">1.2 ⚙️ Exercice - représentation officielle en chaine de caractères <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-addition-de-deux-vecteurs">1.3 ⚙️ Exercice - addition de deux vecteurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-operateurs-algebriques">1.4 ⚙️ Exercice - opérateurs algébriques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classe-fraction">2. Classe <code class="docutils literal notranslate"><span class="pre">Fraction</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-initialisation-et-acces-aux-attributs">2.1 ⚙️ Exercice - initialisation et accès aux attributs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-representation-des-objects">2.2 ⚙️ Exercice - représentation des objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-expression-arithmetique">2.3 ⚙️ Exercice - expression arithmétique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-comparaisons">2.4 ⚙️ Exercice - comparaisons</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -353,6 +376,384 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="be3-classes-definies-par-l-utilisateur">
 <h1>BE3 - Classes définies par l’utilisateur<a class="headerlink" href="#be3-classes-definies-par-l-utilisateur" title="Link to this heading">#</a></h1>
+<section id="classe-vecteur3d">
+<h2>1. Classe <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code><a class="headerlink" href="#classe-vecteur3d" title="Link to this heading">#</a></h2>
+<p>On se propose d’utiliser les vecteurs dans un espace vectoriel à 3 dimensions comme objet support de la définition d’une classe Python. On fait l’hypothèse que les coordonnées des vecteurs sont exprimées dans une base orthonormée.</p>
+<p>Les vecteurs possèdes 3 attributs (leurs coordonnées) et pourront est manipulés par des opérations de type produit scalaire, produit vectoriel…</p>
+<p>La première définition de la classe Vecteur3D se limite à la définition d’une méthode d’instance spéciale  <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>.</p>
+<p>Les identifiants qui commencent par et finissent par deux tirets bas <code class="docutils literal notranslate"><span class="pre">__</span></code> (<em>double underscore</em> en anglais) sont des <strong>identifiants spéciaux</strong>, réservés par l’interpréteur Python. Ils sont parfois nommés les identifiants dunder (Double UNDERscore).</p>
+<p>Chaque identifiant spécial est utilisé par Python ou une tâche précise. <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> est la méthode d’instance qui est exécutée juste après la création de l’instance. Elle reçoit en 1er argument l’objet appelant et ensuite les arguments fournis à l’instanciation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur3D</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version simplifiée d&#39;une classe de vecteur 3D.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialisation des coordonnées du vecteur.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">w</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A l’exécution de l’instruction <code class="docutils literal notranslate"><span class="pre">Vecteur3D(1,</span> <span class="pre">2</span> <span class="pre">3)</span></code>, Python crée un objet que l’on nommera <code class="docutils literal notranslate"><span class="pre">obj</span></code> et il appelle la méthode <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> avec les arguments <code class="docutils literal notranslate"><span class="pre">obj</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> et <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<p>Illustration :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Instanciation d&#39;un objet de type Vecteur3D</span>
+<span class="n">v1</span><span class="o">.</span><span class="n">z</span>  <span class="c1"># donne 3, accès à un attribut z de l&#39;objet v1 par la notation pointée</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span>  <span class="c1"># donne &lt;class &#39;__main__.Vecteur3D&#39;&gt;, le type de v1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;__main__.Vecteur3D&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> et <code class="docutils literal notranslate"><span class="pre">z</span></code> sont trois noms dans l’espace de nom de l’objet <code class="docutils literal notranslate"><span class="pre">v1</span></code>. La notation pointée permet d’accéder aux attributs de l’objet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># accès en lecture aux attributs x, y et z de l&#39;objet v1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v1</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="c1"># donne 1 2 3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># accès en écriture aux attributs x, y et z de l&#39;objet v1</span>
+<span class="n">v1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">v1</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v1</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="c1"># donne 4 5 6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 5 6
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exercice-representation-en-chaine-de-caracteres-str">
+<h3>1.1 ⚙️ Exercice - représentation en chaine de caractères <code class="docutils literal notranslate"><span class="pre">__str__()</span></code><a class="headerlink" href="#exercice-representation-en-chaine-de-caracteres-str" title="Link to this heading">#</a></h3>
+<p>Pour afficher un objet quelconque avec la fonction native <code class="docutils literal notranslate"><span class="pre">print()</span></code>, cette dernière fait appel à la méthode spéciale d’instance <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> de l’objet qui renvoie une chaine de caractère faisant une description de l’instance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Vecteur3D object at 0x000001B3CD664C10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Par défaut, le texte renvoyé indique le module, la classe et l’emplacement en mémoire de l’objet.</p>
+<p>Coder une méthode d’instance <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> locale dans la définition de la classe <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code> pour obtenir les résultats suivants</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># donne &#39;&lt;vecteur3d x=&quot;1&quot; y=&quot;2&quot; z=&quot;3&quot;&gt;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="o">-</span><span class="mi">34</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3e-4</span><span class="p">))</span>  <span class="c1"># donne &#39;&lt;vecteur3d x=&quot;-34&quot; y=&quot;2.0&quot; z=&quot;0.0003&quot;&gt;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="mf">1.23e55</span><span class="p">,</span> <span class="o">-</span><span class="mf">612.236</span><span class="p">,</span> <span class="mf">3.67231e-74</span><span class="p">))</span>  <span class="c1"># donne &#39;&lt;vecteur3d x=&quot;1.23e+55&quot; y=&quot;-612.236&quot; z=&quot;3.67231e-74&quot;&gt;&#39;</span>
+
+<span class="err">```</span><span class="o">&lt;/</span><span class="n">vecteur3d</span><span class="o">&gt;&lt;/</span><span class="n">vecteur3d</span><span class="o">&gt;&lt;/</span><span class="n">vecteur3d</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="cell tag_editable docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur3D</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version simplifiée d&#39;une classe de vecteur 3D.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialisation des coordonnées du vecteur.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">w</span>
+        
+    <span class="c1"># Insérez votre code ici</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test de la méthode __str__()</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">==</span> <span class="s2">&quot;&lt;Vecteur3D x=1 y=2 z=3&gt;&quot;</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="o">-</span><span class="mi">34</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3e-4</span><span class="p">))</span> <span class="o">==</span> <span class="s2">&quot;&lt;Vecteur3D x=-34 y=2.0 z=0.0003&gt;&quot;</span>
+<span class="k">assert</span> <span class="nb">str</span><span class="p">(</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="mf">1.23e55</span><span class="p">,</span> <span class="o">-</span><span class="mf">612.236</span><span class="p">,</span> <span class="mf">3.67231e-74</span><span class="p">))</span> <span class="o">==</span> <span class="s2">&quot;&lt;Vecteur3D x=1.23e+55 y=-612.236 z=3.67231e-74&gt;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-representation-officielle-en-chaine-de-caracteres-repr">
+<h3>1.2 ⚙️ Exercice - représentation officielle en chaine de caractères <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code><a class="headerlink" href="#exercice-representation-officielle-en-chaine-de-caracteres-repr" title="Link to this heading">#</a></h3>
+<p>On s’intéresse désormais à l’affiche d’un <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code> à l’intérieur d’un conteneur, ici une liste</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;__main__.Vecteur3D at 0x1b3cde5a210&gt;,
+ &lt;__main__.Vecteur3D at 0x1b3cde53f50&gt;,
+ &lt;__main__.Vecteur3D at 0x1b3cde50550&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python utilise la représentation dite “représentation officielle” à cet effet, celle que l’on obtient avec la fonction native <code class="docutils literal notranslate"><span class="pre">repr()</span></code> qui elle-même fait appel à la méthode spéciale d’instance <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> de l’objet qui renvoie la chaine de caractère officiel. Il est d’usage que cette chaine soit, si cela est possible, une instruction Python qui renvoie le même objet.</p>
+<p>Exemple :
+<code class="docutils literal notranslate"><span class="pre">repr(Vecteur3D(1,</span> <span class="pre">2,</span> <span class="pre">3))</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;Vecteur3D(1,</span> <span class="pre">2,</span> <span class="pre">3)&quot;</span></code>
+<code class="docutils literal notranslate"><span class="pre">repr(Vecteur3D(-34,</span> <span class="pre">2.,</span> <span class="pre">3e-4))</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;Vecteur3D(-34,</span> <span class="pre">2.0,</span> <span class="pre">0.0003&gt;&quot;</span></code></p>
+<p>Coder une méthode d’instance <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> locale dans la définition de la classe <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code> pour obtenir les résultats précédents.</p>
+<div class="cell tag_editable docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur3D</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version simplifiée d&#39;une classe de vecteur 3D.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialisation des coordonnées du vecteur.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">w</span>
+        
+    <span class="c1"># Insérez votre code ici</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># test de la méthode __repr__()</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="o">-</span><span class="mi">34</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3e-4</span><span class="p">)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="mf">1.23e55</span><span class="p">,</span> <span class="o">-</span><span class="mf">612.236</span><span class="p">,</span> <span class="mf">3.67231e-74</span><span class="p">)</span>
+
+<span class="k">assert</span> <span class="n">v1</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span><span class="o">.</span><span class="n">x</span>
+<span class="k">assert</span> <span class="n">v1</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span><span class="o">.</span><span class="n">y</span>
+<span class="k">assert</span> <span class="n">v1</span><span class="o">.</span><span class="n">z</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v1</span><span class="p">))</span><span class="o">.</span><span class="n">z</span>
+<span class="k">assert</span> <span class="n">v2</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v2</span><span class="p">))</span><span class="o">.</span><span class="n">x</span>
+<span class="k">assert</span> <span class="n">v2</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v2</span><span class="p">))</span><span class="o">.</span><span class="n">y</span>
+<span class="k">assert</span> <span class="n">v2</span><span class="o">.</span><span class="n">z</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v2</span><span class="p">))</span><span class="o">.</span><span class="n">z</span>
+<span class="k">assert</span> <span class="n">v3</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v3</span><span class="p">))</span><span class="o">.</span><span class="n">x</span>
+<span class="k">assert</span> <span class="n">v3</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v3</span><span class="p">))</span><span class="o">.</span><span class="n">y</span>
+<span class="k">assert</span> <span class="n">v3</span><span class="o">.</span><span class="n">z</span> <span class="o">==</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">v3</span><span class="p">))</span><span class="o">.</span><span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-addition-de-deux-vecteurs">
+<h3>1.3 ⚙️ Exercice - addition de deux vecteurs<a class="headerlink" href="#exercice-addition-de-deux-vecteurs" title="Link to this heading">#</a></h3>
+<p>Coder une méthode <code class="docutils literal notranslate"><span class="pre">somme()</span></code> dans la classe <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code> qui renvoie un vecteur qui est la somme du vecteur du vecteur qui appelle la méthode et du vecteur passé en argument. Exemple de comportement attendue</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="o">-</span><span class="mi">34</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3e-4</span><span class="p">)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span><span class="o">.</span><span class="n">somme</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>  <span class="c1"># donne un vecteur tel que x=-33 y=4 z=3.0003</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur3D</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version simplifiée d&#39;une classe de vecteur 3D.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialisation des coordonnées du vecteur.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">w</span>
+        
+    <span class="c1"># Insérez votre code ici</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur3D</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version simplifiée d&#39;une classe de vecteur 3D.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialisation des coordonnées du vecteur.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">w</span>
+        
+    <span class="c1"># Insérez votre code ici</span>
+    <span class="k">def</span> <span class="nf">somme</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">autre</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Somme de deux vecteurs 3D.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">autre</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">autre</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">autre</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-operateurs-algebriques">
+<h3>1.4 ⚙️ Exercice - opérateurs algébriques<a class="headerlink" href="#exercice-operateurs-algebriques" title="Link to this heading">#</a></h3>
+<p>Lorsqu’il évalue les expressions algébriques, l’interpréteur python fait appel à des méthodes spéciales. Par exemple,</p>
+<ul class="simple">
+<li><p>Pour évaluer les  arithmétiques binaires <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__add__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__sub__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__mul__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__truediv__(y)</span></code></p></li>
+</ul>
+</li>
+<li><p>Pour évaluer les assignations arithmétiques augmentées <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__radd__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__rsub__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__rmul__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__rtruediv__(y)</span></code></p></li>
+</ul>
+</li>
+<li><p>Pour évaluer les opérateurs arithmétiques unaires <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">x</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__neg__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">x</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__pos__()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__abs__()</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">__add__()</span></code> pour obtenir le comportement suivant des objects de la classe</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v1</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vecteur3D</span><span class="p">(</span><span class="o">-</span><span class="mi">34</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3e-4</span><span class="p">)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span>  <span class="c1"># donne un vecteur tel que x=-33 y=4 z=3.0003</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vecteur3D</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Version simplifiée d&#39;une classe de vecteur 3D.&quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialisation des coordonnées du vecteur.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">w</span>
+        
+    <span class="c1"># Insérez votre code ici</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="classe-fraction">
+<h2>2. Classe <code class="docutils literal notranslate"><span class="pre">Fraction</span></code><a class="headerlink" href="#classe-fraction" title="Link to this heading">#</a></h2>
+<p>Objectif est de construire une classe <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> qui modélise les fractions rationnelles. La classe construite doit :</p>
+<ul class="simple">
+<li><p>instancier un objet de type fraction en lui passant un numérateur entier et un dénominateur entier. Exemple, la fraction 5/3 s’intancie comme suit <code class="docutils literal notranslate"><span class="pre">Fraction(5,</span> <span class="pre">3)</span></code></p></li>
+<li><p>disposer de deux méthodes d’instances <code class="docutils literal notranslate"><span class="pre">get_numerateur()</span></code> et <code class="docutils literal notranslate"><span class="pre">get_denominateur</span></code> qui renvoient respectivement le numérateur et le dénominateur de la fonction, et telles que pour toutes fractions <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">Fraction(x,</span> <span class="pre">y)</span></code> ou <code class="docutils literal notranslate"><span class="pre">x</span></code> est un entier et <code class="docutils literal notranslate"><span class="pre">y</span></code> un entier non nul on à :<br/><code class="docutils literal notranslate"><span class="pre">Fraction(x,</span> <span class="pre">y).get_numerateur()</span> <span class="pre">/</span> <span class="pre">Fraction(x,</span> <span class="pre">y).get_denominateur()</span> <span class="pre">==</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></li>
+<li><p>afficher une fraction sous sa forme simplifiée (pas de diviseur entier commun au numérateur et au dénominateur, dénominateur positif). Exemples <code class="docutils literal notranslate"><span class="pre">str(Fraction(6,</span> <span class="pre">9))</span></code> donne <code class="docutils literal notranslate"><span class="pre">&quot;2/3&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">str(Fraction(2,</span> <span class="pre">-4))</span></code> donne <code class="docutils literal notranslate"><span class="pre">&quot;-1/2&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">str(Fraction(6,</span> <span class="pre">3))</span></code> donne <code class="docutils literal notranslate"><span class="pre">&quot;2&quot;</span></code></p></li>
+<li><p>permettre les calculs algébriques en utilisant les opérateurs Python <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> et <code class="docutils literal notranslate"><span class="pre">/</span></code>. Exemple, l’expression suivante doit se calculé correctement <code class="docutils literal notranslate"><span class="pre">(Fraction(5,</span> <span class="pre">3)</span> <span class="pre">+</span> <span class="pre">Fraction(-25,</span> <span class="pre">7)</span> <span class="pre">*</span> <span class="pre">Fraction(2,</span> <span class="pre">5)</span></code></p></li>
+<li><p>permettre le tri sur des listes de <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> comme <code class="docutils literal notranslate"><span class="pre">[Fraction(5,</span> <span class="pre">3),</span> <span class="pre">Fraction(-25,</span> <span class="pre">7),</span> <span class="pre">Fraction(2,</span> <span class="pre">5)]</span></code></p></li>
+</ul>
+<p>Contraintes :</p>
+<ul class="simple">
+<li><p>ne pas utiliser de module autre que le module <code class="docutils literal notranslate"><span class="pre">buildins</span></code> qui est chargé par défaut.</p></li>
+</ul>
+<section id="exercice-initialisation-et-acces-aux-attributs">
+<h3>2.1 ⚙️ Exercice - initialisation et accès aux attributs<a class="headerlink" href="#exercice-initialisation-et-acces-aux-attributs" title="Link to this heading">#</a></h3>
+<p>Coder la définition d’une classe <code class="docutils literal notranslate"><span class="pre">Fraction</span></code> et les deux assesseurs <code class="docutils literal notranslate"><span class="pre">get_numerateur()</span></code> <code class="docutils literal notranslate"><span class="pre">get_denominateur()</span></code> (méthodes d’instances) pour obtenir le comportement décrit ci-dessous.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">get_numerateur</span><span class="p">()</span>  <span class="c1"># doit retourner l&#39;entier 2</span>
+<span class="n">f</span><span class="o">.</span><span class="n">get_denominateur</span><span class="p">()</span>  <span class="c1"># doit retourner l&#39;entier 5</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Insérer votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test de l&#39;initialisation est des assesseurs</span>
+<span class="n">liste_num_denum</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">234567</span><span class="p">,</span> <span class="o">-</span><span class="mi">432729</span><span class="p">)]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="ow">in</span> <span class="n">liste_num_denum</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get_numerateur</span><span class="p">()</span> <span class="o">/</span> <span class="n">f</span><span class="o">.</span><span class="n">get_denominateur</span><span class="p">())</span> <span class="o">==</span> <span class="n">n</span><span class="o">/</span><span class="n">d</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get_numerateur</span><span class="p">(),</span> <span class="nb">int</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get_denominateur</span><span class="p">(),</span> <span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-representation-des-objects">
+<h3>2.2 ⚙️ Exercice - représentation des objects<a class="headerlink" href="#exercice-representation-des-objects" title="Link to this heading">#</a></h3>
+<p>Coder les méthodes <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> pour obtenir les comportements suivants.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># donne &#39;2/5&#39;</span>
+<span class="nb">repr</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># donne &#39;Fraction(2, 5)&#39; </span>
+</pre></div>
+</div>
+<div class="cell tag_editable docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insérez votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-expression-arithmetique">
+<h3>2.3 ⚙️ Exercice - expression arithmétique<a class="headerlink" href="#exercice-expression-arithmetique" title="Link to this heading">#</a></h3>
+<p>Coder les méthodes <code class="docutils literal notranslate"><span class="pre">__add__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__sub__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__mul__()</span></code> pour permettre l’évaluation suivanet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">f3</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="n">f1</span> <span class="o">+</span> <span class="p">(</span><span class="n">f2</span> <span class="o">*</span> <span class="n">f3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell tag_editable docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insérez votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-comparaisons">
+<h3>2.4 ⚙️ Exercice - comparaisons<a class="headerlink" href="#exercice-comparaisons" title="Link to this heading">#</a></h3>
+<p>Lorsqu’il évalue les expressions algébriques, l’interpréteur python fait appel à des méthodes spéciales. Par exemple,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__eq__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__ne__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__ge__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__gt__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__le__()</span></code>, <code class="docutils literal notranslate"><span class="pre">__lt__()</span></code> sont les méthodes appelées par les opérateurs <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>.</p></li>
+<li></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__eq__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">!=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__ne__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__ge__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__gt__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__le__(y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x&lt;</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__lt__(y)</span></code></p></li>
+</ul>
+<p>Coder au minimum les méthodes <code class="docutils literal notranslate"><span class="pre">__lt__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__eq__()</span></code> pour permettre le tri des listes.</p>
+<div class="cell tag_editable docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insérez votre code ici</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -409,6 +810,34 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classe-vecteur3d">1. Classe <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-representation-en-chaine-de-caracteres-str">1.1 ⚙️ Exercice - représentation en chaine de caractères <code class="docutils literal notranslate"><span class="pre">__str__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-representation-officielle-en-chaine-de-caracteres-repr">1.2 ⚙️ Exercice - représentation officielle en chaine de caractères <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-addition-de-deux-vecteurs">1.3 ⚙️ Exercice - addition de deux vecteurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-operateurs-algebriques">1.4 ⚙️ Exercice - opérateurs algébriques</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classe-fraction">2. Classe <code class="docutils literal notranslate"><span class="pre">Fraction</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-initialisation-et-acces-aux-attributs">2.1 ⚙️ Exercice - initialisation et accès aux attributs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-representation-des-objects">2.2 ⚙️ Exercice - représentation des objects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-expression-arithmetique">2.3 ⚙️ Exercice - expression arithmétique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-comparaisons">2.4 ⚙️ Exercice - comparaisons</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
