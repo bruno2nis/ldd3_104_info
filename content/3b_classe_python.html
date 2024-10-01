@@ -356,6 +356,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-classe-class">Définition d’une classe (<code class="docutils literal notranslate"><span class="pre">class</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciation-d-un-objet">Instanciation d’un objet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales">Méthodes spéciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-de-base">Méthodes Spéciales de Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-comparaisons">Méthodes Spéciales pour les comparaisons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-operations-arithmetiques">Méthodes Spéciales pour les opérations arithmétiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-operations-unaires">Méthodes spéciales pour les opérations unaires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-conteneurs">Méthodes spéciales pour les conteneurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-d-utilisation">Exemple d’Utilisation</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -536,7 +545,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MaClasse at 0x16e62bb6b10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MaClasse at 0x1babdcb3850&gt;
 </pre></div>
 </div>
 </div>
@@ -629,20 +638,22 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p><strong>Attributs d’instance</strong></p></td>
 <td><p>Ils sont propres à une instance (dans l’espace de nom d’une instance)</p></td>
-<td><p>Instruction d’assignation du retour de la fonction native <code class="docutils literal notranslate"><span class="pre">property()</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">property()</span></code> prends comme arguments une fonction “assesseur”, une fonction “mutateur” et une fonction “destructeur” de l’attribut d’instance. La syntaxe des décorateurs (sucre syntaxique) est aussi utilisable.<br /><br />
+<td><p>Instruction d’assignation du retour de la fonction native <code class="docutils literal notranslate"><span class="pre">property()</span></code>. La fonction <code class="docutils literal notranslate"><span class="pre">property()</span></code> prends comme arguments une fonction “accesseur”, une fonction “mutateur” et une fonction “destructeur” de l’attribut d’instance. La syntaxe des décorateurs (sucre syntaxique) est aussi utilisable.<br /><br />
 Génératement les attributs d’instance sont créés et modifier par des instructions dans les méthodes d’instance.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Exemple de définition d’une fonction dans laquelle le bloc <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> contient</p>
+<p>Exemple de définition d’une classe dans laquelle le bloc <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> contient</p>
 <ul class="simple">
 <li><p>la définition de l’attribut de classe <code class="docutils literal notranslate"><span class="pre">c</span></code></p></li>
 <li><p>la définition de la méthode spéciale d’instance <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> (c’est en fait une redéfinition - surcharge - d’une méthode prédéfinie par l’interpréteur Python)</p></li>
-<li><p>la définition de la méthode d’instance <code class="docutils literal notranslate"><span class="pre">methode_d_instance()</span></code></p></li>
-<li><p>la définition de la méthode d’instance <code class="docutils literal notranslate"><span class="pre">methode_d_instance()</span></code></p></li>
-<li><p>la définition de la méthode d’instance <code class="docutils literal notranslate"><span class="pre">methode_d_instance()</span></code></p></li>
-<li><p>la définition</p></li>
+<li><p>la définition de la méthode d’instance <code class="docutils literal notranslate"><span class="pre">accesseur_y()</span></code> qui joue le rôle d’accesseur à l’attribut d’instance <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>la définition de la méthode d’instance <code class="docutils literal notranslate"><span class="pre">muatateur_y()</span></code> qui joue le rôle de mutateur (modifieur) à l’attribut d’instance <code class="docutils literal notranslate"><span class="pre">y</span></code></p></li>
+<li><p>la définition de l’attribut d’instance <code class="docutils literal notranslate"><span class="pre">y</span></code> à l’aide de la fonction native <code class="docutils literal notranslate"><span class="pre">property()</span></code> et de ses méthodes accesseur et mutateur</p></li>
+<li><p>la définition de la méthode de classe <code class="docutils literal notranslate"><span class="pre">methode_de_classe()</span></code> à l’aide de la fonction native <code class="docutils literal notranslate"><span class="pre">classmethode()</span></code> (ici utilisée avec la syntaxe du décorateur <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, un sucre syntaxique)</p></li>
+<li><p>la définition de la méthode statique <code class="docutils literal notranslate"><span class="pre">methode_de_classe()</span></code> à l’aide de la fonction native <code class="docutils literal notranslate"><span class="pre">classmethod()</span></code> (ici utilisée avec la syntaxe du décorateur <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, un sucre syntaxique) ; une méthode de classe reçoit la classe comme 1er argument</p></li>
+<li><p>la définition de la méthode statique <code class="docutils literal notranslate"><span class="pre">methode_statique()</span></code> à l’aide de la fonction native <code class="docutils literal notranslate"><span class="pre">staticmethod()</span></code> (ici utilisée avec la syntaxe du décorateur <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, un sucre syntaxique) ; une méthode statique ne reçoit reçoit ni l’instance, la classe comme 1er argument</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -673,9 +684,9 @@ Génératement les attributs d’instance sont créés et modifier par des instr
         <span class="n">MaClasse2</span><span class="o">.</span><span class="n">methode_statique</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span> <span class="c1"># appel de la méthode statique</span>
         
     <span class="c1"># Méthode d&#39;instance pour accéder à l&#39;attribut d&#39;instance _y</span>
-    <span class="k">def</span> <span class="nf">assesseur_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">accesseur_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;renvoie l&#39;attribut d&#39;instance self._y&quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ assesseur_y(self) -------&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------ accesseur_y(self) -------&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Renvoie l&#39;attribut d&#39;instance de _y.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
     
@@ -688,7 +699,7 @@ Génératement les attributs d’instance sont créés et modifier par des instr
         <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">valeur</span>  <span class="c1"># assignation de l&#39;attribut d&#39;instance </span>
         
     <span class="c1"># Définition de l&#39;attribut d&#39;instance y à partir de 2 méthodes d&#39;instances</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">assesseur_y</span><span class="p">,</span> <span class="n">muatateur_y</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">accesseur_y</span><span class="p">,</span> <span class="n">muatateur_y</span><span class="p">)</span>
     
     <span class="c1"># Méthode de classe</span>
     <span class="nd">@classmethod</span>
@@ -709,7 +720,10 @@ Génératement les attributs d’instance sont créés et modifier par des instr
 </div>
 </div>
 </div>
-<p>Création d’une instance de MaClasse2, ce qui génère un appel implicite de la méthode <code class="docutils literal notranslate"><span class="pre">__init__()</span></code></p>
+<p>Exemples d’utilisation de la classe <code class="docutils literal notranslate"><span class="pre">MaClasse2</span></code> définie ci-dessus :</p>
+<ul class="simple">
+<li><p>Création d’une instance de MaClasse2, ce qui génère un appel implicite de la méthode <code class="docutils literal notranslate"><span class="pre">__init__()</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">MaClasse2</span><span class="p">()</span>
@@ -718,12 +732,14 @@ Génératement les attributs d’instance sont créés et modifier par des instr
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ __init__(self) -------
-self = &lt;__main__.MaClasse2 object at 0x0000016E62BC4B10&gt;
+self = &lt;__main__.MaClasse2 object at 0x000001BABDCB7950&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Assignation de la valeur 2 à l’attribut <code class="docutils literal notranslate"><span class="pre">x</span></code> de l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<ul class="simple">
+<li><p>Assignation de la valeur 2 à l’attribut <code class="docutils literal notranslate"><span class="pre">x</span></code> de l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
@@ -731,7 +747,9 @@ self = &lt;__main__.MaClasse2 object at 0x0000016E62BC4B10&gt;
 </div>
 </div>
 </div>
-<p>Assignation de la valeur 3 à l’attribut <code class="docutils literal notranslate"><span class="pre">y</span></code> de l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<ul class="simple">
+<li><p>Assignation de la valeur 3 à l’attribut <code class="docutils literal notranslate"><span class="pre">y</span></code> de l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
@@ -740,13 +758,15 @@ self = &lt;__main__.MaClasse2 object at 0x0000016E62BC4B10&gt;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ muatateur_y(self, val) -------
-self = &lt;__main__.MaClasse2 object at 0x0000016E62BC4B10&gt;
+self = &lt;__main__.MaClasse2 object at 0x000001BABDCB7950&gt;
 val = 3
 </pre></div>
 </div>
 </div>
 </div>
-<p>Accès interdit à l’attribut privé <code class="docutils literal notranslate"><span class="pre">__z</span></code> de l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<ul class="simple">
+<li><p>Accès interdit à l’attribut privé <code class="docutils literal notranslate"><span class="pre">__z</span></code> de l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">__z</span>
@@ -764,7 +784,9 @@ val = 3
 </div>
 </div>
 </div>
-<p>Appel de la méthode d’instance <code class="docutils literal notranslate"><span class="pre">methode_d_instance()</span></code> depuis l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p>
+<ul class="simple">
+<li><p>Appel de la méthode d’instance <code class="docutils literal notranslate"><span class="pre">methode_d_instance()</span></code> depuis l’instance <code class="docutils literal notranslate"><span class="pre">a</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">methode_d_instance</span><span class="p">(</span><span class="mi">92</span><span class="p">)</span>
@@ -773,7 +795,7 @@ val = 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ methode_d_instance(self, param2) -------
-self = &lt;__main__.MaClasse2 object at 0x0000016E62BC4B10&gt;
+self = &lt;__main__.MaClasse2 object at 0x000001BABDCB7950&gt;
 param2 = 92
 ------ methode_de_classe(cls) -------
 cls = &lt;class &#39;__main__.MaClasse2&#39;&gt;
@@ -785,7 +807,9 @@ param1 = 34
 </div>
 </div>
 </div>
-<p>Appel de la méthode de classe <code class="docutils literal notranslate"><span class="pre">methode_de_classe()</span></code> depuis la classe  <code class="docutils literal notranslate"><span class="pre">MaClasse2</span></code></p>
+<ul class="simple">
+<li><p>Appel de la méthode de classe <code class="docutils literal notranslate"><span class="pre">methode_de_classe()</span></code> depuis la classe  <code class="docutils literal notranslate"><span class="pre">MaClasse2</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MaClasse2</span><span class="o">.</span><span class="n">methode_de_classe</span><span class="p">()</span>
@@ -800,7 +824,9 @@ attribut de classe = 123
 </div>
 </div>
 </div>
-<p>Appel de la méthode statique <code class="docutils literal notranslate"><span class="pre">methode_statique()</span></code> depuis la classe  <code class="docutils literal notranslate"><span class="pre">MaClasse2</span></code></p>
+<ul class="simple">
+<li><p>Appel de la méthode statique <code class="docutils literal notranslate"><span class="pre">methode_statique()</span></code> depuis la classe  <code class="docutils literal notranslate"><span class="pre">MaClasse2</span></code></p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MaClasse2</span><span class="o">.</span><span class="n">methode_statique</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
@@ -815,6 +841,109 @@ param1 = 64
 </div>
 </div>
 </div>
+</section>
+<section id="methodes-speciales">
+<h2>Méthodes spéciales<a class="headerlink" href="#methodes-speciales" title="Link to this heading">#</a></h2>
+<p>En Python, les méthodes spéciales sont des méthodes prédéfinies qui commencent et se terminent par deux tirets bas <code class="docutils literal notranslate"><span class="pre">__</span></code> (<em>underscore</em> en anglais) ; elles sont aussi appelées “dunder methods” pour “Double UNDERscore methods”. Elles permettent de définir le comportement des objets pour certaines opérations et interactions. Dans la pratique, le langage Python et ses fonctions natives utilisent ces méthodes spéciales pour réaliser des opérations de base sur le objets, comme l’affiche textuel, les comparaisions entre objet, les opération arithmétique entre objet, les opération d’itération … Les méthodes spéciales sont donc essentielles pour créer des classes personnalisées qui s’intègrent bien avec les fonctionnalités du langage Python.</p>
+<p>Voici une liste des méthodes spéciales les plus courantes :</p>
+<section id="methodes-speciales-de-base">
+<h3>Méthodes Spéciales de Base<a class="headerlink" href="#methodes-speciales-de-base" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__(self,</span> <span class="pre">...)</span></code> : Initialise une instance, appelé automatiquement lors de la création d’une nouvelle instance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__del__(self)</span></code> : Destructeur d’instance’, appelé lors de la destruction d’une instance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__repr__(self)</span></code> : Représentation officielle de l’objet, utilisée par la fonction native <code class="docutils literal notranslate"><span class="pre">repr()</span></code>, elle-même utilisée pour représenter les objets dans la partie interactive de l’interpréteur Python.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__str__(self)</span></code> : Représentation informelle de l’objet, utilisée par le constructeur d’instance <code class="docutils literal notranslate"><span class="pre">str()</span></code>, elle-même utilisée par <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__bytes__(self)</span></code> : Représentation de l’instance en bytes, utilisée par le constructeur d’instance <code class="docutils literal notranslate"><span class="pre">bytes()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__format__(self,</span> <span class="pre">format_spec)</span></code> : Formatage de l’instance, utilisée par la fonction native<code class="docutils literal notranslate"><span class="pre">format()</span></code>.</p></li>
+</ul>
+</section>
+<section id="methodes-speciales-pour-les-comparaisons">
+<h3>Méthodes Spéciales pour les comparaisons<a class="headerlink" href="#methodes-speciales-pour-les-comparaisons" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__lt__(self,</span> <span class="pre">autre)</span></code> : Renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’instance est inféreure à <code class="docutils literal notranslate"><span class="pre">autre</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code> ; méthode utilisée par l’opérateur inférieur à <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__le__(self,</span> <span class="pre">autre)</span></code> : Renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’instance est inféreure ou égale à <code class="docutils literal notranslate"><span class="pre">autre</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code> ; méthode utilisée par l’opérateur inférieur ou égale à <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__eq__(self,</span> <span class="pre">autre)</span></code> : Renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’instance est égale à <code class="docutils literal notranslate"><span class="pre">autre</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code> ; méthode utilisée par l’opérateur égal à <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__ne__(self,</span> <span class="pre">autre)</span></code> : Renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’instance est différent de <code class="docutils literal notranslate"><span class="pre">autre</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code> ; méthode utilisée par l’opérateur différent de <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__gt__(self,</span> <span class="pre">autre)</span></code> : Renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’instance est supérieure à <code class="docutils literal notranslate"><span class="pre">autre</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code> ; méthode utilisée par l’opérateur supérieur à <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__ge__(self,</span> <span class="pre">autre)</span></code> : Renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’instance est supérieure ou égale à <code class="docutils literal notranslate"><span class="pre">autre</span></code>, sinon <code class="docutils literal notranslate"><span class="pre">False</span></code> ; méthode utilisée par l’opérateur supérieur ou égal à <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>.</p></li>
+</ul>
+</section>
+<section id="methodes-speciales-pour-les-operations-arithmetiques">
+<h3>Méthodes Spéciales pour les opérations arithmétiques<a class="headerlink" href="#methodes-speciales-pour-les-operations-arithmetiques" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__add__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">+</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__sub__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">-</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__mul__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">*</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__truediv__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">/</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__floordiv__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">//</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__mod__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">%</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__pow__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">**</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__and__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&amp;</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__or__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">|</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__xor__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">^</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__lshift__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&lt;&lt;</span> <span class="pre">autre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rshift__(self,</span> <span class="pre">autre)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">&gt;&gt;</span> <span class="pre">autre</span></code>.</p></li>
+</ul>
+</section>
+<section id="methodes-speciales-pour-les-operations-unaires">
+<h3>Méthodes spéciales pour les opérations unaires<a class="headerlink" href="#methodes-speciales-pour-les-operations-unaires" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__neg__(self)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">self</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__pos__(self)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">self</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__abs__(self)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">abs(self)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__invert__(self)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">~</span> <span class="pre">self</span></code>.</p></li>
+</ul>
+</section>
+<section id="methodes-speciales-pour-les-conteneurs">
+<h3>Méthodes spéciales pour les conteneurs<a class="headerlink" href="#methodes-speciales-pour-les-conteneurs" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__len__(self)</span></code> : Renvoie la résultat de l’expression de <code class="docutils literal notranslate"><span class="pre">len(self)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__getitem__(self,</span> <span class="pre">key)</span></code> : Accès à un élément, utilisée par <code class="docutils literal notranslate"><span class="pre">self[key]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__setitem__(self,</span> <span class="pre">key,</span> <span class="pre">value)</span></code> : Assignation d’un élément, utilisée par <code class="docutils literal notranslate"><span class="pre">self[key]</span> <span class="pre">=</span> <span class="pre">value</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__delitem__(self,</span> <span class="pre">key)</span></code> : Suppression d’un élément, utilisée par <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">self[key]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__iter__(self)</span></code> : Retourne un itérateur, utilisée par <code class="docutils literal notranslate"><span class="pre">iter(self)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__next__(self)</span></code> : Retourne l’élément suivant, utilisée par <code class="docutils literal notranslate"><span class="pre">next(self)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__contains__(self,</span> <span class="pre">item)</span></code> : Vérifie la présence d’un élément, utilisée par <code class="docutils literal notranslate"><span class="pre">in</span></code>.</p></li>
+</ul>
+</section>
+<section id="exemple-d-utilisation">
+<h3>Exemple d’Utilisation<a class="headerlink" href="#exemple-d-utilisation" title="Link to this heading">#</a></h3>
+<p>Voici un exemple de classe utilisant certaines de ces méthodes spéciales :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Point(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Point</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Point</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
+        <span class="k">return</span> <span class="bp">NotImplemented</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Utilisation de la classe Point</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>  <span class="c1"># Affiche (1, 2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">p1</span><span class="p">))</span>  <span class="c1"># Affiche Point(1, 2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span><span class="p">)</span>  <span class="c1"># Affiche (4, 6)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">p2</span><span class="p">)</span>  <span class="c1"># Affiche False</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p1</span><span class="p">))</span>  <span class="c1"># Affiche 2</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -887,6 +1016,15 @@ param1 = 64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-classe-class">Définition d’une classe (<code class="docutils literal notranslate"><span class="pre">class</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciation-d-un-objet">Instanciation d’un objet</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales">Méthodes spéciales</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-de-base">Méthodes Spéciales de Base</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-comparaisons">Méthodes Spéciales pour les comparaisons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-operations-arithmetiques">Méthodes Spéciales pour les opérations arithmétiques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-operations-unaires">Méthodes spéciales pour les opérations unaires</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-conteneurs">Méthodes spéciales pour les conteneurs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-d-utilisation">Exemple d’Utilisation</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

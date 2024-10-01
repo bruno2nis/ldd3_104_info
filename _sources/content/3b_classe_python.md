@@ -195,17 +195,19 @@ Dans le bloc d'instructions `<suite>` de la définition d'une classe, les instru
   - Instruction d'assignation
 * - **Attributs d'instance**
   - Ils sont propres à une instance (dans l'espace de nom d'une instance)
-  - Instruction d'assignation du retour de la fonction native `property()`. La fonction `property()` prends comme arguments une fonction "assesseur", une fonction "mutateur" et une fonction "destructeur" de l'attribut d'instance. La syntaxe des décorateurs (sucre syntaxique) est aussi utilisable.<br />  
+  - Instruction d'assignation du retour de la fonction native `property()`. La fonction `property()` prends comme arguments une fonction "accesseur", une fonction "mutateur" et une fonction "destructeur" de l'attribut d'instance. La syntaxe des décorateurs (sucre syntaxique) est aussi utilisable.<br />  
   Génératement les attributs d'instance sont créés et modifier par des instructions dans les méthodes d'instance.
 ```
 
-Exemple de définition d'une fonction dans laquelle le bloc `<suite>` contient
+Exemple de définition d'une classe dans laquelle le bloc `<suite>` contient
 - la définition de l'attribut de classe `c`
 - la définition de la méthode spéciale d'instance `__init__()` (c'est en fait une redéfinition - surcharge - d'une méthode prédéfinie par l'interpréteur Python)
-- la définition de la méthode d'instance `methode_d_instance()`
-- la définition de la méthode d'instance `methode_d_instance()`
-- la définition de la méthode d'instance `methode_d_instance()`
-- la définition 
+- la définition de la méthode d'instance `accesseur_y()` qui joue le rôle d'accesseur à l'attribut d'instance `y`
+- la définition de la méthode d'instance `muatateur_y()` qui joue le rôle de mutateur (modifieur) à l'attribut d'instance `y`
+- la définition de l'attribut d'instance `y` à l'aide de la fonction native `property()` et de ses méthodes accesseur et mutateur
+- la définition de la méthode de classe `methode_de_classe()` à l'aide de la fonction native `classmethode()` (ici utilisée avec la syntaxe du décorateur `@`, un sucre syntaxique)
+- la définition de la méthode statique `methode_de_classe()` à l'aide de la fonction native `classmethod()` (ici utilisée avec la syntaxe du décorateur `@`, un sucre syntaxique) ; une méthode de classe reçoit la classe comme 1er argument
+- la définition de la méthode statique `methode_statique()` à l'aide de la fonction native `staticmethod()` (ici utilisée avec la syntaxe du décorateur `@`, un sucre syntaxique) ; une méthode statique ne reçoit reçoit ni l'instance, la classe comme 1er argument
 
 ```{code-cell} python
 class MaClasse2(object):
@@ -235,9 +237,9 @@ class MaClasse2(object):
         MaClasse2.methode_statique(34) # appel de la méthode statique
         
     # Méthode d'instance pour accéder à l'attribut d'instance _y
-    def assesseur_y(self):
+    def accesseur_y(self):
         """renvoie l'attribut d'instance self._y"""
-        print("------ assesseur_y(self) -------")
+        print("------ accesseur_y(self) -------")
         """Renvoie l'attribut d'instance de _y."""
         return self._y
     
@@ -250,7 +252,7 @@ class MaClasse2(object):
         self._y = valeur  # assignation de l'attribut d'instance 
         
     # Définition de l'attribut d'instance y à partir de 2 méthodes d'instances
-    y = property(assesseur_y, muatateur_y)
+    y = property(accesseur_y, muatateur_y)
     
     # Méthode de classe
     @classmethod
@@ -269,44 +271,141 @@ class MaClasse2(object):
         print("param1 =", param1)
 ```
 
-Création d'une instance de MaClasse2, ce qui génère un appel implicite de la méthode `__init__()`
+Exemples d'utilisation de la classe `MaClasse2` définie ci-dessus :
+
+- Création d'une instance de MaClasse2, ce qui génère un appel implicite de la méthode `__init__()`
 
 ```{code-cell} python
 a = MaClasse2()
 ```
 
-Assignation de la valeur 2 à l'attribut `x` de l'instance `a`
+- Assignation de la valeur 2 à l'attribut `x` de l'instance `a`
 
 ```{code-cell} python
 a.x = 2
 ```
 
-Assignation de la valeur 3 à l'attribut `y` de l'instance `a`
+- Assignation de la valeur 3 à l'attribut `y` de l'instance `a`
 
 ```{code-cell} python
 a.y = 3
 ```
 
-Accès interdit à l'attribut privé `__z` de l'instance `a`
+- Accès interdit à l'attribut privé `__z` de l'instance `a`
 
 ```{code-cell} python
 a.__z
 ```
 
-Appel de la méthode d'instance `methode_d_instance()` depuis l'instance `a`
+- Appel de la méthode d'instance `methode_d_instance()` depuis l'instance `a`
 
 ```{code-cell} python
 a.methode_d_instance(92)
 ```
 
-Appel de la méthode de classe `methode_de_classe()` depuis la classe  `MaClasse2`
+- Appel de la méthode de classe `methode_de_classe()` depuis la classe  `MaClasse2`
 
 ```{code-cell} python
 MaClasse2.methode_de_classe()
 ```
 
-Appel de la méthode statique `methode_statique()` depuis la classe  `MaClasse2`
+- Appel de la méthode statique `methode_statique()` depuis la classe  `MaClasse2`
 
 ```{code-cell} python
 MaClasse2.methode_statique(64)
+```
+
+## Méthodes spéciales
+
+En Python, les méthodes spéciales sont des méthodes prédéfinies qui commencent et se terminent par deux tirets bas `__` (*underscore* en anglais) ; elles sont aussi appelées "dunder methods" pour "Double UNDERscore methods". Elles permettent de définir le comportement des objets pour certaines opérations et interactions. Dans la pratique, le langage Python et ses fonctions natives utilisent ces méthodes spéciales pour réaliser des opérations de base sur le objets, comme l'affiche textuel, les comparaisions entre objet, les opération arithmétique entre objet, les opération d'itération ... Les méthodes spéciales sont donc essentielles pour créer des classes personnalisées qui s'intègrent bien avec les fonctionnalités du langage Python.
+
+Voici une liste des méthodes spéciales les plus courantes :
+
+### Méthodes Spéciales de Base
+
+- `__init__(self, ...)` : Initialise une instance, appelé automatiquement lors de la création d'une nouvelle instance.
+- `__del__(self)` : Destructeur d'instance', appelé lors de la destruction d'une instance.
+- `__repr__(self)` : Représentation officielle de l'objet, utilisée par la fonction native `repr()`, elle-même utilisée pour représenter les objets dans la partie interactive de l'interpréteur Python.
+- `__str__(self)` : Représentation informelle de l'objet, utilisée par le constructeur d'instance `str()`, elle-même utilisée par `print()`.
+- `__bytes__(self)` : Représentation de l'instance en bytes, utilisée par le constructeur d'instance `bytes()`.
+- `__format__(self, format_spec)` : Formatage de l'instance, utilisée par la fonction native`format()`.
+
+### Méthodes Spéciales pour les comparaisons
+
+- `__lt__(self, autre)` : Renvoie `True` si l'instance est inféreure à `autre`, sinon `False` ; méthode utilisée par l'opérateur inférieur à `<`.
+- `__le__(self, autre)` : Renvoie `True` si l'instance est inféreure ou égale à `autre`, sinon `False` ; méthode utilisée par l'opérateur inférieur ou égale à `<=`.
+- `__eq__(self, autre)` : Renvoie `True` si l'instance est égale à `autre`, sinon `False` ; méthode utilisée par l'opérateur égal à `==`.
+- `__ne__(self, autre)` : Renvoie `True` si l'instance est différent de `autre`, sinon `False` ; méthode utilisée par l'opérateur différent de `!=`.
+- `__gt__(self, autre)` : Renvoie `True` si l'instance est supérieure à `autre`, sinon `False` ; méthode utilisée par l'opérateur supérieur à `>`.
+- `__ge__(self, autre)` : Renvoie `True` si l'instance est supérieure ou égale à `autre`, sinon `False` ; méthode utilisée par l'opérateur supérieur ou égal à `>=`.
+
+### Méthodes Spéciales pour les opérations arithmétiques
+
+- `__add__(self, autre)` : Renvoie la résultat de l'expression de `self + autre`.
+- `__sub__(self, autre)` : Renvoie la résultat de l'expression de `self - autre`.
+- `__mul__(self, autre)` : Renvoie la résultat de l'expression de `self * autre`.
+- `__truediv__(self, autre)` : Renvoie la résultat de l'expression de `self / autre`.
+- `__floordiv__(self, autre)` : Renvoie la résultat de l'expression de `self // autre`.
+- `__mod__(self, autre)` : Renvoie la résultat de l'expression de `self % autre`.
+- `__pow__(self, autre)` : Renvoie la résultat de l'expression de `self ** autre`.
+- `__and__(self, autre)` : Renvoie la résultat de l'expression de `self & autre`.
+- `__or__(self, autre)` : Renvoie la résultat de l'expression de `self | autre`.
+- `__xor__(self, autre)` : Renvoie la résultat de l'expression de `self ^ autre`.
+- `__lshift__(self, autre)` : Renvoie la résultat de l'expression de `self << autre`.
+- `__rshift__(self, autre)` : Renvoie la résultat de l'expression de `self >> autre`.
+
+### Méthodes spéciales pour les opérations unaires
+
+- `__neg__(self)` : Renvoie la résultat de l'expression de `- self`.
+- `__pos__(self)` : Renvoie la résultat de l'expression de `+ self`.
+- `__abs__(self)` : Renvoie la résultat de l'expression de `abs(self)`.
+- `__invert__(self)` : Renvoie la résultat de l'expression de `~ self`.
+
+### Méthodes spéciales pour les conteneurs
+
+- `__len__(self)` : Renvoie la résultat de l'expression de `len(self)`.
+- `__getitem__(self, key)` : Accès à un élément, utilisée par `self[key]`.
+- `__setitem__(self, key, value)` : Assignation d'un élément, utilisée par `self[key] = value`.
+- `__delitem__(self, key)` : Suppression d'un élément, utilisée par `del self[key]`.
+- `__iter__(self)` : Retourne un itérateur, utilisée par `iter(self)`.
+- `__next__(self)` : Retourne l'élément suivant, utilisée par `next(self)`.
+- `__contains__(self, item)` : Vérifie la présence d'un élément, utilisée par `in`.
+
+### Exemple d'Utilisation
+
+Voici un exemple de classe utilisant certaines de ces méthodes spéciales :
+
+```{code-block} python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"Point({self.x}, {self.y})"
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+    def __add__(self, other):
+        if isinstance(other, Point):
+            return Point(self.x + other.x, self.y + other.y)
+        return NotImplemented
+
+    def __eq__(self, other):
+        if isinstance(other, Point):
+            return self.x == other.x and self.y == other.y
+        return NotImplemented
+
+    def __len__(self):
+        return int((self.x**2 + self.y**2)**0.5)
+
+# Utilisation de la classe Point
+p1 = Point(1, 2)
+p2 = Point(3, 4)
+print(p1)  # Affiche (1, 2)
+print(repr(p1))  # Affiche Point(1, 2)
+print(p1 + p2)  # Affiche (4, 6)
+print(p1 == p2)  # Affiche False
+print(len(p1))  # Affiche 2
 ```
