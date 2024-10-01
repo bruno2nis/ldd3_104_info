@@ -515,8 +515,8 @@ document.write(`
 </div>
 </div>
 <p>Python utilise la représentation dite “représentation officielle” à cet effet, celle que l’on obtient avec la fonction native <code class="docutils literal notranslate"><span class="pre">repr()</span></code> qui elle-même fait appel à la méthode spéciale d’instance <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> de l’objet qui renvoie la chaine de caractère officiel. Il est d’usage que cette chaine soit, si cela est possible, une instruction Python qui renvoie le même objet.</p>
-<p>Exemple :
-<code class="docutils literal notranslate"><span class="pre">repr(Vecteur3D(1,</span> <span class="pre">2,</span> <span class="pre">3))</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;Vecteur3D(1,</span> <span class="pre">2,</span> <span class="pre">3)&quot;</span></code>
+<p>Exemples :<br/>
+<code class="docutils literal notranslate"><span class="pre">repr(Vecteur3D(1,</span> <span class="pre">2,</span> <span class="pre">3))</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;Vecteur3D(1,</span> <span class="pre">2,</span> <span class="pre">3)&quot;</span></code><br/>
 <code class="docutils literal notranslate"><span class="pre">repr(Vecteur3D(-34,</span> <span class="pre">2.,</span> <span class="pre">3e-4))</span></code> renvoie <code class="docutils literal notranslate"><span class="pre">&quot;Vecteur3D(-34,</span> <span class="pre">2.0,</span> <span class="pre">0.0003&gt;&quot;</span></code></p>
 <p>Coder une méthode d’instance <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> locale dans la définition de la classe <code class="docutils literal notranslate"><span class="pre">Vecteur3D</span></code> pour obtenir les résultats précédents.</p>
 <div class="cell tag_editable docutils container">
@@ -737,7 +737,7 @@ document.write(`
 </section>
 <section id="exercice-expression-arithmetique">
 <h3>2.3 ⚙️ Exercice - expression arithmétique<a class="headerlink" href="#exercice-expression-arithmetique" title="Link to this heading">#</a></h3>
-<p>Coder les méthodes <code class="docutils literal notranslate"><span class="pre">__add__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__sub__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__mul__()</span></code> pour permettre l’évaluation suivanet.</p>
+<p>Coder les méthodes <code class="docutils literal notranslate"><span class="pre">__add__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__sub__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__mul__()</span></code> pour permettre les évaluations suivantes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">f2</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">f3</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
@@ -783,7 +783,16 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__le__(y)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">x&lt;</span> <span class="pre">y</span></code> appelle <code class="docutils literal notranslate"><span class="pre">x.__lt__(y)</span></code></p></li>
 </ul>
-<p>Coder au minimum les méthodes <code class="docutils literal notranslate"><span class="pre">__lt__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__eq__()</span></code> pour permettre le tri des listes.</p>
+<p>Coder au minimum les méthodes <code class="docutils literal notranslate"><span class="pre">__lt__()</span></code> et <code class="docutils literal notranslate"><span class="pre">__eq__()</span></code> pour permettre les comparaisons entre fraction et le tri des listes de fractions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">f3</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="n">f2</span> <span class="o">&gt;</span> <span class="n">f1</span>  <span class="c1"># donne True</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">f3</span>  <span class="c1"># donne False</span>
+<span class="nb">sorted</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">])</span>  <span class="c1"># donne [Fraction(-2, 7), Fraction(2, 3), Fraction(5, 2)]</span>
+</pre></div>
+</div>
 <div class="cell tag_editable docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># insérez votre code ici</span>
