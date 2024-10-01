@@ -200,6 +200,10 @@
 <li class="toctree-l1"><a class="reference internal" href="3d_developper.html">Développer une application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ldd3_104_be3.html">BE3 - Classes définies par l’utilisateur</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="4_projet.html">Projet</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="9a_jupyterlab_instructions.html">JupyterLab - Instructions de démarrage</a></li>
@@ -460,17 +464,7 @@ Exemple : <code class="docutils literal notranslate"><span class="pre">return</s
 <section id="association-arguments-parametres">
 <h3>Association arguments-paramètres<a class="headerlink" href="#association-arguments-parametres" title="Link to this heading">#</a></h3>
 <p>L’association de base assigne simplement les arguments aux paramètres de même rang, comme l’illustre le tableau suivant.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Arguments</span> <span class="o">|</span> <span class="n">Paramètres</span> <span class="n">de</span> <span class="o">|</span>       <span class="n">Assignations</span>
- <span class="n">d</span><span class="s1">&#39;appel  |  la fonction  |        à l&#39;</span><span class="n">appel</span>
-<span class="o">----------|---------------|------------------------</span>
- <span class="o">&lt;</span><span class="n">arg_1</span><span class="o">&gt;</span>  <span class="o">|</span> <span class="o">&lt;</span><span class="n">nom_param_1</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">nom_param_1</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">arg_1</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="n">arg_2</span><span class="o">&gt;</span>  <span class="o">|</span> <span class="o">&lt;</span><span class="n">nom_param_2</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">nom_param_2</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">arg_2</span><span class="o">&gt;</span>
-  <span class="o">.</span>   <span class="o">.</span>   <span class="o">|</span>   <span class="o">.</span>   <span class="o">.</span>   <span class="o">.</span>   <span class="o">|</span>  <span class="o">.</span>   <span class="o">.</span>   <span class="o">.</span>       <span class="o">.</span>   <span class="o">.</span>
- <span class="o">&lt;</span><span class="n">arg_n</span><span class="o">&gt;</span>  <span class="o">|</span> <span class="o">&lt;</span><span class="n">nom_param_n</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">nom_param_n</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">arg_n</span><span class="o">&gt;</span>
-
-</pre></div>
-</div>
-<p>Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :&lt;/arg_n&gt;&lt;/nom_param_n&gt;&lt;/nom_param_n&gt;&lt;/arg_n&gt;&lt;/arg_2&gt;&lt;/nom_param_2&gt;&lt;/nom_param_2&gt;&lt;/arg_2&gt;&lt;/arg_1&gt;&lt;/nom_param_1&gt;&lt;/nom_param_1&gt;&lt;/arg_1&gt;</p>
+<p>Exemple ou les trois arguments passés sont de simples chaines de caractères littérales :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">affiche_salutation</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">civilite</span><span class="p">):</span>
