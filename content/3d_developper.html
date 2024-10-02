@@ -200,7 +200,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projet</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="4_projet.html">Projet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_projet.html">Présentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
 <ul class="nav bd-sidenav">
@@ -330,7 +330,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -346,6 +348,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-python">Code python</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -361,15 +371,25 @@ document.write(`
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="developper-une-application">
 <h1>Développer une application<a class="headerlink" href="#developper-une-application" title="Link to this heading">#</a></h1>
+<!-- 
+- modularité
+- debogage (pdb, ...)
+- test (unitest, ...)
+- gestion de version
+- documentation (generateur de doc)
+- environement d'exécution (conda, ...)
+- ide (Jupyter Lab, Spyder, Visual Studio Code)
+ -->
+<section id="code-python">
+<h2>Code python<a class="headerlink" href="#code-python" title="Link to this heading">#</a></h2>
+<p>Un code Python peut être placé soit</p>
 <ul class="simple">
-<li><p>modularité</p></li>
-<li><p>debogage (pdb, …)</p></li>
-<li><p>test (unitest, …)</p></li>
-<li><p>gestion de version</p></li>
-<li><p>documentation (generateur de doc)</p></li>
-<li><p>environement d’exécution (conda, …)</p></li>
-<li><p>ide (Jupyter Lab, Spyder, Visual Studio Code)</p></li>
+<li><p>dans un ensemble de cellule d’un carnet Jupyter</p></li>
+<li><p>dans un module (un fichier texte dédié)</p></li>
 </ul>
+<p>Dans u</p>
+<p>Déclaration des classes</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -426,6 +446,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-python">Code python</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

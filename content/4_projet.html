@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Projet &#8212; LDD3 Informatique</title>
+    <title>Présentation &#8212; LDD3 Informatique</title>
   
   
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/4_projet';</script>
@@ -202,7 +204,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projet</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Projet</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Présentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
 <ul class="nav bd-sidenav">
@@ -332,7 +334,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -343,11 +347,31 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Projet</h1>
+    <h1>Présentation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes">Graphes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Définitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration">Illustration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisations">Utilisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-dijkstra">Algorithme de Dijkstra</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelisation-orientee-objet">Modélisation orientée objet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphe-de-demonstration">Graphe de démonstration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langage-html-et-les-tableaux">Langage HTML et les tableaux</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -357,19 +381,123 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="projet">
-<h1>Projet<a class="headerlink" href="#projet" title="Link to this heading">#</a></h1>
-<p>Support du projet :</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="presentation">
+<h1>Présentation<a class="headerlink" href="#presentation" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p><strong>Support du projet</strong></p>
 <ul class="simple">
-<li><p>les graphes orienté et la recherche de chemin</p></li>
+<li><p>les graphes orientés et plus particulièrement la recherche de chemins dans un graphe, en particulier le chemin le plus long parmi les chemins les plus court entre deux sommet.</p></li>
 </ul>
-<p>Compétence à développer</p>
+<p><a class="reference internal" href="../_images/PRO_digraphe_exemple_02.png"><img alt="../_images/PRO_digraphe_exemple_02.png" src="../_images/PRO_digraphe_exemple_02.png" style="width: 250px;" /></a><br /></p>
+<p><strong>Compétences développées</strong></p>
 <ul class="simple">
-<li><p>programmation orienté objet (à partir d’un modélisation déjà ébauché, et d’une interface)</p></li>
-<li><p>codage d’algorithmes déjà établis (parcours de graphe en largeur, recherche du chemin le plus cours)</p></li>
-<li><p>création d’un fichier contenant les résultats formaté</p></li>
-<li><p>lecture d’un fichier de donnée format</p></li>
+<li><p>programmation orientée objet (à partir d’une modélisation déjà ébauchée, et d’une interface partiellement imposée)</p></li>
+<li><p>codage d’algorithmes déjà établis (parcours de graphe en largeur, recherche du chemin le plus court)</p></li>
+<li><p>lecture et création de fichiers contenant des données formatées</p></li>
 </ul>
+<p><strong>Documents fournis</strong></p>
+<ul class="simple">
+<li><p>un carnet Jupyter</p></li>
+<li><p>un graphe de démonstration sous la forme d’un dictionnaire Python et d’un fichier au format JSON</p></li>
+</ul>
+<p><strong>Travail demandé</strong></p>
+<p>Construire un code Python et un carnet Jupyter qui permettent</p>
+<ul class="simple">
+<li><p>de construire un graphe</p>
+<ul>
+<li><p>de manière interactive</p></li>
+<li><p>depuis des données dans un</p></li>
+<li><p>depuis des données dans un fichier</p></li>
+</ul>
+</li>
+<li><p>de sauver un graphe construit dans un fichier au format JSON</p></li>
+<li><p>d’analyser le plus court chemin entre tous les couples de sommets d’un graphe,</p></li>
+<li><p>d’identifier le plus long des plus courts chemins dans un graphe</p></li>
+<li><p>de construire un rapport textuel (texte brut)</p></li>
+<li><p>de construire un rapport au format HTML incluant une représentation graphique des graphes</p></li>
+</ul>
+<p><strong>Résultats attendus (livrable)</strong></p>
+<p>Une archive au format zip nommé <code class="docutils literal notranslate"><span class="pre">NOM_Prenom.zip</span></code> déposé sur e-campus,</p>
+<ul class="simple">
+<li><p>contenant obligatoirement</p>
+<ul>
+<li><p>un carnet Jupyter traitant le graphe de démonstration (création d’un objet Graphe, chargement des données depuis  fichier, )</p></li>
+<li><p>le fichier a</p></li>
+</ul>
+</li>
+<li><p>contenant éventuellement</p>
+<ul>
+<li><p>un fichier de code python nommé “NOM_Prenom.py” (un module)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="graphes">
+<h2>Graphes<a class="headerlink" href="#graphes" title="Link to this heading">#</a></h2>
+<section id="definitions">
+<h3>Définitions<a class="headerlink" href="#definitions" title="Link to this heading">#</a></h3>
+<p>Un graphe est un couple <span class="math notranslate nohighlight">\(G = (V, E)\)</span> comprenant deux ensembles :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(V\)</span> un ensemble de sommets (<em>vertices</em> en anglais)</p></li>
+<li><p><span class="math notranslate nohighlight">\(E\)</span> un ensemble d’arêtes (<em>edges</em> en anglais), chacune étant une paire de sommets <span class="math notranslate nohighlight">\(\{u, v\}\)</span> avec <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(v \in V\)</span></p></li>
+</ul>
+<p>Un <strong>graphe</strong> orienté est un graphe pour lequel les arêtes sont des couples <span class="math notranslate nohighlight">\((u, v) \in V \times V\)</span>. Les arêtes d’un graphe orienté sont souvent appelées <em>arcs</em>. Les graphes orientés sont parfois appelés <em>digraph</em> par contraction de l’anglais <em>directed graph</em></p>
+<p>Un <strong>graphe pondéré</strong> (ou valué) est un graphe pour lequel un nombre positif est associé à chaque arête. Un graphe pondéré est un triplet <span class="math notranslate nohighlight">\(G = (V, E, w)\)</span> où <span class="math notranslate nohighlight">\(V\)</span> est l’ensemble de sommets, <span class="math notranslate nohighlight">\(E\)</span> est l’ensemble des arêtes et <span class="math notranslate nohighlight">\(w : E \rightarrow \mathbb{R}_+\)</span> est la fonction de pondération. <span class="math notranslate nohighlight">\(w(e)\)</span> est appelé <em>poids</em> de l’arête <span class="math notranslate nohighlight">\(e \in E\)</span>.</p>
+<p>Un <strong>multigraphe</strong> est un graphe où <span class="math notranslate nohighlight">\(E\)</span> est un <a class="reference external" href="https://fr.wikipedia.org/wiki/Multiensemble">multiensemble</a> (parfois appelé <em>sac</em>), c’est-à-dire une sorte d’ensemble dans lequel chaque élément peut apparaitre plusieurs fois. Un multigraphe autorise plusieurs arêtes entre deux sommets identiques.</p>
+</section>
+<section id="illustration">
+<h3>Illustration<a class="headerlink" href="#illustration" title="Link to this heading">#</a></h3>
+<p>Exemple de représentation graphique d’un multigraphe orienté et pondéré</p>
+<a class="reference internal image-reference" href="../_images/PRO_digraphe_exemple_01.png"><img alt="../_images/PRO_digraphe_exemple_01.png" src="../_images/PRO_digraphe_exemple_01.png" style="width: 300px;" /></a>
+</section>
+<section id="utilisations">
+<h3>Utilisations<a class="headerlink" href="#utilisations" title="Link to this heading">#</a></h3>
+<p>Un multigraphe orienté et pondéré est un outil de modélisation et d’analyse très répandu dans les sciences de l’ingénieur.</p>
+<ul class="simple">
+<li><p>ordonnancement de projet (diagramme de PERT)</p></li>
+<li><p>système de transport routier, ferroviaire, ou aérien</p></li>
+<li><p>système de distribution (eau potable, énergie électrique, hydraulique, pneumatique, géothermique …)</p></li>
+<li><p>structure mécanique en treillis (ouvrage d’art, impression 3D, …)</p></li>
+<li><p>système polyarticulé (cinématique …)</p></li>
+<li><p>automate à états finis (automatisation des systèmes)</p></li>
+<li><p>réseau électrique (lois de Kirchhoff)</p></li>
+<li><p>routage des circuits intégrés</p></li>
+<li><p>réseau de communication</p></li>
+</ul>
+</section>
+<section id="algorithme-de-dijkstra">
+<h3>Algorithme de Dijkstra<a class="headerlink" href="#algorithme-de-dijkstra" title="Link to this heading">#</a></h3>
+<p>L’algorithme de Dijkstra résout le problème du plus court chemin dans un graphe. Plus précisément, il calcule les plus courts chemins à partir d’un sommet de départ vers tous les autres sommets dans un graphe orienté pondéré par des réels positifs. Le résultat d’algorithme est un arbre (graphe orienté particulier) dont la racine est le sommet de départ et dans lequel un chemin unique, le plus court, relie deux sommets. Chaque sommet est associé à la plus courte distance qui le sépare du sommet de départ.</p>
+<p><img alt="../_images/dijkstra_algo_entrees_sorties.png" src="../_images/dijkstra_algo_entrees_sorties.png" /><br /></p>
+<p>Les détails de l’algorithme sont disponibles sur de nombreux sites WEB, par exemple ici : <a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">Algorithme de Dijkstra</a> (Wikipédia)</p>
+<p>Description de l’algorithme issue de la page <a class="reference external" href="https://fr.wikipedia.org/wiki/Algorithme_de_Dijkstra">“Algorithme de Dijkstra”</a> de Wikipédia.</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); padding:10px 0; font-family:monospace; font-size:0.8em;">
+<strong>Entrées :</strong> <br>
+    &nbsp;&nbsp;- <font color = "green">G</font>(<font color = "green">S</font>, <font color = "green">A</font>) un graphe avec une pondération positive <font color = "blue">poids</font> des arcs<br>
+    &nbsp;&nbsp;- <font color = "green">S<sub>deb</sub></font> un sommet de <font color = "green">S</font><br>
+<p><strong>Sorties :</strong> <br>
+  - <font color = "green">P</font>(<font color = "green">S</font>, <font color = "green">Af</font>) un graphe (arbre de sommet Sdeb) <br>
+    avec une pondération positive <font color = "blue">d</font> (distance) des sommets<br><br></p>
+<p>P := <font color = "orange" over>⌀</font><br>
+<font color = "blue">d</font>[<font color = "green">a</font>] := <font color = "orange" over>+∞</font> <strong>pour</strong> chaque sommet <font color = "green">a</font><br>
+<font color = "blue">d</font>[<font color = "green">s<sub>deb</sub></font>] := <font color = "orange" over>0</font><br>
+<strong>Tant qu</strong>’il existe un sommet hors de <font color = "green">P</font><br>
+    Choisir un sommet <font color = "green">a</font> hors de <font color = "green">P</font> de plus petite distance <font color = "blue">d</font>[<font color = "green">a</font>]<br>
+    Mettre <font color = "green">a</font> dans <font color = "green">P</font><br>
+    <strong>Pour</strong> chaque sommet <font color = "green">b</font> hors de <font color = "green">P</font> voisin de <font color = "green">a</font><br>
+        Si <font color = "blue">d</font>[<font color = "green">b</font>] &gt; <font color = "blue">d</font>[<font color = "green">a</font>] + <font color = "blue">poids</font>(<font color = "green">a</font>, <font color = "green">b</font>)<br>
+            <font color = "blue">d</font>[<font color = "green">b</font>] := <font color = "blue">d</font>[<font color = "green">a</font>] + <font color = "blue">poids</font>(<font color = "green">a</font>, <font color = "green">b</font>)<br>
+            <font color = "blue">prédécesseur</font>[<font color = "green">b</font>] := <font color = "green">a</font><br>
+        <strong>Fin Si</strong><br>
+    <strong>Fin Pour</strong><br>
+<strong>Fin Tant que</strong></p>
+</div>
+</section>
+</section>
+<section id="modelisation-orientee-objet">
+<h2>Modélisation orientée objet<a class="headerlink" href="#modelisation-orientee-objet" title="Link to this heading">#</a></h2>
+<p>Le diagramme de classe UML suivant présente trois classes d’objets et leurs relations. On y trouve les classes Graphe, Sommet et Arc. Les relations décrivent qu’un graphe est en relation avec plusieurs sommets et plusieurs arcs et d’un arc est en relation avec un seul sommet source et en relation un seul sommet destination. Inversement un sommet est en relation avec un nombre quelconque d’arcs en tant que source ainsi qu’en tant que destination. Un sommet possède un attribut-donnée <code class="docutils literal notranslate"><span class="pre">nom</span></code> de type <code class="docutils literal notranslate"><span class="pre">str</span></code>, un sommet possède un attribut-donnée <code class="docutils literal notranslate"><span class="pre">nom</span></code> de type <code class="docutils literal notranslate"><span class="pre">str</span></code>  et un arc possède un attribut-donnée <code class="docutils literal notranslate"><span class="pre">poids</span></code> de type <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
 <div class="mermaid">
             classDiagram
     Arc &quot;*&quot; -- &quot;1&quot; Sommet: destination
@@ -379,8 +507,17 @@ document.write(`
 
     class Graphe{
         nom: int
-        ajouter_sommet(nom: str) : None
-        ajouter_arc(nom_dep: str, nom_arr: ste, poids: int) : None
+        ajouter_sommet(nom: str): None
+        ajouter_arc(nom_dep: str, nom_arr: ste, poids: int): None
+        changer_nom(nom: str): None
+        rapport_textuel(): str
+        rapport_html(): None
+        initialiser_avec_dict(donnee: dict): None
+        initialiser_avec_fichier(nom_fichier: str): None
+        sauver_dans_fichier(nom_fichier: str): None
+        dijkstra(nom_sommet_depart: str): arbre
+        __str__(): str
+        __repr__(): str
     }
 
     class Arc{
@@ -390,8 +527,141 @@ document.write(`
     class Sommet{
         nom : str
     }
-
-        </div></section>
+        </div><section id="graphe-de-demonstration">
+<h3>Graphe de démonstration<a class="headerlink" href="#graphe-de-demonstration" title="Link to this heading">#</a></h3>
+<p><a class="reference internal" href="../_images/PRO_digraphe_demo_01.png"><img alt="../_images/PRO_digraphe_demo_01.png" src="../_images/PRO_digraphe_demo_01.png" style="width: 400px;" /></a><br /></p>
+<p>Contenu du fichier graphe_demo.json représentant le graphe de démonstration au format texte JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;nom&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;graphe_demo&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sommets&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;J&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;arcs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;D&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;G&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;J&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">],</span>
+<span class="w">        </span><span class="p">[</span><span class="s2">&quot;J&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Dictionnaire Python assigné à <code class="docutils literal notranslate"><span class="pre">donnees</span></code> et représentant le graphe de démonstration</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;graphe_demo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sommets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;arcs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="langage-html-et-les-tableaux">
+<h2>Langage HTML et les tableaux<a class="headerlink" href="#langage-html-et-les-tableaux" title="Link to this heading">#</a></h2>
+<p>HTML (HyperText Markup Language) est un langage de balisage de texte, c’est-à-dire un langage qui enrichit du texte pur avec des balises délimitant des séquences de caractères ou marquant une position à l’intérieur du texte afin de le structurer en paragraphes, en titres, en citations, en partie à mettre en exergue… Parmi les autres langages de balisage on retrouve par exemple <span class="math notranslate nohighlight">\(\LaTeX\)</span> et SVG (Scalable Vector Graphics) pour les images.</p>
+<p>HTML décrit la structure d’une page Web, sous la forme d’une série d’<strong>éléments</strong> balisés. Chaque élément indique au navigateur comment afficher son <strong>contenu</strong> en l’informant de sa nature (entête, paragraphe, lien, liste, tableau…) et éventuellement de ses <strong>attributs</strong>.</p>
+<a class="reference internal image-reference" href="../_images/HTML_logo.png"><img alt="../_images/HTML_logo.png" src="../_images/HTML_logo.png" style="width: 100px;" /></a>
+<p>Les structures types d’un élément HTML sont</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;nomBalise&gt;Le</span> <span class="pre">contenu</span> <span class="pre">de</span> <span class="pre">l'élément&lt;/nomBalise&gt;</span></code> pour les éléments avec contenu</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;nomBalise&gt;</span></code> pour les éléments sans contenu qui ne possède donc pas de balise fermante</p></li>
+</ul>
+<p>Exemples de balises HTML :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> élément racine de la page</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> élément contenant les métadonnées de la page</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;title&gt;</span></code> élément contenant la métadonnée “titre de la page”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> élément contenant le corps de la page qui contient tout ce qui sera visible</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> élément contenant un titre de niveau 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;h2&gt;</span></code> élément contenant un titre de niveau 2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> élément contenant un paragraphe de texte</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> élément qui définit un hyperlien sur son contenu</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> élément contenant un tableau</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> élément pour insérer une image dans une page (pas de contenu ni de balise de fin)</p></li>
+</ul>
+<p>La syntaxe complète du langage de balisage <code class="docutils literal notranslate"><span class="pre">HTML</span></code> peut être obtenue sur le site <a class="reference external" href="https://www.w3schools.com/html/default.asp">w3schools.com</a>.</p>
+<p>La figure suivante montre la constitution d’un élément <em>paragraphe</em></p>
+<p><a class="reference internal" href="../_images/html_element.png"><img alt="../_images/html_element.png" src="../_images/html_element.png" style="width: 200px;" /></a><br /></p>
+<p>Les attributs d’un élément vont se placer au sein de la balise ouvrante. Ils précisent ou apportent des informations complémentaires sur l’élément. La figure suivante montre un élément <em>hyperlien</em> dont le contenu est le texte “eCampus” et dont l’attribut <em>href</em> précise la destination de l’hyperlien vers <a class="reference external" href="https://ecampus.paris-saclay.fr/">https://ecampus.paris-saclay.fr/</a></p>
+<p><a class="reference internal" href="../_images/html_element2.png"><img alt="../_images/html_element2.png" src="../_images/html_element2.png" style="width: 300px;" /></a><br /></p>
+<p>La structure type d’une page est :</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Titre de la page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        Le contenu est ici...
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>L’affichage du rendu d’une page html peut se faire dans une cellule de code d’un carnet Jupyter de la façon suivante</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Affichage du rendu du tableau html</span>
+<span class="kn">import</span> <span class="nn">IPython.display</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;table.html&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="250"
+            height="75"
+            src="table.html"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Des exemples de mises en forme de tableaux sont disponibles sur le site <a class="reference external" href="https://www.geeksforgeeks.org/html-tables/">GeeksforGeeks</a></p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -447,6 +717,33 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphes">Graphes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Définitions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#illustration">Illustration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utilisations">Utilisations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-dijkstra">Algorithme de Dijkstra</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelisation-orientee-objet">Modélisation orientée objet</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphe-de-demonstration">Graphe de démonstration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langage-html-et-les-tableaux">Langage HTML et les tableaux</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
