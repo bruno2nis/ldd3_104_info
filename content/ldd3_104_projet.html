@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -402,7 +402,7 @@ document.write(`
         <span class="k">pass</span>
     <span class="k">def</span> <span class="nf">sauver_dans_fichier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">dijstra</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">dijkstra</span><span class="p">():</span>
         <span class="k">pass</span>
     <span class="k">def</span> <span class="nf">rapport_textuel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
@@ -497,7 +497,7 @@ La plus grande longueur des plus courts chemins est
 <section id="les-attendus-de-la-seance-2">
 <h2>Les attendus de la séance 2<a class="headerlink" href="#les-attendus-de-la-seance-2" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">dijstra()</span></code></p></li>
+<li><p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">dijkstra()</span></code></p></li>
 <li><p>Compléter le codage de la méthode <code class="docutils literal notranslate"><span class="pre">rapport_textuel()</span></code></p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
@@ -541,7 +541,9 @@ La plus grande longueur des plus courts chemins est 14
 <ol class="arabic simple">
 <li><p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">rapport_html()</span></code></p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span>
+
+<span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;example043&quot;</span><span class="p">,</span>
     <span class="s2">&quot;sommets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
     <span class="s2">&quot;arcs&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -553,7 +555,8 @@ La plus grande longueur des plus courts chemins est 14
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">():</span>
 <span class="n">g</span><span class="o">.</span><span class="n">initialiser_avec_dict</span><span class="p">(</span><span class="n">donnees</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">rapport_textuel</span><span class="p">())</span>
+<span class="n">page_web</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">rapport_html</span><span class="p">()</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">page_web</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Le résultat attendu est présenté dans la copie d’écran ci-dessous. Les choix de mise en page sont laissés libre (police, taille et couleur des caractères ; ligne, couleur, legende du tableau, couleur et aspect des éléments graphique des graphes)</p>
