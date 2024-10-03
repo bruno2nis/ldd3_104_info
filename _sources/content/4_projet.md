@@ -26,8 +26,10 @@ Le projet est articulé autour des graphes orientés et de la recherche de chemi
 
 ## Documents fournis
 
-- un carnet Jupyter
-- un graphe de démonstration sous la forme d'un dictionnaire Python et d'un fichier au format JSON
+Les document sont disponibles sur le site [https://ecampus.paris-saclay.fr/](https://ecampus.paris-saclay.fr/course/view.php?id=39705)
+- un carnet Jupyter `ldd3_104_projet.ipynb` avec les consignes séances par séances
+- un graphe de démonstration sous la forme d'un dictionnaire Python et d'un fichier au format JSON `graphe_demo.json`
+- un exemple de rapport sur le graphe de démonstration
 
 ## Travail demandé
 
@@ -41,6 +43,10 @@ Construire un code Python et un carnet Jupyter qui permettent
 - d'identifier le plus long des plus courts chemins dans un graphe
 - de construire un rapport textuel (texte brut)
 - de construire un rapport au format HTML incluant une représentation graphique des graphes
+
+```{note} Copie d'écran du rapport attendu
+<img src="img/PRO_rapport_html.png" />
+```
 
 ## Résultats attendus (livrables)
 
