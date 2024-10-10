@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid@10.2.0/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/3b_classe_python';</script>
@@ -203,9 +205,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projet</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="4_projet.html">Présentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4b_graphe.html">Graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4c_poo.html">Modélisation orientée objet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4d_dijkstra.html">Algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4c_modelisation.html">Modélisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4f_donnees.html">Jeu de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4g_ressources.html">Ressources techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ldd3_104_projet.html">PROJET - Graphes orientés et pondérés</a></li>
@@ -365,7 +365,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-du-point-de-vue-utilisateur">Exemples du point de vue utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-classe-class">Définition d’une classe (<code class="docutils literal notranslate"><span class="pre">class</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciation-d-un-objet">Instanciation d’un objet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#def-methode-d-instance"><code class="docutils literal notranslate"><span class="pre">def</span></code> méthode d’instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classmethod-methode-de-classe"><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">classmethod()</span></code> méthode de classe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staticmethod-methode-statique"><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">staticmethod()</span></code> méthode statique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-attribut-d-instance"><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">property()</span></code> attribut d’instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribut-de-classe"><code class="docutils literal notranslate"><span class="pre">=</span></code> attribut de classe</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales">Méthodes spéciales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-de-base">Méthodes Spéciales de Base</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-comparaisons">Méthodes Spéciales pour les comparaisons</a></li>
@@ -555,7 +562,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MaClasse at 0x1f524177f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.MaClasse at 0x1ad2b74bcd0&gt;
 </pre></div>
 </div>
 </div>
@@ -620,9 +627,72 @@ document.write(`
 </section>
 <section id="instructions-dans-la-definition-d-une-classe">
 <h2>Instructions dans la définition d’une classe<a class="headerlink" href="#instructions-dans-la-definition-d-une-classe" title="Link to this heading">#</a></h2>
-<p>Dans le bloc d’instructions <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> de la définition d’une classe, les instructions visent à définir des attributs et des méthodes :</p>
 <div class="pst-scrollable-table-container"><table class="table" id="id1">
 <caption><span class="caption-number">Table 4 </span><span class="caption-text">Éléments pouvant être présent dans le bloc &lt;suite&gt; d’une classe</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Éléments définis</p></th>
+<th class="head"><p>Instructions utilisées</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Méthodes d’instance</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">def</span></code> : instruction composée</p></td>
+</tr>
+<tr class="row-odd"><td><p>Méthodes de classe <span class="math notranslate nohighlight">\(^{(1)}\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">meth</span> <span class="pre">=</span> <span class="pre">classmethod()</span></code> : instruction simple d’assignation du retour de la fonction native classmethod()</p></td>
+</tr>
+<tr class="row-even"><td><p>Méthodes statiques</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">meth</span> <span class="pre">=</span> <span class="pre">staticmethod()</span></code> : instruction simple d’assignation du retour de la fonction native staticmethod()</p></td>
+</tr>
+<tr class="row-odd"><td><p>Attributs de classe</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">attr</span> <span class="pre">=</span> <span class="pre">&lt;expression&gt;</span></code> : instruction simple d’assignation</p></td>
+</tr>
+<tr class="row-even"><td><p>Attributs d’instance</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">attr</span> <span class="pre">=</span> <span class="pre">property()</span></code> : instruction simple d’assignation du retour de la fonction native property()</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(^{(1)}\)</span> Les attributs d’instance se construisent aussi avec un instruction simple d’assignation dans le corps des méthodes d’intances.</p>
+<p>Dans le bloc d’instructions <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> de la définition d’une classe, les instructions visent à définir des attributs et des méthodes :</p>
+<section id="def-methode-d-instance">
+<h3><code class="docutils literal notranslate"><span class="pre">def</span></code> méthode d’instance<a class="headerlink" href="#def-methode-d-instance" title="Link to this heading">#</a></h3>
+<p>Les méthodes d’instance sont généralement appelées depuis une instance (notation pointée) comme par exemple <code class="docutils literal notranslate"><span class="pre">instance.methode()</span></code>, dans ce cas l’instance est implicitement envoyée comme premier argument à la méthode ; par convention le premier paramètre de la définition d’une méthode d’instance qui reçoit cet argument est nommé <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<p>Dans l’exemple qui suit, la classe <code class="docutils literal notranslate"><span class="pre">MaClasseA</span></code> contient la définition d’une méthode d’instance <code class="docutils literal notranslate"><span class="pre">m_A1()</span></code>. Elle est définie avec deux paramètres, <code class="docutils literal notranslate"><span class="pre">self</span></code> qui revevra l’objet qui appellera la méthode et <code class="docutils literal notranslate"><span class="pre">param1</span></code> qui revevra un argument.</p>
+<p>Après la définition de la classe <code class="docutils literal notranslate"><span class="pre">MaClasseA</span></code>, une objet est instancié et assigné au nom <code class="docutils literal notranslate"><span class="pre">obj</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MaClasseA</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">m_A1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;methode d&#39;instance m_A1() -&gt;&quot;</span><span class="p">,</span> <span class="n">param1</span><span class="p">)</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">MaClasseA</span><span class="p">()</span>  <span class="c1"># instanciation d&#39;un objet de la classe MaClasseA</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">m_A1</span><span class="p">(</span><span class="s2">&quot;Bonjour&quot;</span><span class="p">)</span>  <span class="c1"># appel de la méthode d&#39;instance m_A1() depuis obj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>methode d&#39;instance m_A1() -&gt; Bonjour
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="classmethod-methode-de-classe">
+<h3><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">classmethod()</span></code> méthode de classe<a class="headerlink" href="#classmethod-methode-de-classe" title="Link to this heading">#</a></h3>
+</section>
+<section id="staticmethod-methode-statique">
+<h3><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">staticmethod()</span></code> méthode statique<a class="headerlink" href="#staticmethod-methode-statique" title="Link to this heading">#</a></h3>
+</section>
+<section id="property-attribut-d-instance">
+<h3><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">property()</span></code> attribut d’instance<a class="headerlink" href="#property-attribut-d-instance" title="Link to this heading">#</a></h3>
+</section>
+<section id="attribut-de-classe">
+<h3><code class="docutils literal notranslate"><span class="pre">=</span></code> attribut de classe<a class="headerlink" href="#attribut-de-classe" title="Link to this heading">#</a></h3>
+<p>Dans le bloc d’instructions <code class="docutils literal notranslate"><span class="pre">&lt;suite&gt;</span></code> de la définition d’une classe, les instructions visent à définir des attributs et des méthodes :</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id2">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Éléments pouvant être présent dans le bloc &lt;suite&gt; d’une classe</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Éléments définis</p></th>
 <th class="head"><p>Description</p></th>
@@ -742,7 +812,7 @@ Génératement les attributs d’instance sont créés et modifier par des instr
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ __init__(self) -------
-self = &lt;__main__.MaClasse2 object at 0x000001F524179C50&gt;
+self = &lt;__main__.MaClasse2 object at 0x000001AD2B715C50&gt;
 </pre></div>
 </div>
 </div>
@@ -768,7 +838,7 @@ self = &lt;__main__.MaClasse2 object at 0x000001F524179C50&gt;
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ muatateur_y(self, val) -------
-self = &lt;__main__.MaClasse2 object at 0x000001F524179C50&gt;
+self = &lt;__main__.MaClasse2 object at 0x000001AD2B715C50&gt;
 val = 3
 </pre></div>
 </div>
@@ -786,7 +856,7 @@ val = 3
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">a</span><span class="o">.</span><span class="n">__z</span>
 
 <span class="ne">AttributeError</span>: &#39;MaClasse2&#39; object has no attribute &#39;__z&#39;
@@ -805,7 +875,7 @@ val = 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------ methode_d_instance(self, param2) -------
-self = &lt;__main__.MaClasse2 object at 0x000001F524179C50&gt;
+self = &lt;__main__.MaClasse2 object at 0x000001AD2B715C50&gt;
 param2 = 92
 ------ methode_de_classe(cls) -------
 cls = &lt;class &#39;__main__.MaClasse2&#39;&gt;
@@ -851,6 +921,7 @@ param1 = 64
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="methodes-speciales">
 <h2>Méthodes spéciales<a class="headerlink" href="#methodes-speciales" title="Link to this heading">#</a></h2>
@@ -1025,7 +1096,14 @@ param1 = 64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-du-point-de-vue-utilisateur">Exemples du point de vue utilisateur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-d-une-classe-class">Définition d’une classe (<code class="docutils literal notranslate"><span class="pre">class</span></code>)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanciation-d-un-objet">Instanciation d’un objet</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-dans-la-definition-d-une-classe">Instructions dans la définition d’une classe</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#def-methode-d-instance"><code class="docutils literal notranslate"><span class="pre">def</span></code> méthode d’instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classmethod-methode-de-classe"><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">classmethod()</span></code> méthode de classe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staticmethod-methode-statique"><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">staticmethod()</span></code> méthode statique</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-attribut-d-instance"><code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">property()</span></code> attribut d’instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribut-de-classe"><code class="docutils literal notranslate"><span class="pre">=</span></code> attribut de classe</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales">Méthodes spéciales</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-de-base">Méthodes Spéciales de Base</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methodes-speciales-pour-les-comparaisons">Méthodes Spéciales pour les comparaisons</a></li>

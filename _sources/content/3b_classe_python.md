@@ -172,6 +172,63 @@ Les identifiants qui commencent par et finissent par deux tirets bas `__` (*doub
 
 ## Instructions dans la définition d'une classe
 
+```{list-table} Éléments pouvant être présent dans le bloc &lt;suite> d'une classe
+:header-rows: 1
+
+* - Éléments définis
+  - Instructions utilisées
+* - Méthodes d'instance
+  - `def` : instruction composée
+* - Méthodes de classe&nbsp;$^{(1)}$
+  -  `meth = classmethod()` : instruction simple d'assignation du retour de la fonction native classmethod()
+* - Méthodes statiques
+  - `meth = staticmethod()` : instruction simple d'assignation du retour de la fonction native staticmethod()
+* - Attributs de classe
+  - `attr = <expression>` : instruction simple d'assignation
+* - Attributs d'instance
+  - `attr = property()` : instruction simple d'assignation du retour de la fonction native property()
+```
+
+$^{(1)}$ Les attributs d'instance se construisent aussi avec un instruction simple d'assignation dans le corps des méthodes d'intances.
+
+Dans le bloc d'instructions `<suite>` de la définition d'une classe, les instructions visent à définir des attributs et des méthodes :
+
+
+### `def` méthode d'instance
+
+Les méthodes d'instance sont généralement appelées depuis une instance (notation pointée) comme par exemple `instance.methode()`, dans ce cas l’instance est implicitement envoyée comme premier argument à la méthode ; par convention le premier paramètre de la définition d’une méthode d’instance qui reçoit cet argument est nommé `self`.
+
+Dans l'exemple qui suit, la classe `MaClasseA` contient la définition d'une méthode d'instance `m_A1()`. Elle est définie avec deux paramètres, `self` qui revevra l'objet qui appellera la méthode et `param1` qui revevra un argument. 
+
+Après la définition de la classe `MaClasseA`, une objet est instancié et assigné au nom `obj`
+
+```{code-cell} python
+:linenos:
+class MaClasseA(object):
+
+    def m_A1(self, param1):
+        print("methode d'instance m_A1() ->", param1)
+
+obj = MaClasseA()  # instanciation d'un objet de la classe MaClasseA
+obj.m_A1("Bonjour")  # appel de la méthode d'instance m_A1() depuis obj
+```
+
+### `= classmethod()` méthode de classe
+
+```{code-cell} python
+```
+
+### `= staticmethod()` méthode statique
+
+```{code-cell} python
+```
+
+### `= property()` attribut d'instance
+
+```{code-cell} python
+```
+
+### `=` attribut de classe
 
 Dans le bloc d'instructions `<suite>` de la définition d'une classe, les instructions visent à définir des attributs et des méthodes :
 

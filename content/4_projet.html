@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/4_projet';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Graphes" href="4b_graphe.html" />
+    <link rel="next" title="Modélisation" href="4c_modelisation.html" />
     <link rel="prev" title="BE3 - Classes définies par l’utilisateur" href="ldd3_104_be3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -201,9 +201,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projet</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Présentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4b_graphe.html">Graphes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4c_poo.html">Modélisation orientée objet</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4d_dijkstra.html">Algorithme de Dijkstra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4c_modelisation.html">Modélisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4f_donnees.html">Jeu de données</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4g_ressources.html">Ressources techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ldd3_104_projet.html">PROJET - Graphes orientés et pondérés</a></li>
@@ -379,15 +377,20 @@ document.write(`
 <h1>Présentation<a class="headerlink" href="#presentation" title="Link to this heading">#</a></h1>
 <section id="support-du-projet">
 <h2>Support du projet<a class="headerlink" href="#support-du-projet" title="Link to this heading">#</a></h2>
-<p>Le projet est articulé autour des graphes orientés et de la recherche de chemins, en particulier la recherche du chemin le plus long parmi les chemins les plus courts entre deux sommets.</p>
-<p><a class="reference internal" href="../_images/PRO_digraphe_exemple_02.png"><img alt="../_images/PRO_digraphe_exemple_02.png" src="../_images/PRO_digraphe_exemple_02.png" style="width: 250px;" /></a><br /></p>
+<p>Le projet est articulé autour des graphes orientés et de la recherche de chemins, en particulier la recherche du chemin le plus long parmi les chemins les plus courts entre deux sommets. La <a class="reference internal" href="#graphe-exemple"><span class="std std-numref">Fig. 5</span></a> montre un de ces graphes où le plus court chemin pour aller du somment A au sommet E est mis en évidence en rouge.</p>
+<figure class="align-default" id="graphe-exemple">
+<a class="reference internal image-reference" href="../_images/PRO_digraphe_exemple_02.png"><img alt="../_images/PRO_digraphe_exemple_02.png" src="../_images/PRO_digraphe_exemple_02.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Réprésentation graphique d’un graphe orienté pondéré</span><a class="headerlink" href="#graphe-exemple" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="competences-developpees">
 <h2>Compétences développées<a class="headerlink" href="#competences-developpees" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>programmation orientée objet (à partir d’une modélisation déjà ébauchée, et d’une interface partiellement imposée)</p></li>
-<li><p>codage d’algorithmes déjà établis (parcours de graphe en largeur, recherche du chemin le plus court)</p></li>
-<li><p>lecture et création de fichiers contenant des données formatées</p></li>
+<li><p>Programmation orientée objet (à partir d’une modélisation déjà ébauchée, et d’une interface partiellement imposée)</p></li>
+<li><p>Codage d’algorithmes déjà établis (parcours de graphe en largeur, recherche du chemin le plus court)</p></li>
+<li><p>Lecture et création de fichiers contenant des données formatées</p></li>
 </ul>
 </section>
 <section id="documents-fournis">
@@ -414,21 +417,22 @@ document.write(`
 <li><p>d’analyser le plus court chemin entre tous les couples de sommets d’un graphe,</p></li>
 <li><p>d’identifier le plus long des plus courts chemins dans un graphe</p></li>
 <li><p>de construire un rapport textuel (texte brut)</p></li>
-<li><p>de construire un rapport au format HTML incluant une représentation graphique des graphes</p></li>
+<li><p>de construire un rapport au format HTML incluant une représentation graphique des graphes (copie d’écran <a class="reference internal" href="#rapport-html"><span class="std std-numref">Fig. 6</span></a>)</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Copie d’écran du rapport attendu
-<img alt="../_images/PRO_rapport_html.png" src="../_images/PRO_rapport_html.png" /></p>
-</div>
+<figure class="align-default" id="rapport-html">
+<img alt="../_images/PRO_rapport_html.png" src="../_images/PRO_rapport_html.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Copie d’écran d’un rapport au format HTML tel qu’il apparait dans un navigateur web.</span><a class="headerlink" href="#rapport-html" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="resultats-attendus-livrables">
 <h2>Résultats attendus (livrables)<a class="headerlink" href="#resultats-attendus-livrables" title="Link to this heading">#</a></h2>
-<p>Une archive au format ZIP, nommée <code class="docutils literal notranslate"><span class="pre">NOM_Prenom.zip</span></code> et déposée sur le site e-campus,</p>
+<p>Une archive au format ZIP, nommée <code class="docutils literal notranslate"><span class="pre">NOM_Prenom.zip</span></code> et déposée sur le site e-campus.</p>
 <ul class="simple">
 <li><p>l’archive doit contenir obligatoirement</p>
 <ul>
-<li><p>un carnet Jupyter traitant le graphe de démonstration (création d’un objet de la classe Graphe, chargement des données depuis  fichier, …)</p></li>
+<li><p>un carnet Jupyter traitant le graphe de démonstration (création d’un objet de la classe Graphe, chargement des données depuis  fichier, …) qui doit s’exécuter correctement sur le server JupyterHub</p></li>
 <li><p>le fichier au format JSON décrivant le graphe de démonstration</p></li>
 </ul>
 </li>
@@ -439,6 +443,14 @@ document.write(`
 </ul>
 </li>
 </ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>NOM_Prenom.zip/            ┐
+├── mon_carnet.ipynb       │  Partie obligatoire
+├── graphe_demo.json       │
+│                          ┘
+├── mon_module.py          ┐
+├── ...                    │  Partie optionnelle
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -482,11 +494,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="4b_graphe.html"
+       href="4c_modelisation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Graphes</p>
+        <p class="prev-next-title">Modélisation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
