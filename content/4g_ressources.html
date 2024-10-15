@@ -403,7 +403,7 @@ document.write(`
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
-[Graphes)(#graphe)</div>
+<a class="reference internal" href="#graphe">Graphes</a></div>
 <a class="reference internal image-reference" href="../_images/PRO_graphe_exemple_02.png"><img alt="Graphe" class="align-center" src="../_images/PRO_graphe_exemple_02.png" style="width: 120px;" /></a>
 </div>
 </div>
@@ -852,6 +852,7 @@ Explications</p>
 <li><p><a class="reference external" href="https://graphviz.readthedocs.io/en/stable/">Documentation du module graphviz</a> de Python</p></li>
 </ul>
 <p><a class="reference internal" href="../_images/graphviz_logo.png"><img alt="../_images/graphviz_logo.png" src="../_images/graphviz_logo.png" style="width: 150px;" /></a><br /></p>
+<p>Pour utiliser</p>
 <section id="utilisation-de-dot-exe">
 <h3>Utilisation de <code class="docutils literal notranslate"><span class="pre">dot.exe</span></code><a class="headerlink" href="#utilisation-de-dot-exe" title="Link to this heading">#</a></h3>
 <p>À partir d’un fichier texte <code class="docutils literal notranslate"><span class="pre">mongraphe.gv</span></code> qui décrit le graphe selon le format DOT, l’exécution <code class="docutils literal notranslate"><span class="pre">dot.exe</span></code> crée un rendu graphique. Pour un rendu au format PNG (option <code class="docutils literal notranslate"><span class="pre">-Tpng</span></code>) dans le fichier de sortie <code class="docutils literal notranslate"><span class="pre">mongraphe.png</span></code> (option <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">mongraphe.png</span></code>), la commande suivante est exécutée dans interface en ligne de commande du système d’exploitation</p>
@@ -860,7 +861,7 @@ Explications</p>
 </div>
 <p><a class="reference internal" href="../_images/graphviz_workflow_dot.png"><img alt="../_images/graphviz_workflow_dot.png" src="../_images/graphviz_workflow_dot.png" style="width: 500px;" /></a><br /></p>
 <p>Pour exécuter cette commande directement depuis un script en langage Python, il est possible d’utiliser la fonction <code class="docutils literal notranslate"><span class="pre">os.system()</span></code> du module <code class="docutils literal notranslate"><span class="pre">os</span></code> de Python. Au préalable, il faudra avoir créé le fichier <code class="docutils literal notranslate"><span class="pre">mongraphe.gv</span></code> avec Python.</p>
-<p>Exemple de fichier <code class="docutils literal notranslate"><span class="pre">mongraphe.gv</span></code></p>
+<p>Exemple de fichier <code class="docutils literal notranslate"><span class="pre">mongraphe.gv</span></code>  au format DOT</p>
 <div class="highlight-dot notranslate"><div class="highlight"><pre><span></span><span class="k">digraph</span><span class="w"> </span><span class="nt">mongraphe</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
 
 <span class="w">    </span><span class="nt">A</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nt">B</span><span class="w"> </span><span class="p">[</span><span class="na">label</span><span class="p">=</span><span class="s2">&quot;5&quot;</span><span class="p">];</span>
@@ -885,7 +886,11 @@ Explications</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">graphviz</span>
 
-<span class="n">g</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">(</span><span class="s1">&#39;mongraphe&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mongraphe.gv&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">graphviz</span><span class="o">.</span><span class="n">Digraph</span><span class="p">(</span>
+  <span class="s1">&#39;mongraphe&#39;</span><span class="p">,</span>  <span class="c1"># nom du graphe</span>
+  <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;mongraphe.gv&#39;</span><span class="p">,</span>  <span class="c1"># nom de base des fichiers qui seront générés</span>
+  <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">,</span>  <span class="c1"># format de l&#39;image qui sera généer</span>
+<span class="p">)</span>
 
 <span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;5&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">edge</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
@@ -895,13 +900,37 @@ Explications</p>
 <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fontcolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">node</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fontcolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
-<span class="n">g</span> <span class="c1"># affiche le rendu</span>
+<span class="n">g</span>  <span class="c1"># affiche le rendu graphique</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/3e16bb8674451f21f6c7d102effd2462438693fa8108e79df338a717ab7f6d47.svg" src="../_images/3e16bb8674451f21f6c7d102effd2462438693fa8108e79df338a717ab7f6d47.svg" />
 </div>
+</div>
+<p>La description du graphe au format DOT est dans l’attribut <code class="docutils literal notranslate"><span class="pre">source</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>digraph mongraphe {
+	A -&gt; B [label=5]
+	A -&gt; C [label=1]
+	C -&gt; A [label=2]
+	B -&gt; C [label=3 color=red]
+	B [color=red fontcolor=red]
+	C [color=red fontcolor=red]
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>La génération du fichier image est obtenu avec la methode <code class="docutils literal notranslate"><span class="pre">render()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
 </div>
 </section>
 </section>

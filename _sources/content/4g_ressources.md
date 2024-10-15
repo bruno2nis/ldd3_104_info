@@ -14,7 +14,7 @@ kernelspec:
 
 ::::{grid}
 
-:::{grid-item-card} [Graphes)(#graphe)
+:::{grid-item-card} [Graphes](#graphe)
 
 ```{image} img/PRO_graphe_exemple_02.png
 :alt: Graphe
@@ -450,6 +450,8 @@ IPython.display.display(
 
 <img src="img/graphviz_logo.png" style="width:150px;" width="150px" /><br />
 
+Pour utiliser
+
 ### Utilisation de `dot.exe`
 
 À partir d'un fichier texte `mongraphe.gv` qui décrit le graphe selon le format DOT, l'exécution `dot.exe` crée un rendu graphique. Pour un rendu au format PNG (option `-Tpng`) dans le fichier de sortie `mongraphe.png` (option `-o mongraphe.png`), la commande suivante est exécutée dans interface en ligne de commande du système d'exploitation 
@@ -462,7 +464,7 @@ IPython.display.display(
 
 Pour exécuter cette commande directement depuis un script en langage Python, il est possible d'utiliser la fonction `os.system()` du module `os` de Python. Au préalable, il faudra avoir créé le fichier `mongraphe.gv` avec Python.
 
-Exemple de fichier `mongraphe.gv`  
+Exemple de fichier `mongraphe.gv`  au format DOT
 
 ``` dot
 digraph mongraphe { 
@@ -488,10 +490,14 @@ Le module `graphviz` de Python propose une classe `graphviz.Digraph` pour géné
 
 Exemple de script Python avec le module Graphviz
 
-```{code-cell}
+```{code-cell} python
 import graphviz
 
-g = graphviz.Digraph('mongraphe', filename='mongraphe.gv', format='svg')
+g = graphviz.Digraph(
+  'mongraphe',  # nom du graphe
+  filename='mongraphe.gv',  # nom de base des fichiers qui seront générés
+  format='svg',  # format de l'image qui sera généer
+)
 
 g.edge('A', 'B', label='5')
 g.edge('A', 'C', label='1')
@@ -501,5 +507,18 @@ g.edge('B', 'C', label='3', color='red')
 g.node('B', color='red', fontcolor='red')
 g.node('C', color='red', fontcolor='red')
 
-g # affiche le rendu
+g  # affiche le rendu graphique
 ```
+
+La description du graphe au format DOT est dans l'attribut `source`
+
+```{code-cell} python
+print(g.source)
+```
+
+La génération du fichier image est obtenu avec la methode `render()`
+
+```{code-block} python
+g.render()
+```
+

@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="JupyterLab - Instructions de démarrage" href="9a_jupyterlab_instructions.html" />
-    <link rel="prev" title="Ressources techniques" href="4g_ressources.html" />
+    <link rel="prev" title="Ressources" href="4g_ressources.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,7 +203,7 @@
 <li class="toctree-l1"><a class="reference internal" href="4_projet.html">Présentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4c_modelisation.html">Modélisation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="4f_donnees.html">Jeu de données</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4g_ressources.html">Ressources techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4g_ressources.html">Ressources</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">PROJET - Graphes orientés et pondérés</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ressources</span></p>
@@ -395,7 +395,7 @@ document.write(`
 <p>La structure de base de la classe <code class="docutils literal notranslate"><span class="pre">Graph</span></code> est ébauchée dans la cellule suivante</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Graph</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Graphe</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Graph orienté et pondéré.&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="s2">&quot;graphe_vide&quot;</span>
@@ -403,24 +403,24 @@ document.write(`
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nom</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nom</span>
-    <span class="k">def</span> <span class="nf">changer_nom</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">changer_nom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_graphe</span><span class="p">):</span>
         <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">ajouter_sommet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">ajouter_sommet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_sommet</span><span class="p">):</span>
         <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">ajouter_arc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">ajouter_arc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_source</span><span class="p">,</span> <span class="n">nom_destination</span><span class="p">,</span> <span class="n">poids</span><span class="p">):</span>
         <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">initialiser_avec_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialiser_avec_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionnaire</span><span class="p">):</span>
         <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">initialiser_avec_fichier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initialiser_avec_fichier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_fichier</span><span class="p">):</span>
         <span class="k">pass</span>
-    <span class="k">def</span> <span class="nf">sauver_dans_fichier</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">sauver_dans_fichier</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_fichier</span><span class="p">):</span>
         <span class="k">pass</span>
     <span class="k">def</span> <span class="nf">dijkstra</span><span class="p">():</span>
-        <span class="k">pass</span>
+        <span class="k">return</span> <span class="n">Graphe</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">rapport_textuel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+        <span class="k">return</span> <span class="s2">&quot;Méthode rapport_textuel() non codée&quot;</span>
     <span class="k">def</span> <span class="nf">rapport_html</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span>
+        <span class="k">return</span> <span class="s2">&quot;Méthode rapport_html() non codée&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -434,23 +434,37 @@ document.write(`
 </section>
 <section id="methodes-de-base-pour-construire-et-representer-un-graphe">
 <h3>1.2 Méthodes de base pour construire et représenter un graphe<a class="headerlink" href="#methodes-de-base-pour-construire-et-representer-un-graphe" title="Link to this heading">#</a></h3>
-<p>Coder les méthodes  <code class="docutils literal notranslate"><span class="pre">changer_nom()</span></code>, <code class="docutils literal notranslate"><span class="pre">ajouter_sommet()</span></code>, <code class="docutils literal notranslate"><span class="pre">ajouter_arc()</span></code>, <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> et  <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> pour obtenir le comportement suivant</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
-<span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># donne &quot;&lt;Graphe: graphe_vide, 0 sommets, 0 arcs&gt;&quot;</span>
+<p>Coder les méthodes  <code class="docutils literal notranslate"><span class="pre">changer_nom()</span></code>, <code class="docutils literal notranslate"><span class="pre">ajouter_sommet()</span></code>, <code class="docutils literal notranslate"><span class="pre">ajouter_arc()</span></code>, <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> et  <code class="docutils literal notranslate"><span class="pre">__repr__()</span></code> pour obtenir le comportement suivant (décrit dans les commentaires)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>  <span class="c1"># donne &quot;&lt;Graphe: graphe_vide, 0 sommets, 0 arcs&gt;&quot;</span>
 <span class="n">g</span><span class="o">.</span><span class="n">changer_nom</span><span class="p">(</span><span class="s2">&quot;mon_graphe&quot;</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># donne &quot;&lt;Graphe: mon_graphe, 0 sommets, 0 arcs&gt;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>  <span class="c1"># donne &quot;&lt;Graphe: mon_graphe, 0 sommets, 0 arcs&gt;&quot;</span>
 <span class="n">g</span><span class="o">.</span><span class="n">ajouter_sommet</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">ajouter_sommet</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">ajouter_arc</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># donne &quot;&lt;Graphe: mon_graphe, 2 sommets, 1 arcs&gt;&quot;</span>
-<span class="nb">repr</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># donne &quot;Graphe(2 sommets, 1 arcs)&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>  <span class="c1"># donne &quot;&lt;Graphe: mon_graphe, 2 sommets, 1 arcs&gt;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>  <span class="c1"># donne &quot;Graphe(2 sommets, 1 arcs)&quot;</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>graphe_vide
+graphe_vide
+graphe_vide
+graphe_vide
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="methode-initialiser-avec-dict">
 <h3>1.3 Méthode <code class="docutils literal notranslate"><span class="pre">initialiser_avec_dict()</span></code><a class="headerlink" href="#methode-initialiser-avec-dict" title="Link to this heading">#</a></h3>
-<p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">initialiser_avec_dict()</span></code> pour obtenir le comportement suivant</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
+<p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">initialiser_avec_dict()</span></code> pour obtenir le comportement suivant (décrit dans le commentaire)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;graphe043&quot;</span><span class="p">,</span>
     <span class="s2">&quot;sommets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
     <span class="s2">&quot;arcs&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -460,10 +474,17 @@ document.write(`
     <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">():</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
 <span class="n">g</span><span class="o">.</span><span class="n">initialiser_avec_dict</span><span class="p">(</span><span class="n">donnees</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># donne &quot;&lt;Graphe: graphe043, 4 sommets, 9 arcs&gt;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>  <span class="c1"># donne &quot;&lt;Graphe: graphe043, 4 sommets, 9 arcs&gt;&quot;</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>graphe_vide
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="methode-rapport-textuel">
@@ -500,14 +521,47 @@ La plus grande longueur des plus courts chemins est
 
 </pre></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;graphe043&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sommets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;arcs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
+<span class="n">g</span><span class="o">.</span><span class="n">initialiser_avec_dict</span><span class="p">(</span><span class="n">donnees</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">rapport_textuel</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Méthode rapport_textuel() non codée
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="methode-initialiser-avec-fichier">
 <h3>1.5 Méthode <code class="docutils literal notranslate"><span class="pre">initialiser_avec_fichier()</span></code><a class="headerlink" href="#methode-initialiser-avec-fichier" title="Link to this heading">#</a></h3>
-<p>Coder <code class="docutils literal notranslate"><span class="pre">initialiser_avec_fichier()</span></code> pour obtenir le comportement suivant</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
+<p>Coder <code class="docutils literal notranslate"><span class="pre">initialiser_avec_fichier()</span></code> pour obtenir le comportement suivant (décrit dans le commentaire)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
 <span class="n">g</span><span class="o">.</span><span class="n">initialiser_avec_fichier</span><span class="p">(</span><span class="s2">&quot;graphe_demo.json&quot;</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># donne &quot;&lt;Graphe: graphe_demo, 10 sommets, 24 arcs&gt;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">g</span><span class="p">))</span>  <span class="c1"># donne &quot;&lt;Graphe: graphe_demo, 10 sommets, 24 arcs&gt;&quot;</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>graphe_vide
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="parcours-du-graphe">
@@ -522,7 +576,7 @@ La plus grande longueur des plus courts chemins est
 <h2>Les attendus de la séance 2<a class="headerlink" href="#les-attendus-de-la-seance-2" title="Link to this heading">#</a></h2>
 <section id="algorithme-de-dijkstra">
 <h3>2.1 Algorithme de Dijkstra()<a class="headerlink" href="#algorithme-de-dijkstra" title="Link to this heading">#</a></h3>
-<p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">dijkstra()</span></code> qui à partir d’un sommet de début renvoie le l’arbre (graphe)</p>
+<p>Coder la méthode <code class="docutils literal notranslate"><span class="pre">dijkstra()</span></code> qui à partir d’un nom de sommet de début renvoie un arbre, c’est à dire une instance de la classe <code class="docutils literal notranslate"><span class="pre">Graphe</span></code> utilisant</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;graphe041&#39;</span><span class="p">,</span>
     <span class="s1">&#39;sommets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
@@ -544,10 +598,30 @@ La plus grande longueur des plus courts chemins est
 <li><p>les sommets : ‘A’, ‘B’, ‘C’, ‘D’</p></li>
 <li><p>les arcs : (‘A’, ‘C’, 9), (‘A’, ‘B’, 6), (‘C’, ‘D’, 3)</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;graphe041&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sommets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;arcs&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
+<span class="n">g</span><span class="o">.</span><span class="n">initialiser_avec_dict</span><span class="p">(</span><span class="n">donnees</span><span class="p">)</span>
+<span class="n">arbre</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">dijkstra</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">arbre</span><span class="p">))</span>  <span class="c1"># donne &lt;class &#39;__main__.Graphe&#39;&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="rapport-textuel-complet">
 <h3>2.2 Rapport textuel complet<a class="headerlink" href="#rapport-textuel-complet" title="Link to this heading">#</a></h3>
-<p>Compléter le codage de la méthode <code class="docutils literal notranslate"><span class="pre">rapport_textuel()</span></code></p>
+<p>Compléter le codage de la méthode <code class="docutils literal notranslate"><span class="pre">rapport_textuel()</span></code>, de manière à ce qu’en exécutant le code suivant</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;example043&quot;</span><span class="p">,</span>
     <span class="s2">&quot;sommets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
@@ -563,7 +637,7 @@ La plus grande longueur des plus courts chemins est
 <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">rapport_textuel</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>le résultat attendu est</p>
+<p>… on obtienne le résultat suivant</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Rapport sur le graphe &#39;graphe043&#39;
 
 - 4 sommets : A, B, C, D
@@ -583,6 +657,25 @@ La plus grande longueur des plus courts chemins est 14
 - chemin 2 : B -&gt; D -&gt; A 
 - chemin 3 : C -&gt; A -&gt; D
 </pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">donnees</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;example043&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sommets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;arcs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">Graphe</span><span class="p">()</span>
+<span class="n">g</span><span class="o">.</span><span class="n">initialiser_avec_dict</span><span class="p">(</span><span class="n">donnees</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">rapport_textuel</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -652,7 +745,7 @@ La plus grande longueur des plus courts chemins est 14
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ressources techniques</p>
+        <p class="prev-next-title">Ressources</p>
       </div>
     </a>
     <a class="right-next"
